@@ -210,16 +210,16 @@ template {
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background-color: #f0f0f0;
+  background-color: $color-back;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #666;
+  background-color: $color-main;
 }
 ::selection {
-  background-color: #ddd;
+  background-color: $color-line;
 }
 ::-webkit-selection {
-  background-color: #ddd;
+  background-color: $color-line;
 }
 body {
   height: 0;
@@ -507,7 +507,7 @@ a {
   font-family: 'LedFont', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: 300;
   font-size: 48px;
-  color: #666;
+  color: $color-main;
   text-decoration: none;
 }
 .header .title {
@@ -539,11 +539,11 @@ a {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: #666;
+  color: $color-main;
   font-size: 16px;
 }
 .header .main-nav .menu .menu-item a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 .header .main-nav .menu .menu-item .menu-item-label {
   font-size: 12px;
@@ -591,7 +591,7 @@ a {
   content: '';
   width: 50px;
   height: 50px;
-  background-color: #777;
+  background-color: $color-angle;
   box-shadow: -1px -1px 1px #bbb;
   position: absolute;
   top: -1px;
@@ -604,7 +604,7 @@ a {
   content: '';
   width: 50px;
   height: 50px;
-  background-color: #777;
+  background-color: $color-angle;
   box-shadow: 1px 1px 1px #bbb;
   position: absolute;
   bottom: -1px;
@@ -620,7 +620,7 @@ a {
   font-family: "Source Sans Pro", "Helvetica Neue";
   font-weight: 400;
   font-size: 14px;
-  color: #666;
+  color: $color-main;
 }
 .post .post-header .post-title {
   margin: 0;
@@ -700,11 +700,11 @@ a {
   content: '∮ ';
 }
 .post-content a {
-  color: #666;
+  color: $color-main;
   text-decoration: underline;
 }
 .post-content a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 .post-content p {
   font-family: 'Optima', 'PingFang SC', 'Roboto', 'Noto SansCJK', 'Helvetica Neue', 'Helvetica', "微软雅黑", "YaHei-Consolas-Hybrid", sans-serif;
@@ -713,8 +713,8 @@ a {
   font-weight: 300;
 }
 .post-content code {
-  border: 1px solid #999;
-  background-color: #f0f0f0;
+  border: 1px solid $color-border;
+  background-color: $color-back;
   padding: 0 4px;
   margin: 0 4px;
   font-size: 14px;
@@ -746,35 +746,35 @@ a {
   -webkit-transform: translateX(10%);
 }
 .content-link a {
-  color: #666;
+  color: $color-main;
   text-decoration: none;
 }
 .content-link a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 .post-tags {
   display: inline-block;
   padding: 4px 16px;
   font-size: 12px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $color-line;
 }
 .post-tags a {
   text-decoration: none;
-  color: #666;
+  color: $color-main;
   margin: 0 4px;
 }
 .post-tags a:before {
   content: '#';
 }
 .post-tags a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 blockquote {
   position: relative;
   margin: 8px 8px;
   padding: 8px 16px;
-  background-color: #f0f0f0;
-  border-left: 5px solid #999;
+  background-color: $color-back;
+  border-left: 5px solid $color-border;
 }
 blockquote:before {
   content: '';
@@ -787,7 +787,7 @@ blockquote:before {
   background: transparent;
   border-style: solid;
   width: 0;
-  box-shadow: -1px 1px 1px #ddd;
+  box-shadow: -1px 1px 1px $color-line;
 }
 blockquote p {
   margin: 0;
@@ -801,7 +801,7 @@ blockquote p {
   margin: 0;
   font-family: Athelas, "PingFang SC", serif;
   font-weight: 300;
-  color: #666;
+  color: $color-main;
 }
 .archive .archive-num {
   margin: 8px;
@@ -820,18 +820,18 @@ blockquote p {
   padding: 0;
 }
 .archive .archive-list .archive-post {
-  border-left: 1px solid #ddd;
+  border-left: 1px solid $color-line;
   padding: 0 8px;
 }
 .archive .archive-list .archive-post:hover {
   padding: 0 16px;
   background-color: $main-back;
-  border-left: 3px solid #666;
-  border-right: 3px solid #666;
+  border-left: 3px solid $color-main;
+  border-right: 3px solid $color-main;
 }
 .archive .archive-list .archive-post-time {
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-  color: #999;
+  color: $color-border;
 }
 .archive .archive-list .archive-post-link {
   display: inline-block;
@@ -840,10 +840,10 @@ blockquote p {
 .archive .archive-list .archive-post-link a {
   margin: 0 8px;
   text-decoration: none;
-  color: #666;
+  color: $color-main;
 }
 .archive .archive-list .archive-post-link a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 .pagination {
   width: 80%;
@@ -864,14 +864,14 @@ blockquote p {
 }
 .pagination .extend {
   text-decoration: none;
-  color: #666;
+  color: $color-main;
   font-size: 18px;
 }
 .pagination .extend.next {
   float: right;
 }
 .pagination .extend.next:hover {
-  color: #000;
+  color: $color-highlight;
   transform: translateX(10%);
   -ms-transform: translateX(10%);
   -moz-transform: translateX(10%);
@@ -881,7 +881,7 @@ blockquote p {
   float: left;
 }
 .pagination .extend.prev:hover {
-  color: #000;
+  color: $color-highlight;
   transform: translateX(-10%);
   -ms-transform: translateX(-10%);
   -moz-transform: translateX(-10%);
@@ -899,7 +899,7 @@ blockquote p {
 }
 .article-page a {
   text-decoration: none;
-  color: #666;
+  color: $color-main;
   font-size: 16px;
 }
 @media screen and (max-width: 650px) {
@@ -908,7 +908,7 @@ blockquote p {
   }
 }
 .article-page a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 .article-page:before {
   content: '';
@@ -943,8 +943,8 @@ blockquote p {
 .footer hr {
   border: none;
   height: 1px;
-  background-color: #666;
-  background-image: -webkit-linear-gradient(0deg, #fff, #666, #fff);
+  background-color: $color-main;
+  background-image: -webkit-linear-gradient(0deg, #fff, $color-main, #fff);
 }
 .footer .footer-wrapper {
   display: flex;
@@ -954,8 +954,8 @@ blockquote p {
 .footer .left {
   flex: 1;
   padding: 16px;
-  border-right: 1px solid #ddd;
-  border-image: -webkit-linear-gradient(#fff, #ddd, #fff) 0 10 0 0;
+  border-right: 1px solid $color-line;
+  border-image: -webkit-linear-gradient(#fff, $color-line, #fff) 0 10 0 0;
 }
 .footer .left .contact-icon {
   display: flex;
@@ -964,7 +964,7 @@ blockquote p {
 .footer .left .contact-icon a {
   margin: 4px 8px;
   text-decoration: none;
-  color: #666;
+  color: $color-main;
   font-size: 26px;
 }
 .footer .left .icon-github:hover {
@@ -999,21 +999,21 @@ blockquote p {
   flex-direction: column;
 }
 .footer .right .copyright span {
-  color: #666;
+  color: $color-main;
   font-size: 9px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .footer .right .copyright a {
   font-family: Arial;
   text-decoration: none;
-  color: #666;
+  color: $color-main;
 }
 .footer .right .copyright a:hover {
-  color: #000;
+  color: $color-highlight;
   text-decoration: underline;
 }
 .footer .visit_count {
-  color: #666;
+  color: $color-main;
   display: flex;
   align-items: center;
 }
@@ -1040,7 +1040,7 @@ blockquote p {
 }
 .copy-line {
   border: none;
-  border-bottom: 2px dashed #ddd;
+  border-bottom: 2px dashed $color-line;
   height: 16px;
 }
 .post-copyright .copy-author,
@@ -1056,13 +1056,13 @@ blockquote p {
 .post-copyright .copy-url a,
 .post-copyright .copy-origin a,
 .post-copyright .copy-license a {
-  color: #666;
+  color: $color-main;
 }
 .post-copyright .copy-author a:hover,
 .post-copyright .copy-url a:hover,
 .post-copyright .copy-origin a:hover,
 .post-copyright .copy-license a:hover {
-  color: #000;
+  color: $color-highlight;
 }
 .post-reward {
   width: 100%;
@@ -1072,13 +1072,13 @@ blockquote p {
   margin: 8px auto;
   padding: 8px;
   text-align: center;
-  border: 1px solid #666;
+  border: 1px solid $color-main;
   width: 48px;
   border-radius: 8px;
 }
 .post-reward .reward-btn:hover {
   color: #fff;
-  background-color: #666;
+  background-color: $color-main;
   cursor: pointer;
 }
 .post-reward .reward-wrapper {
@@ -1135,7 +1135,7 @@ blockquote p {
   bottom: 0;
   left: 0;
   right: 100%;
-  background: #999;
+  background: $color-border;
   transition-property: right;
   animation: lane-right 0.35s linear both;
 }
@@ -1145,12 +1145,12 @@ blockquote p {
 }
 .post-toc .title-link a {
   text-decoration: none;
-  color: #666;
+  color: $color-main;
   padding: 0 8px;
   font-size: 14px;
 }
 .post-toc .title-link a.active {
-  border-left: 2px solid #666;
+  border-left: 2px solid $color-main;
 }
 .post-toc .toc {
   margin: 0;
@@ -1158,16 +1158,16 @@ blockquote p {
   list-style: none;
 }
 .post-toc .toc .toc-item {
-  color: #666;
+  color: $color-main;
 }
 .post-toc .toc .toc-item .toc-link {
-  color: #666;
+  color: $color-main;
   text-decoration: none;
   padding: 0 8px;
   font-size: 14px;
 }
 .post-toc .toc .toc-item .toc-link.active {
-  border-left: 2px solid #666;
+  border-left: 2px solid $color-main;
 }
 @media screen and (max-width: 650px) {
   .post-toc {
@@ -1222,7 +1222,7 @@ blockquote p {
   content: 'plain';
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 100;
-  color: #ddd;
+  color: $color-line;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -1314,8 +1314,8 @@ blockquote p {
   display: block;
   width: 100%;
   height: 100px;
-  background-color: #666;
-  border-bottom: 3px solid #666;
+  background-color: $color-main;
+  border-bottom: 3px solid $color-main;
   box-shadow: inset 0px -8px 10px 0px #585858;
 }
 .tagcloud-inner {
@@ -1380,7 +1380,7 @@ blockquote p {
   position: absolute;
   width: auto;
   will-change: left right;
-  background: #666;
+  background: $color-main;
   -webkit-animation: indeterminate 2.2s ease-out infinite;
   animation: indeterminate 2.2s ease-out infinite;
 }
@@ -1390,7 +1390,7 @@ blockquote p {
   position: absolute;
   width: auto;
   will-change: left right;
-  background: #666;
+  background: $color-main;
   -webkit-animation: indeterminate-short 2.2s ease-out infinite;
   animation: indeterminate-short 2.2s ease-out infinite;
 }
