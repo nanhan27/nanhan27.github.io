@@ -1,570 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head>
-  <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
-  
-  
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
     
+
+    <!--Author-->
     
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
+        <meta name="author" content="nanhan">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Hexo"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
 </head>
+
+
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/avatar.png" class="js-avatar">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">nanhan</a></h1>
-        </hgroup>
-        
-        
-            <form>
-                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
-            </form>
-            <div id="local-search-result"></div>
-        
-        
-            <script type="text/javascript">
-                (function() {
-                    'use strict';
-                    function getMatchData(keyword, data) {
-                        var matchData = [];
-                        for(var i =0;i<data.length;i++){
-                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
-                                matchData.push(data[i])
-                        }
-                        return matchData;
-                    }
-                    var $input = $('#local-search-input');
-                    var $resultContent = $('#local-search-result');
-                    $input.keyup(function(){
-                        $.ajax({
-                            url: '/search.json',
-                            dataType: "json",
-                            success: function( json ) {
-                                var str='<ul class=\"search-result-list\">';                
-                                var keyword = $input.val().trim().toLowerCase();
-                                $resultContent.innerHTML = "";
-                                if ($input.val().trim().length <= 0) {
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                }
-                                var results = getMatchData(keyword, json);
-                                if(results.length === 0){
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                } 
-                                for(var i =0; i<results.length; i++){
-                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
-                                }
-                                str += "</ul>";
-                                $resultContent.empty();
-                                $resultContent.append(str);
-                                $('#switch-area').hide();
-                            }
-                        });
-                    });
-                })();
-            </script>
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a  href="/archives/">所有文章</a></li>
-                        
-                            <li><a  href="/categories/开发工具/">玩转开发工具</a></li>
-                        
-                            <li><a  href="/categories/digital">玩转数码</a></li>
-                        
-                            <li><a  href="/categories/cognition">认知提升</a></li>
-                        
-                            <li><a  href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl github"  target="_blank" href="/xxxxx" title="github">github</a>
-                            
-                                <a class="fl weibo"  target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
-                            
-                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
-                    
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">爱动漫,爱游戏,爱编程,爱运动,爱的太多了!</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>
-</div>
 
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">nanhan</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/avatar.png" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">nanhan</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
-                
-                    <li><a href="/categories/digital">玩转数码</a></li>
-                
-                    <li><a href="/categories/cognition">认知提升</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="github" target="_blank" href="/xxxxx" title="github">github</a>
-                    
-                        <a class="weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
-                    
-                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-                    
-                </div>
-            </nav>
-        </header>                
-    </div>
+    <!-- /.container -->
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-20170605训练赛" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/06/20170605训练赛/" class="article-date">
-      <time datetime="2017-06-06T02:04:35.216Z" itemprop="datePublished">2017-06-06</time>
-</a>
 
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="20170605训练赛"><a href="#20170605训练赛" class="headerlink" title="20170605训练赛"></a>20170605训练赛</h2><p>引言：这场比赛总体做的还是比较好的。A、B、D题一A，C题没有过掉说明我在分析数据上的能力还有所欠缺，而现在的NOIP很注重这方面的能力。</p>
-<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：贪心</p>
-<p>【分析】</p>
-<p>这道题的解法多样，有暴力模拟，前缀和，线段树和单调栈。</p>
-<p>而我自己先写的是前缀和，即记录$sum[10][M]$，我们先从$[1,k+1]$中寻找一个最大的，位置为i，然后删去$[1,i-1]$，k-=（i-1）。接下来就在$[i+1,i+1+k-1]$中一直操作下去。这种算法的复杂度是$O(10n)$。</p>
-<p>后来又写了一种单调栈的写法。我们每一次所做的，其实就是如果k还存在，那么判这个数是否要保留的依据就是，它是否比后一个数要大。这样才能保证答案最大。</p>
-<p>这道题还是比较浅的，没有什么可以总结的。</p>
-<p>【代码】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include &lt;bits/stdc++.h&gt;</div><div class="line">using namespace std;</div><div class="line">#define M 500005</div><div class="line">int n,k,top;</div><div class="line">int stk[M];</div><div class="line">char a[M];</div><div class="line">int main()&#123;</div><div class="line">    scanf(&quot;%d %d&quot;,&amp;n,&amp;k);</div><div class="line">    scanf(&quot;%s&quot;,a+1);</div><div class="line">    stk[top=1]=1;</div><div class="line">    int i;</div><div class="line">    for(i=2;k&amp;&amp;i&lt;=n;i++)&#123;</div><div class="line">        while(k&amp;&amp;top&amp;&amp;a[i]&gt;a[stk[top]])&#123;</div><div class="line">            top--;</div><div class="line">            k--;</div><div class="line">        &#125;</div><div class="line">        stk[++top]=i;</div><div class="line">    &#125;</div><div class="line">    for(int i=1;i&lt;=top;i++)printf(&quot;%c&quot;,a[stk[i]]);</div><div class="line">    for(int i=stk[top]+1;i&lt;=n;i++)printf(&quot;%c&quot;,a[i]);</div><div class="line">    puts(&quot;&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="B、栅栏——COCI2011-2012-Contest-4-D"><a href="#B、栅栏——COCI2011-2012-Contest-4-D" class="headerlink" title="B、栅栏——COCI2011/2012 Contest#4 D"></a>B、栅栏——COCI2011/2012 Contest#4 D</h2><p>关键字：贪心</p>
-<p>【分析】</p>
-<p>题目比较好理解。看得出，输入的第一个数组a的作用只是显示相对大小的。</p>
-<p>我们老考虑一下最后的答案是怎么组成的。</p>
-<p>如果一个数x要小于左右两个数，那么ans应该$ans-=2*x$，我们既然要答案最大，那么x应该尽量的小。</p>
-<p>如果一个数x要大于左右两个数，那么ans应该$ans+=2*x$，我们既然要答案最大，那么x应该尽量的大。</p>
-<p>那么我们就先让b数组从小到大插入，先处理都小于的情况，在处理一大一小的情况，最后处理均大于的情况。</p>
-<p>其实我们可以用一个数组s来存该位置的大小情况，-1表示小于。那么最后只需要将s进行排序处理就好了。</p>
-<p>这道题给我一些启示，贪心并不是所谓的灵光一现才能想出来的，前提是你要清楚每一次选择到底会对答案有怎样的贡献，如果发现了规律，那么<strong>贪心</strong>也就不是贪心了，而是基于规律上的模拟。所以，想事情要向本质探索，而不能流于题目给的字面意思。</p>
-<p>【代码】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#include &lt;bits/stdc++.h&gt;</div><div class="line">using namespace std;</div><div class="line">#define ll long long</div><div class="line">#define db double</div><div class="line">#define M 300005</div><div class="line">#define oo 1e9</div><div class="line">void pf(ll x)&#123;</div><div class="line">    if(x&lt;0)&#123;</div><div class="line">        putchar(&apos;-&apos;);</div><div class="line">        x=-x;</div><div class="line">    &#125;</div><div class="line">    if(x&gt;=10)pf(x/10);</div><div class="line">    putchar(x%10^48);</div><div class="line">&#125;</div><div class="line">int a[M],b[M],s[M];</div><div class="line">int n,p;</div><div class="line">ll ans;</div><div class="line">int main()&#123;</div><div class="line">    scanf(&quot;%d&quot;,&amp;n);//各不相等 </div><div class="line">    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]);</div><div class="line">    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;b[i]);</div><div class="line">    sort(b+1,b+n+1);</div><div class="line">    for(int i=1;i&lt;=n;i++)&#123;</div><div class="line">        if(i&gt;1)&#123;</div><div class="line">            if(a[i]&gt;a[i-1])s[i]++;</div><div class="line">            else s[i]--;</div><div class="line">        &#125;</div><div class="line">        if(i&lt;n)&#123;</div><div class="line">            if(a[i]&gt;a[i+1])++s[i];</div><div class="line">            else s[i]--;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    sort(s+1,s+n+1);</div><div class="line">    for(int i=1;i&lt;=n;i++)ans+=1ll*s[i]*b[++p];</div><div class="line">    pf(ans);</div><div class="line">    puts(&quot;&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="C、暴力的数论——COCI2011-2012-Contest-4-E"><a href="#C、暴力的数论——COCI2011-2012-Contest-4-E" class="headerlink" title="C、暴力的数论——COCI2011/2012 Contest#4 E"></a>C、暴力的数论——COCI2011/2012 Contest#4 E</h2><p>关键字：数论，容斥，筛法，“分块”</p>
-<p>【分析】</p>
-<p>赛场上我对这题的思路比较混乱。先是找了波规律，接着开始水分。看到chk把它A了之后才开始认真地思考问题。</p>
-<p>接下来讲讲正解的做法和我的一些体会。</p>
-<p>首先题目K和P的范围都是$[1,10^9]$。这就感觉很吓人。</p>
-<p>我们先设最后的答案是X，X的范围也是$[1,10^9]$。X=a*P。a为一个不包含小于p的质数的数。</p>
-<p>如果我们能够关注一下P，就会发现，如果P很大，那么a就会比较小。那我们其实可以直接枚举这个a。</p>
-<p>但是P如果比较小的话，就比较麻烦。</p>
-<p>我们仍是枚举a，不过这次是二分地去枚举a，然后计算出比<strong>a小的不包含比p小的素因子的正整数个数</strong>，与K进行比较来缩小范围。直接求可能比较麻烦， 我们反过来求包含比p小的素因子的个数,而这可以用容斥原理计算。</p>
-<p>我们该怎样来判断P是大是小呢？题解里说小于50的P算小。这样算的话，P比较小的情况下，素数的个数小于等于15，然后，就可以用状压来求容斥了。而且在P较大时，a也就小于等于$2*10^7$，时间上也能接受。</p>
-<p>在比赛后小C就讲解了题目，但是从一开始，我就知道我的75分和正解没半毛钱关系。我根本就没有考虑过要对P进行讨论。我连这道题的边都没没有摸到，更别说后面的二分啊，容斥之类的。这种“分块”决策是我所没有掌握的。</p>
-<p>还有这道题的容斥的思想，应该说是比较常见的，应该要有这种正难则反的思想。但至于如何在考虑题目的时候去考虑它，仍需要将来的努力。</p>
-<p>【代码】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">#include &lt;bits/stdc++.h&gt;</div><div class="line">using namespace std;</div><div class="line">#define oo 1e9</div><div class="line">#define C 50</div><div class="line">const int M=oo/C;</div><div class="line">bool mk[M];</div><div class="line">int n,p,sz;</div><div class="line">int pri[C];</div><div class="line">int large()&#123;</div><div class="line">    if(n==1)return p;</div><div class="line">    int lim=oo/p,cnt=1;</div><div class="line">    for(int i=2;i&lt;=lim;i++)&#123;</div><div class="line">        if(!mk[i])&#123;</div><div class="line">            if(i&lt;p)for(int j=i*i;j&lt;=lim;j+=i)mk[j]=1;</div><div class="line">            else&#123;</div><div class="line">                cnt++;</div><div class="line">                if(cnt==n)return i*p;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line">void Init()&#123;</div><div class="line">    for(int i=2;i&lt;=p;i++)&#123;</div><div class="line">        if(mk[i])continue;</div><div class="line">        pri[sz++]=i;//sz小于等于15 </div><div class="line">        for(int j=2*i;j&lt;=p;j+=i)mk[j]=1;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int work(int R)&#123;</div><div class="line">    int res=R;</div><div class="line">    for(int j=1;j&lt;1&lt;&lt;(sz-1);j++)&#123;</div><div class="line">        int num=1,f=-1;</div><div class="line">        for(int i=0;i&lt;sz;i++)&#123;</div><div class="line">            if(j&amp;(1&lt;&lt;i))&#123;</div><div class="line">                num*=pri[i];</div><div class="line">                if(num&gt;R)break;</div><div class="line">                f*=-1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        res-=f*R/num;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line">int small()&#123;</div><div class="line">    Init();</div><div class="line">    bool ok=0;</div><div class="line">    int l=1,r=oo/p,res;</div><div class="line">    while(l&lt;=r)&#123;</div><div class="line">        int md=l+r&gt;&gt;1;</div><div class="line">        int an=work(md);</div><div class="line">        if(an==n)ok=1,res=md,r=md-1;</div><div class="line">        else if(an&lt;n)l=md+1;</div><div class="line">        else r=md-1;</div><div class="line">    &#125;</div><div class="line">    if(!ok)return 0;</div><div class="line">    return p*res;</div><div class="line">&#125;</div><div class="line">int main()&#123;</div><div class="line">    scanf(&quot;%d %d&quot;,&amp;n,&amp;p);</div><div class="line">    if(p==1)&#123;</div><div class="line">        printf(&quot;%d\n&quot;,n);</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    if(p&gt;=50)printf(&quot;%d\n&quot;,large());</div><div class="line">    else printf(&quot;%d\n&quot;,small());</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="D、破解密文——COCI2011-2012-Contest-4-F"><a href="#D、破解密文——COCI2011-2012-Contest-4-F" class="headerlink" title="D、破解密文——COCI2011/2012 Contest#4 F"></a>D、破解密文——COCI2011/2012 Contest#4 F</h2><p>关键字：字符串、KMP</p>
-<p>【分析】</p>
-<p>这是我第二次敲KMP，A了这道题顿时感觉上天了。（<del>虽然比较简单</del>）。</p>
-<p>首先题目不太好理解，我看了五遍。</p>
-<p>然后KMP不解释（<del>因为前一天我们刚学了KMP</del>）。问题就是怎么判。小C说我们要解决的不是一个整体的大的问题。如果母串s1的一部分和子串s2相同，那么对于接下来的一个单词，判断它们相同的条件其实只是判这个单词在之前出现的位置是相同的。</p>
-<p>有了这个判断的方法，接下来就直接套KMP的标准模板就好了。</p>
-<p>我们要处理的从来就不是一个整体的问题，而是一个又一个连续的问题，所以我们在考虑问题的时候，当然不能整体化地考虑，而是分散化，连续化。</p>
-<p>【代码】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#include &lt;bits/stdc++.h&gt;</div><div class="line">using namespace std;</div><div class="line">#define ll long long</div><div class="line">#define M 1000005</div><div class="line">int a[M],b[M],fail[M];</div><div class="line">map&lt;string,int&gt;mp;</div><div class="line">char str[M];</div><div class="line">int n,m,ans;</div><div class="line">void Init()&#123;</div><div class="line">    while(1)&#123;</div><div class="line">        scanf(&quot;%s&quot;,str);</div><div class="line">        if(str[0]==&apos;$&apos;)break;</div><div class="line">        n++;</div><div class="line">        if(mp.find(str)==mp.end())a[n]=0;</div><div class="line">        else a[n]=mp[str];</div><div class="line">        mp[str]=n;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    mp.clear();</div><div class="line">    while(1)&#123;</div><div class="line">        scanf(&quot;%s&quot;,str);</div><div class="line">        if(str[0]==&apos;$&apos;)break;</div><div class="line">        m++;</div><div class="line">        if(mp.find(str)==mp.end())b[m]=0;</div><div class="line">        else b[m]=mp[str];</div><div class="line">        mp[str]=m;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">bool chk(int *a,int *b,int i,int j)&#123;</div><div class="line">    if(i-a[i]&gt;j)return b[j]==0;</div><div class="line">    return i-a[i]==j-b[j];</div><div class="line">&#125;</div><div class="line">void Fail()&#123;</div><div class="line">    fail[1]=0;</div><div class="line">    fail[2]=1;</div><div class="line">    for(int i=2,j;i&lt;=m;i++)&#123;</div><div class="line">        j=fail[i];</div><div class="line">        while(j&amp;&amp;!chk(b,b,i,j))j=fail[j];</div><div class="line">        fail[i+1]=j+1;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">void KMP()&#123;</div><div class="line">    for(int i=1,j=1;i&lt;=n;i++)&#123;</div><div class="line">        while(j&amp;&amp;!chk(a,b,i,j))j=fail[j];</div><div class="line">        j++;</div><div class="line">        if(j==m+1)&#123;</div><div class="line">            ans=i-m+1;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int main()&#123;</div><div class="line">    Init();</div><div class="line">    Fail();</div><div class="line">    KMP();</div><div class="line">    printf(&quot;%d\n&quot;,ans);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/05/hello-world/" class="article-date">
-      <time datetime="2017-06-05T06:33:17.833Z" itemprop="datePublished">2017-06-05</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2017 nanhan
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Hexo</h1>
+                    <hr class="small">
+                    <span class="subheading"></span>
+                </div>
             </div>
         </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            
+                <div class="post-preview">
+    <a href="/2017/06/06/20170605训练赛/">
+        <h2 class="post-title">
+            Untitled
+        </h2>
         
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >极客到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2017-06-06
+    </p>
+</div>
+<hr>
+            
+                <div class="post-preview">
+    <a href="/2017/06/05/hello-world/">
+        <h2 class="post-title">
+            Hello World
+        </h2>
+        
+    </a>
+    <p class="post-meta">
+        <!-- Date and Author -->
+        
+        2017-06-05
+    </p>
+</div>
+<hr>
+            
+
+            <ul class="pager">
+    
+    
+</ul>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 nanhan<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
             </div>
-        
+        </div>
     </div>
 </footer>
 
-    </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 4;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-ga('create', 'xxxxx', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
+<!-- Disqus Comments -->
 
 
 
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
-
-
-  </div>
 </body>
+
 </html>
