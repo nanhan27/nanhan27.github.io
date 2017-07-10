@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>
-        nanhan27's Blog
-        
-    </title>
+    <title>  · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -141,8 +138,73 @@
     <div class="container">
         <main class="main" id="main">
             
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月10日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="扩展欧几里得算法小小小结"><a href="#扩展欧几里得算法小小小结" class="headerlink" title="扩展欧几里得算法小小小结"></a>扩展欧几里得算法小小小结</h2><p>以前当然是学过扩展欧几里得算法的，证明也看过好几次，但是让我写就是写不出来。我没有找到记忆这个算法的那个”点“。</p>
+<p>今天看了一份大神的解析，终于找到了。</p>
+<p>扩展欧几里得是建立在欧几里得定理的基础上。由于欧几里得定理的代码十分简洁，所以我就不再去问欧几里得定理怎么证（因为我是没什么希望记住费马小定理的）。然后就把gcd（）变成了模板。</p>
+<p>我们知道gcd（）的终止状态是b=0，a=gcd，因为a<em>x+b</em>y=gcd，所以x=1，y=0。</p>
+<p>有了这个东西，只需要再去考虑上一个状态是怎么样的，那么ex_gcd是可以现场推出来的。</p>
+<p>gcd最终状态的上一步应该是x1<em>a+y1</em>b=gcd,然后通过gcd递归，得到x0<em>b+y0</em>(a%b)=gcd。</p>
+<p>由于a%b=(a-a/b)（此处/为整除），所以就可以写成</p>
+<p>$x0<em>b+y0</em>(a-a/b)=gcd$</p>
+<p>——&gt;</p>
+<p>$x0<em>b+y0</em>a-y1*a/b=gcd$</p>
+<p>——&gt;</p>
+<p>$y0<em>a+b</em>(x0-y0*a/b)=gcd$</p>
+<p>由于$x1<em>a+y1</em>b=gcd$，所以</p>
+<p>$x1=y0$</p>
+<p>$y1=x0-y0*a/b$</p>
+<p>这里附上代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">ex_gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span>(!b)&#123;</div><div class="line">		x=<span class="number">1</span>;y=<span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> a;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> gcd=ex_gcd(b,a%b,x,y);</div><div class="line">	<span class="keyword">int</span> temp=x;</div><div class="line">	x=y;</div><div class="line">	y=tmep-a/b*y;</div><div class="line">	<span class="keyword">return</span> gcd;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样就可以在比赛的时候快乐地推出扩展欧几里得算法，求出该方程的特解x、y以及最大公因数了。</p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/2017/07/10/矩阵乘法小结/" id="art-left" class="art-right">
+                <span class="next-title">
+                    <i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/2017/07/10/大神说的话/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>
+                </span>
+            </a>
+        
+    </nav>
+
         
     
+
+
         </main>
         <footer class="footer syuanpi fadeIn" id="footer">
     <hr>
@@ -210,6 +272,8 @@ $(document).ready(function(){
 })
 </script>
     </div>
+    
+        
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>

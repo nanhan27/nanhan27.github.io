@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>
-        nanhan27's Blog
-        
-    </title>
+    <title>  · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -141,8 +138,60 @@
     <div class="container">
         <main class="main" id="main">
             
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月10日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="矩阵乘法小结"><a href="#矩阵乘法小结" class="headerlink" title="矩阵乘法小结"></a>矩阵乘法小结</h2><p>今天花了一个上午去写矩阵乘法的入门题，自己应该是入了门，大概知道了一些东西。</p>
+<p>网址：<a href="http://www.matrix67.com/blog/archives/276" target="_blank" rel="external">http://www.matrix67.com/blog/archives/276</a></p>
+<p>它的模板大概是一个$O(n^3)$的mat和一个快速幂。</p>
+<p>mat的代码其实和Floyd的代码差不多，只是将Floyd代码的第一层for放进最里面。（其实也好想，就是求i到j共有多少种方案）</p>
+<p>一类就是用它来优化dp。</p>
+<p>首先这个dp转移方程应该是足够简单的，类似斐波那契数列的当然是最好。</p>
+<p>其次这个dp应该是求某种方法的方案数，而且数据的范围应该是很大的，这样其实就是告诉你要用log的算法来优化，这样就可能想到用矩阵乘法来优化了。（矩阵乘法的复杂度应该是$n^3log(T)$）</p>
+<p>也就是说，dp方程简单，转移次数大，就可能用到矩阵乘法优化。</p>
+<p>第二类大概就是和图有关的题目了。</p>
+<p>小C说专业的图论其实多是用01矩阵来表示点与点之间的边的。那么拿原始的矩阵相乘一次，表示的就是走两步能到达那些点。</p>
+<p>第三类就是题目本身提到了矩阵，并让我们去操作矩阵了。这种题目应该不属于日们的范畴了，所以这里不讲。</p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+        
+            <a href="/2017/07/10/扩展欧几里得算法小小小结/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>
+                </span>
+            </a>
+        
+    </nav>
+
         
     
+
+
         </main>
         <footer class="footer syuanpi fadeIn" id="footer">
     <hr>
@@ -210,6 +259,8 @@ $(document).ready(function(){
 })
 </script>
     </div>
+    
+        
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 20170707训练赛 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月10日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170707训练赛
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <p>引言：”我是谁，我从哪里来，我要到哪里去。“</p>
+<h2 id="A、因数操作——COCI2009-2010-Contest-4-C"><a href="#A、因数操作——COCI2009-2010-Contest-4-C" class="headerlink" title="A、因数操作——COCI2009/2010 Contest#4 C"></a>A、因数操作——COCI2009/2010 Contest#4 C</h2><p>关键字：数学</p>
+<p>得分：100（最好：100）</p>
+<p>【分析】</p>
+<p>这道题还是比较水的，但是没有一A。</p>
+<p>原因有二：</p>
+<p>1、数组开了$10^9$的int，运行错误。</p>
+<p>2、中间的调试代码没有删掉，就记着再交一发，答案错误。</p>
+<p>【算法流程】</p>
+<p>1、筛素数</p>
+<p>2、找出每个数的质因子个数</p>
+<p>3、模拟</p>
+<h2 id="B、粉刷栅栏——COCI2009-2010-Contest-4-D"><a href="#B、粉刷栅栏——COCI2009-2010-Contest-4-D" class="headerlink" title="B、粉刷栅栏——COCI2009/2010 Contest#4 D"></a>B、粉刷栅栏——COCI2009/2010 Contest#4 D</h2><p>关键字：单调队列、线段树</p>
+<p>得分：0（最好100）</p>
+<p>【分析】</p>
+<p>我们应该能知道任意一块木板所能刷到的最大面积取决于能覆盖到它的区间的最小值的最大值。这其实就是一个区间查询，我在比赛的时候选择用一个线段树维护所有区间的最小值，然后再用一个线段树维护每个点的最大值，然后，就炸了，样例调出来但是就是过不掉。</p>
+<p>其实我们可以先维护一个单调队列（包括v和pos），单调递减。这样就能求出每个点在X所能覆盖到的区间的最小值mn。</p>
+<p>然后再用一个单调队列维护，这次塞进去的值是每一个点的mn，维护单调递增。这实际上就是在能覆盖到的区间的最小值中找最大值。</p>
+<p>这种写法比两个线段树简洁得多。</p>
+<p>这样就能求出第一个答案。第二个答案较简单，这里不再赘述。</p>
+<p>这里就直接放代码了。</p>
+<p>【代码】</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 1000005</span></div><div class="line"><span class="keyword">int</span> n,X;</div><div class="line"><span class="keyword">int</span> h[M];</div><div class="line"><span class="keyword">int</span> mn[M],mx[M];</div><div class="line">ll sum,ans;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></div><div class="line">    <span class="keyword">int</span> id,h;</div><div class="line">&#125;q[M];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;X);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;h[i]);</div><div class="line">    <span class="keyword">int</span> l=<span class="number">0</span>,r=<span class="number">-1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;X;i++)&#123;</div><div class="line">        <span class="keyword">while</span>(l&lt;=r&amp;&amp;h[i]&lt;=q[r].h)r--;</div><div class="line">        q[++r]=(node)&#123;i,h[i]&#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=X;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">while</span>(l&lt;=r&amp;&amp;h[i]&lt;=q[r].h)r--;</div><div class="line">        q[++r]=(node)&#123;i,h[i]&#125;;</div><div class="line">        <span class="keyword">while</span>(q[l].id&lt;=i-X)l++;</div><div class="line">        mn[i]=q[l].h;</div><div class="line">    &#125;</div><div class="line">    l=<span class="number">0</span>,r=<span class="number">-1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</div><div class="line">        <span class="keyword">while</span>(l&lt;=r&amp;&amp;mn[i]&gt;=q[r].h)r--;</div><div class="line">        q[++r]=(node)&#123;i,mn[i]&#125;;</div><div class="line">        <span class="keyword">while</span>(q[l].id&gt;=i+X)l++;</div><div class="line">        mx[i]=q[l].h;</div><div class="line">        sum+=h[i]-mx[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,j;i&lt;=n;i=j)&#123;</div><div class="line">        j=i;</div><div class="line">        <span class="keyword">int</span> len=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(j&lt;=n&amp;&amp;mx[j]==mx[i])&#123;</div><div class="line">            j++;</div><div class="line">            len++;</div><div class="line">        &#125;</div><div class="line">        ans+=(len<span class="number">-1</span>)/X+<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;sum&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/2017/07/10/大神说的话/" id="art-left" class="art-right">
+                <span class="next-title">
+                    <i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/2017/07/10/20170705练习赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170705练习赛
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>
