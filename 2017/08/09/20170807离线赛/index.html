@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 20170807离线赛 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月9日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170807离线赛
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="A、务农政策——Codechef-JAN17"><a href="#A、务农政策——Codechef-JAN17" class="headerlink" title="A、务农政策——Codechef JAN17"></a>A、务农政策——Codechef JAN17</h2><p>关键字：单调队列</p>
+<p>【分析】</p>
+<p>题目的模型比较简单，转化成二维找最大值的问题。</p>
+<p>个人认为这道题与上次考过的<strong>插队</strong>很像。那道题是一维的，而这个是二维的，如何降维呢？我们先考虑将每一行的形如$[j,j+b-1]$的最大值用单调队列预处理出来。这个只需要先循环行再循环列就能做到。这样我们就将一个区间变成了一个点。</p>
+<p>接下来再先枚举列，再枚举行，每次操作只需要将不满足当前行数的元素删除，再将当前行、当前列的最大值塞入单调队列并更新答案就好了。</p>
+<p>所以最后的复杂度就是$O(Tnm)$。</p>
+<h2 id="B、刷副本——Codechef-JUNE16"><a href="#B、刷副本——Codechef-JUNE16" class="headerlink" title="B、刷副本——Codechef JUNE16"></a>B、刷副本——Codechef JUNE16</h2><p>关键字：数学</p>
+<p>【分析】</p>
+<p>题目的关键就是怎么求乘积的首位！因为只要知道这个，暴力都能拿85分！（<del>虽然是因为数据水</del>）</p>
+<p>我们设最后的乘积是$w$，那么一定能表示成$w=a*10^b$，$a$是一个属于$[1,10)$的实数。那么$w$的首位就是$a$的整数部分。</p>
+<p>这里就有一个比较常见（che dan）的思路了。将乘积用底数函数转化成加和。</p>
+<p>那么$\lg w=\lg a*10^b=b+\lg a$，对于一个$w$，$w=\prod f[i]$，根据数学知识，我们知道$\lg w=\lg f[x]+\lg f[y]+……$</p>
+<p>综合上面两个式子，我们发现$b+\lg a=\lg f[x]+\lg f[y]+……$。而b是整数，a是实数。我们先求出$sumlg$，那么$\lg a=sumlg-(int)sumlg$，用系统的pow函数就可以直接搞出a，那么答案就是a的整数部分。不过这里还需要考虑计算时的精度问题。</p>
+<p>有了上面的数学推理，我们还需要思考题目中的另一个青蛙跳的模型。</p>
+<p>我们考虑修改一个点$i$的值会影响到那些R的答案。应该比较容易想到，会影响到$R=（i-1的因子）$的答案。这样预处理就比较简单了。但需要特殊考虑$i=1$时的情况，因为$i-1=0$且修改1会对所有$R$造成影响，所以我们预处理的$sumlg[r]$中不包括i=1的$\lg F[1]$，只要在最后算答案的时候再加上去就好了。</p>
+<p>至于那个乘积模$1e9+7$，道理是一样的。</p>
+<p>还有一个注意点，因为有模，所以记录乘积的那个数组不能先将原数除了后再乘上新的数，需要乘上逆元才行。</p>
+<p>比赛的时候没有写高精，因为总觉得强一点的数据会直接卡高精，这样一卡，其实也就没有比暴力多多少分了，所以就没有动力去敲高精了。</p>
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> db double</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 200005</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;e[M];</div><div class="line"><span class="keyword">int</span> f[M],tot[M];</div><div class="line">db sumlg[M];</div><div class="line"><span class="keyword">int</span> n,T;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> res=<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span>(b)&#123;</div><div class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>)res=<span class="number">1l</span>l*res*a%mod;</div><div class="line">        a=<span class="number">1l</span>l*a*a%mod;</div><div class="line">        b&gt;&gt;=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> x,y;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;x,&amp;y);x--;</div><div class="line">    <span class="keyword">if</span>(x)&#123;</div><div class="line">        <span class="keyword">int</span> div=<span class="number">1l</span>l*<span class="built_in">pow</span>(f[x],mod<span class="number">-2</span>)*y%mod;</div><div class="line">        db b=<span class="built_in">log10</span>(y)-<span class="built_in">log10</span>(f[x]);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;e[x].size();i++)&#123;</div><div class="line">            <span class="keyword">int</span> v=e[x][i];</div><div class="line">            sumlg[v]+=b;</div><div class="line">            tot[v]=<span class="number">1l</span>l*tot[v]*div%mod;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    f[x]=y;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</div><div class="line">    db s=sumlg[x]+<span class="built_in">log10</span>(f[<span class="number">0</span>]);</div><div class="line">    s=(<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>,s-(<span class="keyword">int</span>)s+<span class="number">1e-10</span>);</div><div class="line">    <span class="keyword">if</span>(s==<span class="number">10</span>)s=<span class="number">1</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,(<span class="keyword">int</span>)s,<span class="number">1l</span>l*tot[x]*f[<span class="number">0</span>]%mod);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;f[i]);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        tot[i]=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;n;j+=i)&#123;</div><div class="line">            tot[i]=<span class="number">1l</span>l*tot[i]*f[j]%mod;</div><div class="line">            sumlg[i]+=<span class="built_in">log10</span>(f[j]);</div><div class="line">            e[j].push_back(i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        <span class="keyword">int</span> pp;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;pp);</div><div class="line">        <span class="keyword">if</span>(pp==<span class="number">1</span>)update();</div><div class="line">        <span class="keyword">else</span> solve();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="C、圣杯战争——USACO-2017-Open-Platinum"><a href="#C、圣杯战争——USACO-2017-Open-Platinum" class="headerlink" title="C、圣杯战争——USACO 2017 Open Platinum"></a>C、圣杯战争——USACO 2017 Open Platinum</h2><p>关键字：图论、线段树</p>
+<p>【分析】</p>
+<p>比赛的时候因为某wz“连floyd都不能过20分”给误导了，没什么都没想，傻傻的敲了最短路。</p>
+<p>首先，答案一定是某一条边，这是显然的。如果是一条路径作为答案，那么颜色一定是x、x、x、y，那个根据题目，只需要最接近xy的边权作为答案，所以答案就是一条边。</p>
+<p>其次，答案一定在最小生成树上。如果不在最小生成树上,那么需要满足所有的点的权值相同,而这样其余的边也不会变成答案。</p>
+<p>有了上面两个结论，整道题的模型就由一个无向图转化成了一棵树上。</p>
+<p>我们再考虑每个点对答案的贡献。我们定义一个点对答案的贡献是这个点的儿子中，颜色不同且边权最小的。这样定义的话，叶子节点对答案就没有贡献了。</p>
+<p>题目就变成了单点更新，区间查询，线段树就能够搞定。不过由于点的个数是一定的，所以对于每个节点，我们并不需要将$[1,K]$这个区间的空间全部开出来，建一课虚空线段树就好了。</p>
+<p>还有一点要注意的，就算一个节点有很多颜色相同的儿子，也不能直接就覆盖掉，因为说不定后面会有用，所以要用一个$multiset$来装。</p>
+<p>更新时重新询问最小生成树上的$tfa$的答案，修改全局的答案。</p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/2017/08/10/20170809离线赛/" id="art-left" class="art-right">
+                <span class="next-title">
+                    20170809离线赛<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/2017/08/06/20170805离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170805离线赛
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>

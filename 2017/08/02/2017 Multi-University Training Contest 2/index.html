@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 2017 Multi-University Training Contest 2 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月2日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                2017 Multi-University Training Contest 2
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="1009-TrickGCD"><a href="#1009-TrickGCD" class="headerlink" title="1009 TrickGCD"></a>1009 TrickGCD</h2><p>关键字：莫比乌斯反演、数学</p>
+<p>【分析】</p>
+<p>​    一个简单的想法就是枚举一个gcd，求$\prod<em>{i=1}^{n}\left\lfloor \dfrac {A</em>{i}} {gcd}\right\rfloor。$</p>
+<p>​    但是这样显然是会超时的。我们来考虑一下这个$\left\lfloor \dfrac {A<em>{i}} {gcd}\right\rfloor$的取值。若$\left\lfloor \dfrac {A</em>{i}} {gcd}\right\rfloor$=x，那么这个$A_i$的范围就是$[x<em>gcd,x</em>gcd+gcd-1]$，也就是说，这个区间对最后的答案的<strong>贡献</strong>其实是$x^{cnt}$次，所以我们只需要一个前缀和的数组就能用$O(n/gcd)$的复杂度算出这种情况下的方案数了。所以因为调和级数和过程中的快速幂的操作，这个操作的复杂度就是$O(n \ln n\log n)$。</p>
+<p>​    这时候我们就会发现问题，有些答案被重复计算了。所以就需要用一个听起来高大上的莫比乌斯反演的东西。其实就是筛素数的模板再加上几行代码的事情。所以复杂度也就是筛素数的复杂度了。</p>
+<p>​    我们发现计算6的时候，2和3已经算过了，所以根据容斥，6的情况应该减掉，前面的系数应该是-1。而莫比乌斯的作用就是处理出这个系数。</p>
+<h2 id="1008、To-my-boyfriend"><a href="#1008、To-my-boyfriend" class="headerlink" title="1008、To my boyfriend"></a>1008、To my boyfriend</h2><p>关键字：dp、计数</p>
+<p>【分析】</p>
+<p>​    <strong>都是套路，对于这些多种颜色的，我们先看相同颜色对答案的贡献怎么算。</strong></p>
+<p>​    我们定义，当某个点的颜色在某个矩形中相对于其他相同颜色的位置是最左上角时（先上后左），它会对答案有贡献。</p>
+<p>​    如果这样定义，我们发现，矩形的下限是n。而上限，“左限”和“右限”由该种颜色之前出现过的位置决定的。</p>
+<p>​    对于每一个上限，我们都能预处理出它的左限和右限在哪。而且我们发现，上限越小，那么它的左限会越大，右限会越小，都具有单调性。也就是说，可供选择的范围会越小。</p>
+<p>​    到这里还有点小问题，如何求出所有矩形的种数。答案是$C<em>{n}^{2}\times C</em>{m}^{2}$。</p>
+<p>​    我们可以用$hang[i][j]、l[i]、r[i]$来预处理出所有的信息。这里放上代码和注释：</p>
+<p>【代码】</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> c)</span></span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=x;i++)l[i]=<span class="number">0</span>,r[i]=m+<span class="number">1</span>;</div><div class="line">	<span class="comment">//hang[i][c]表示c这种颜色最后一次出现在i这一列是在hang这一行</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;y;i++)l[hang[i][c]]=i;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=m;i&gt;y;i--)r[hang[i][c]]=i;</div><div class="line">	<span class="comment">//循环的顺序，所以可以直接覆盖，并且正确</span></div><div class="line">	<span class="keyword">int</span> h=hang[y][c];<span class="comment">//严格的上限，不能取</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=x<span class="number">-1</span>;i&gt;h;i--)&#123;<span class="comment">//单调性</span></div><div class="line">		l[i]=max(l[i],l[i+<span class="number">1</span>]);</div><div class="line">		r[i]=min(r[i],r[i+<span class="number">1</span>]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&gt;h;i--)ans+=<span class="number">1l</span>l*(r[i]-y)*(y-l[i])*(n-x+<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​    main的操作就比较简单了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        ans=<span class="number">0</span>;</div><div class="line">        <span class="built_in">memset</span>(hang,<span class="number">0</span>,<span class="keyword">sizeof</span> hang);</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>,c;j&lt;=m;j++)&#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;c);</div><div class="line">                solve(i,j,c);</div><div class="line">                hang[j][c]=i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.9lf\n"</span>,<span class="number">1.0</span>*ans/(n*(n+<span class="number">1</span>)/<span class="number">2</span>*m*(m+<span class="number">1</span>)/<span class="number">2</span>));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/2017/08/02/20170731训练赛/" id="art-left" class="art-right">
+                <span class="next-title">
+                    20170731训练赛<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/2017/07/31/20170729离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170729离线赛
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 2017 Multi-University Training Contest 6 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月13日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                2017 Multi-University Training Contest 6
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="1001、String"><a href="#1001、String" class="headerlink" title="1001、String"></a>1001、String</h2><p>关键字：字符串、$Trie$树、$CDQ$分治</p>
+<p>【分析】</p>
+<p>首先我们可以知道，如果将单词按字典序排序，那么对于一个前缀，单词所在的下标一定是一段连续的区间。将单词旋转后排序，查询后缀也是一样的。</p>
+<p>那么题目就转化成对于一个询问，其正序下标在$[x1,x2]$，逆序下标在$[y1,y2]$的单词有多少个。</p>
+<p>如果知道了一个询问的$x1、x2、y1、y2$，那么题目就等价于求平面上一个矩形中的点的个数，这个可以用扫描线+线段树完成。</p>
+<p>预处理出$x1、x2、y1、y2$可以用$Trie$树来完成，即每个节点存下某个前缀的字典序下标的最大和最小值。然后用询问的前缀和后缀去跑这棵$Trie$树。</p>
+<p>但是题目中还有一个限制条件：$前缀和后缀不能重叠。$</p>
+<p>这个条件正解中是用$Hash$将不满足的情况减去，但是$小C$说这样太麻烦了。这样就说明一个单词，如果其长度小于询问的前缀+后缀长度，那么它是不能被计算的，所以我们人为地添加了操作顺序这一维度，即边加点边询问。而这个问题正是$CDQ$的入门题目$Mokia$。</p>
+<p>【算法流程】</p>
+<p>1、顺序字符串排序，建$Trie$树，更新节点的信息。询问的前缀查询区间$[x1,x2]$。</p>
+<p>2、逆序字符串做相同操作。</p>
+<p>3、将插入和询问操作按长度从大到小排序，进行$CDQ$分治，BIT维护。</p>
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) cout&lt;&lt;#x&lt;&lt;<span class="meta-string">" = "</span>&lt;&lt;x&lt;&lt;endl</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) x&amp;-x</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100005</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 500005</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> oo 1e9</span></div><div class="line"><span class="keyword">int</span> tot;</div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="keyword">int</span> n,Q;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node1</span>&#123;</span></div><div class="line">    <span class="built_in">string</span> s,rs;</div><div class="line">    <span class="keyword">int</span> x,y;</div><div class="line">&#125;d[N];</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node1 a,node1 b)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> a.s&lt;b.s;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node1 a,node1 b)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> a.rs&lt;b.rs;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node2</span>&#123;</span></div><div class="line">    <span class="keyword">int</span> id;</div><div class="line">    <span class="built_in">string</span> s,p;</div><div class="line">    <span class="keyword">int</span> x1,x2;</div><div class="line">    <span class="keyword">int</span> y1,y2;</div><div class="line">&#125;q[N];</div><div class="line"><span class="keyword">int</span> ch[M][<span class="number">26</span>],mn[M][<span class="number">26</span>],mx[M][<span class="number">26</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build1</span><span class="params">()</span></span>&#123;</div><div class="line">    tot=<span class="number">0</span>;</div><div class="line">    <span class="built_in">memset</span>(ch,<span class="number">0</span>,<span class="keyword">sizeof</span> ch);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">int</span> p=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> x=d[i].x;</div><div class="line">        <span class="keyword">int</span> sz=d[i].s.length();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;sz;j++)&#123;</div><div class="line">            <span class="keyword">int</span> c=d[i].s[j]-<span class="string">'a'</span>;</div><div class="line">            <span class="keyword">if</span>(!ch[p][c])&#123;</div><div class="line">                ch[p][c]=++tot;</div><div class="line">                mn[p][c]=oo;</div><div class="line">                mx[p][c]=<span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">            mn[p][c]=min(mn[p][c],x);</div><div class="line">            mx[p][c]=max(mx[p][c],x);</div><div class="line">            p=ch[p][c];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build2</span><span class="params">()</span></span>&#123;</div><div class="line">    tot=<span class="number">0</span>;</div><div class="line">    <span class="built_in">memset</span>(ch,<span class="number">0</span>,<span class="keyword">sizeof</span> ch);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">int</span> p=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> y=d[i].y;</div><div class="line">        <span class="keyword">int</span> sz=d[i].rs.length();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;sz;j++)&#123;</div><div class="line">            <span class="keyword">int</span> c=d[i].rs[j]-<span class="string">'a'</span>;</div><div class="line">            <span class="keyword">if</span>(!ch[p][c])&#123;</div><div class="line">                ch[p][c]=++tot;</div><div class="line">                mn[p][c]=oo;</div><div class="line">                mx[p][c]=<span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">            mn[p][c]=min(mn[p][c],y);</div><div class="line">            mx[p][c]=max(mx[p][c],y);</div><div class="line">            p=ch[p][c];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">bool</span> ans[N];</div><div class="line"><span class="keyword">int</span> res[N];</div><div class="line"><span class="keyword">int</span> zz;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></div><div class="line">    <span class="keyword">int</span> f;<span class="comment">//0 插入 1 询问</span></div><div class="line">    <span class="keyword">int</span> x,y;</div><div class="line">    <span class="keyword">int</span> x1,y1,x2,y2,id;</div><div class="line">    <span class="keyword">int</span> len;</div><div class="line">&#125;ti[<span class="number">2</span>*N];</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp3</span><span class="params">(node a,node b)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(a.len!=b.len)<span class="keyword">return</span> a.len&gt;b.len;</div><div class="line">    <span class="keyword">return</span> a.f&lt;b.f;<span class="comment">//保证相同长度插入在先。 </span></div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> val[M];</div><div class="line"><span class="keyword">int</span> top1,top2;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ADD</span>&#123;</span></div><div class="line">    <span class="keyword">int</span> x,y;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ADD &amp;a)<span class="keyword">const</span>&#123;</div><div class="line">        <span class="keyword">return</span> x&lt;a.x;</div><div class="line">    &#125;</div><div class="line">&#125;add[M];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QQ</span>&#123;</span></div><div class="line">    <span class="keyword">int</span> x,y1,y2,f,id;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> QQ &amp;a)<span class="keyword">const</span>&#123;</div><div class="line">        <span class="keyword">return</span> x&lt;a.x;</div><div class="line">    &#125;</div><div class="line">&#125;qq[<span class="number">2</span>*M];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BIT</span>&#123;</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">        <span class="keyword">while</span>(x&lt;=zz)&#123;</div><div class="line">            val[x]+=v;</div><div class="line">            x+=lowbit(x);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> re=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(x)&#123;</div><div class="line">            re+=val[x];</div><div class="line">            x-=lowbit(x);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> re;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> query(r)-query(l<span class="number">-1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;Tr;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">CDQ</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(l==r)<span class="keyword">return</span>;</div><div class="line">    <span class="keyword">int</span> md=l+r&gt;&gt;<span class="number">1</span>;</div><div class="line">    CDQ(l,md);</div><div class="line">    top1=top2=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=l;i&lt;=md;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(ti[i].f==<span class="number">0</span>)add[++top1]=(ADD)&#123;ti[i].x,ti[i].y&#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=md+<span class="number">1</span>;i&lt;=r;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(ti[i].f==<span class="number">1</span>)&#123;</div><div class="line">            qq[++top2]=(QQ)&#123;ti[i].x1<span class="number">-1</span>,ti[i].y1,ti[i].y2,<span class="number">-1</span>,ti[i].id&#125;;</div><div class="line">            qq[++top2]=(QQ)&#123;ti[i].x2,ti[i].y1,ti[i].y2,<span class="number">1</span>,ti[i].id&#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    sort(add+<span class="number">1</span>,add+top1+<span class="number">1</span>);</div><div class="line">    sort(qq+<span class="number">1</span>,qq+top2+<span class="number">1</span>);</div><div class="line">    <span class="keyword">int</span> j=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=top2;i++)&#123;</div><div class="line">        <span class="keyword">while</span>(add[j].x&lt;=qq[i].x&amp;&amp;j&lt;=top1)&#123;</div><div class="line">            Tr.ins(add[j].y,<span class="number">1</span>);</div><div class="line">            j++;</div><div class="line">        &#125;</div><div class="line">        res[qq[i].id]+=Tr.Query(qq[i].y1,qq[i].y2)*qq[i].f;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;j;i++)Tr.ins(add[i].y,<span class="number">-1</span>);</div><div class="line">    CDQ(md+<span class="number">1</span>,r);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span>&#123;</div><div class="line">    zz=<span class="number">0</span>;</div><div class="line">    <span class="built_in">memset</span>(ans,<span class="number">0</span>,<span class="keyword">sizeof</span> ans);</div><div class="line">    <span class="built_in">memset</span>(res,<span class="number">0</span>,<span class="keyword">sizeof</span> res);</div><div class="line">    <span class="built_in">memset</span>(val,<span class="number">0</span>,<span class="keyword">sizeof</span> val);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)&#123;</div><div class="line">        Init();</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;Q);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="built_in">cin</span>&gt;&gt;d[i].s;</div><div class="line">            <span class="keyword">int</span> sz=d[i].s.length();</div><div class="line">            d[i].rs=<span class="string">""</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;sz;j++)d[i].rs+=d[i].s[sz-j<span class="number">-1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Q;i++)&#123;</div><div class="line">            <span class="built_in">string</span> ss=<span class="string">""</span>;</div><div class="line">            <span class="built_in">cin</span>&gt;&gt;q[i].s;</div><div class="line">            <span class="built_in">cin</span>&gt;&gt;q[i].p;</div><div class="line">            <span class="keyword">int</span> sz=q[i].p.length();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;sz;j++)ss+=q[i].p[sz-j<span class="number">-1</span>];</div><div class="line">            q[i].p=ss;</div><div class="line">            q[i].id=i;</div><div class="line">        &#125;</div><div class="line">        sort(d+<span class="number">1</span>,d+n+<span class="number">1</span>,cmp1);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            d[i].x=i;</div><div class="line">        &#125;</div><div class="line">        build1();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Q;i++)&#123;</div><div class="line">            <span class="keyword">int</span> sz=q[i].s.length();</div><div class="line">            <span class="keyword">int</span> p=<span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;sz;j++)&#123;</div><div class="line">                <span class="keyword">int</span> c=q[i].s[j]-<span class="string">'a'</span>;</div><div class="line">                <span class="keyword">if</span>(!ch[p][c])&#123;</div><div class="line">                    ans[i]=<span class="number">1</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                q[i].x1=mn[p][c];</div><div class="line">                q[i].x2=mx[p][c];</div><div class="line">                p=ch[p][c];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        sort(d+<span class="number">1</span>,d+n+<span class="number">1</span>,cmp2);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            d[i].y=i;</div><div class="line">        &#125;</div><div class="line">        build2();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Q;i++)&#123;</div><div class="line">            <span class="keyword">int</span> sz=q[i].p.length();</div><div class="line">            <span class="keyword">int</span> p=<span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;sz;j++)&#123;</div><div class="line">                <span class="keyword">int</span> c=q[i].p[j]-<span class="string">'a'</span>;</div><div class="line">                <span class="keyword">if</span>(!ch[p][c])&#123;</div><div class="line">                    ans[i]=<span class="number">1</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                q[i].y1=mn[p][c];</div><div class="line">                q[i].y2=mx[p][c];</div><div class="line">                p=ch[p][c];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            zz++;</div><div class="line">            ti[zz]=(node)&#123;<span class="number">0</span>,d[i].x,d[i].y&#125;;</div><div class="line">            ti[zz].len=d[i].s.length();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Q;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(ans[i])<span class="keyword">continue</span>;</div><div class="line">            zz++;</div><div class="line">            ti[zz].f=<span class="number">1</span>;</div><div class="line">            ti[zz].x1=q[i].x1;</div><div class="line">            ti[zz].y1=q[i].y1;</div><div class="line">            ti[zz].x2=q[i].x2;</div><div class="line">            ti[zz].y2=q[i].y2;</div><div class="line">            ti[zz].id=i;</div><div class="line">            ti[zz].len=q[i].s.length()+q[i].p.length();</div><div class="line">        &#125;</div><div class="line">        sort(ti+<span class="number">1</span>,ti+zz+<span class="number">1</span>,cmp3);</div><div class="line">        CDQ(<span class="number">1</span>,zz);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=Q;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(ans[i])<span class="built_in">puts</span>(<span class="string">"0"</span>);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+        
+            <a href="/2017/08/12/20170811离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170811离线赛
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>

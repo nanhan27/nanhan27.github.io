@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 20170703练习赛 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170703练习赛
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <p>引言：A和B题做的其实比较顺手，C题的二分+dp对现在的我而言还是有一段距离，只能说脑洞还是没有那么大，但经Splft大佬一讲解，发现思路其实是很顺畅的，他说写题目的时候困惑他的只有代码中的小细节。D题让我对关于奇怪的解析式的套路又加深了些，希望下次就可以自己独立来分析这种题目了！</p>
+<h2 id="A、电话网络——COCI2009-2010-Contest-3-D"><a href="#A、电话网络——COCI2009-2010-Contest-3-D" class="headerlink" title="A、电话网络——COCI2009/2010 Contest#3 D"></a>A、电话网络——COCI2009/2010 Contest#3 D</h2><p>关键字：”仔细看题目系列“，贪心</p>
+<p>【分析】</p>
+<p>​    题目不难，关键是比赛的时候看题太慢了，还没有理解好题意，大庆已经A掉了。贪心就可以过了。（关键是我和大庆一起做过一道类似的题目，而我当时完全没想到，也就是说，比赛的时候就算碰到原题，我也不能第一时间A掉，我的做题效果不是很好）</p>
+<h2 id="B、洗牌机——COCI2009-2010-Contest-1-E"><a href="#B、洗牌机——COCI2009-2010-Contest-1-E" class="headerlink" title="B、洗牌机——COCI2009/2010 Contest#1 E"></a>B、洗牌机——COCI2009/2010 Contest#1 E</h2><p>关键字：数学，图论</p>
+<p>【分析】</p>
+<p>​    切入点：每张牌的调换存在周期。</p>
+<p>​    因为题目给的是n的某个全排列，那么就比较容易知道每一张牌会在一些”环“中调换，也就是说每张牌都会以某个周期回到原来的位置。那么求出所有周期的最小公倍数就能解决问题了。</p>
+<h2 id="C、议会——COCI-2008-2009-Final"><a href="#C、议会——COCI-2008-2009-Final" class="headerlink" title="C、议会——COCI 2008-2009 Final"></a>C、议会——COCI 2008-2009 Final</h2><p>关键字：二分，贪心</p>
+<p>【分析】</p>
+<p>​    看到题目还是蒙逼，看起来就很难！仔细看了一下，第一个子问题是求可能的最大席位，这当然是票越多越好，所以就把剩下的所有的票给i这个人，然后就直接模拟好了。</p>
+<p>​    但是，求可能的最小席位就没有那么简单了。第一，当然还是不给i这个人票，但，剩下的票应该给谁才能让i获得的席位最小呢？</p>
+<p>​    （<del>不难看出</del>）这个答案应该是单调的。那么先给它套个二分。</p>
+<p>​    若党派i现有票数不超过5%，可以直接淘汰，答案是0。否则进行二分，设二分X，判定是否存在使i最终席位小于等于超过X。那么其他人就要让i这个人拿不到x+1个，这样我们定义dp[q][j]表示在这种情况下某个人q拿j个席位最少需要再给他多少票。然后就可以用背包转移了。不过要注意许多的小细节，比赛时没有调出来，赛后还用了很多时间。</p>
+<p>【代码】<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 105</span></div><div class="line"><span class="keyword">int</span> V[M],dp[<span class="number">2</span>][M*<span class="number">2</span>];</div><div class="line"><span class="keyword">int</span> v,n,m,rest;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">chk</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x&gt;y)x=y;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">MAX</span><span class="params">(<span class="keyword">int</span> id)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> p[M],t[M],stk[M],top=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)p[i]=V[i],t[i]=<span class="number">1</span>;</div><div class="line">    p[id]+=rest;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(p[i]*<span class="number">20</span>&gt;=v)stk[top++]=i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">        ll son=<span class="number">0</span>,mom=<span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> q=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;top;j++)&#123;</div><div class="line">            <span class="keyword">int</span> now=stk[j];</div><div class="line">            <span class="keyword">if</span>(<span class="number">1l</span>l*son*t[now]&lt;<span class="number">1l</span>l*mom*p[now])&#123;</div><div class="line">                son=p[now];</div><div class="line">                mom=t[now];</div><div class="line">                q=now;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        t[q]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> t[id]<span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">MIN</span><span class="params">(<span class="keyword">int</span> lim,<span class="keyword">int</span> id)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> lef=m-lim,cur=<span class="number">0</span>;</div><div class="line">    <span class="built_in">memset</span>(dp[cur],<span class="number">63</span>,<span class="keyword">sizeof</span> dp[cur]);</div><div class="line">    dp[cur][<span class="number">0</span>]=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;id;i++)&#123;</div><div class="line">        <span class="built_in">memset</span>(dp[cur^<span class="number">1</span>],<span class="number">63</span>,<span class="keyword">sizeof</span> dp[cur^<span class="number">1</span>]);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</div><div class="line">            ll x=<span class="number">1l</span>l*V[id]*j/(lim+<span class="number">1</span>);</div><div class="line">            <span class="keyword">while</span>(<span class="number">1l</span>l*V[id]*j&gt;<span class="number">1l</span>l*x*(lim+<span class="number">1</span>))++x;<span class="comment">//注意这里是“&lt;”，而不是"&lt;="！</span></div><div class="line">            <span class="keyword">if</span>(x*<span class="number">20</span>&lt;v)x=(v+<span class="number">19</span>)/<span class="number">20</span>;</div><div class="line">            x-=V[i];</div><div class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>)x=<span class="number">0</span>;<span class="comment">//说明i这个人本身的票数就能让id拿不到lim+1的席位。</span></div><div class="line">            <span class="keyword">if</span>(x&gt;rest)<span class="keyword">break</span>;</div><div class="line">            <span class="keyword">if</span>(j&gt;=lef)<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=j;k&lt;=m;k++)chk(dp[cur^<span class="number">1</span>][k],dp[cur][k-j]+(<span class="keyword">int</span>)x);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=m;j++)chk(dp[cur^<span class="number">1</span>][j],dp[cur][j]);</div><div class="line">        cur^=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=id+<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="built_in">memset</span>(dp[cur^<span class="number">1</span>],<span class="number">63</span>,<span class="keyword">sizeof</span> dp[cur^<span class="number">1</span>]);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</div><div class="line">            ll x=<span class="number">1l</span>l*V[id]*j/(lim+<span class="number">1</span>);</div><div class="line">            <span class="keyword">while</span>(<span class="number">1l</span>l*V[id]*j&gt;=<span class="number">1l</span>l*x*(lim+<span class="number">1</span>))++x;</div><div class="line">            <span class="keyword">if</span>(x*<span class="number">20</span>&lt;v)x=(v+<span class="number">19</span>)/<span class="number">20</span>;</div><div class="line">            x-=V[i];</div><div class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>)x=<span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span>(x&gt;rest)<span class="keyword">break</span>;</div><div class="line">            <span class="keyword">if</span>(j&gt;=lef)<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=j;k&lt;=m;k++)chk(dp[cur^<span class="number">1</span>][k],dp[cur][k-j]+(<span class="keyword">int</span>)x);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=m;j++)chk(dp[cur^<span class="number">1</span>][j],dp[cur][j]);</div><div class="line">        cur^=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=m;i&gt;=<span class="number">0</span>;i--)chk(dp[cur][i],dp[cur][i+<span class="number">1</span>]);</div><div class="line">    <span class="keyword">return</span> dp[cur][lef]&lt;=rest;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;v,&amp;n,&amp;m);</div><div class="line">    rest=v;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;V[i]),rest-=V[i];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">printf</span>(<span class="string">"%d "</span>,MAX(i));</div><div class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="number">20l</span>l*V[i]&lt;v)<span class="built_in">printf</span>(<span class="string">"0 "</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">int</span> L=<span class="number">0</span>,R=m,ans=<span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span>(L&lt;=R)&#123;</div><div class="line">                <span class="keyword">int</span> md=L+R&gt;&gt;<span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span>(MIN(md,i))ans=md,R=md<span class="number">-1</span>;</div><div class="line">                <span class="keyword">else</span> L=md+<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,ans);</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="D、数位相乘——COCI-2007-2008-Final"><a href="#D、数位相乘——COCI-2007-2008-Final" class="headerlink" title="D、数位相乘——COCI 2007/2008 Final"></a>D、数位相乘——COCI 2007/2008 Final</h2><p>关键字：搜索</p>
+<p>【分析】</p>
+<p>​    首先我们来观察一下$f(x)$这个函数的组成，是一个大数和许多1~9的数的乘积。那个大数不太好下手，那么我们就从那些1~9的数入手。</p>
+<p>​    切入点：<strong>从容易的入手。</strong></p>
+<p>​    我们可以用dfs暴力枚举每个数出现的次数，算出一个乘积sum，然后题目就转化成在[L/sum,R/sum]中有多少个数满足上述1~9出现的次数。</p>
+<p>​    根据求满足[L,R]区间中出现的某些满足条件的数次个数的惯用套路，应该求出[1,R]的和[1,L-1]这两种情况，然后相减。</p>
+<p>​    有了这个基本的思路，我们就可以开始模拟了。然而会出现（R/sum）的长度与所选的数字的个数不同的情况。这些情况还是比较好处理的，难处理的是长度与数字的个数不同的情况。</p>
+<p>​    <strong>这种情况其实和平常的数位dp的思路差不多。</strong>如果在某一位放的数字小于（R/sum）这位上的数字，那么后面的排列方法可以直接用阶乘算出。如果相同，就递归下去。如果摆出来的数字与（R/sum）完全相同，答案照样加上。</p>
+<p>【代码】<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 20</span></div><div class="line"><span class="keyword">int</span> a[M],cnt[<span class="number">10</span>],c[<span class="number">10</span>];</div><div class="line">ll L,R,res,calares;</div><div class="line">ll p[M],ji[M];</div><div class="line"><span class="keyword">int</span> sz;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pf</span><span class="params">(ll x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">10</span>)pf(x/<span class="number">10</span>);</div><div class="line">    <span class="built_in">putchar</span>(x%<span class="number">10</span>^<span class="number">48</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> p)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(p&gt;sz)&#123;</div><div class="line">        calares++;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(cnt[a[p]])&#123;</div><div class="line">        cnt[a[p]]--;</div><div class="line">        solve(p+<span class="number">1</span>);</div><div class="line">        cnt[a[p]]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;a[p];i++)&#123;</div><div class="line">        <span class="keyword">if</span>(!cnt[i])<span class="keyword">continue</span>;</div><div class="line">        cnt[i]--;</div><div class="line">        ll now=ji[sz-p];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">9</span>;j++)now/=ji[cnt[j]];</div><div class="line">        cnt[i]++;</div><div class="line">        calares+=now;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function">ll <span class="title">cala</span><span class="params">(<span class="keyword">int</span> len,ll num)</span></span>&#123;</div><div class="line">    sz=calares=<span class="number">0</span>;</div><div class="line">    ll q=num;</div><div class="line">    <span class="keyword">while</span>(q)&#123;</div><div class="line">        a[++sz]=q%<span class="number">10</span>;</div><div class="line">        q/=<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    reverse(a+<span class="number">1</span>,a+sz+<span class="number">1</span>);</div><div class="line">    <span class="keyword">if</span>(sz&lt;len)<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(sz&gt;len)&#123;</div><div class="line">        calares=ji[len];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)calares/=ji[cnt[i]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)c[i]=cnt[i];</div><div class="line">        solve(<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> calares;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur,<span class="keyword">int</span> len,ll num,<span class="keyword">bool</span> f)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(len&amp;&amp;p[len<span class="number">-1</span>]*num&gt;R||cur&gt;<span class="number">9</span>||len&gt;<span class="number">18</span>)<span class="keyword">return</span>;</div><div class="line">    <span class="keyword">if</span>(f)&#123;</div><div class="line">        ll r=R/num;</div><div class="line">        ll l=(L<span class="number">-1</span>)/num;</div><div class="line">        res+=cala(len,r)-cala(len,l);</div><div class="line">    &#125;</div><div class="line">    cnt[cur]++;</div><div class="line">    dfs(cur,len+<span class="number">1</span>,num*cur,<span class="number">1</span>);</div><div class="line">    cnt[cur]--;</div><div class="line">    dfs(cur+<span class="number">1</span>,len,num,<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld %lld"</span>,&amp;L,&amp;R);</div><div class="line">    p[<span class="number">0</span>]=ji[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">18</span>;i++)&#123;</div><div class="line">        p[i]=p[i<span class="number">-1</span>]*<span class="number">10</span>;</div><div class="line">        ji[i]=ji[i<span class="number">-1</span>]*i;</div><div class="line">    &#125;</div><div class="line">    dfs(<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>);</div><div class="line">    pf(res);</div><div class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/2017/07/29/20170705练习赛/" id="art-left" class="art-right">
+                <span class="next-title">
+                    20170705练习赛<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/2017/07/29/20170702练习赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170702练习赛
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>
