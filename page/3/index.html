@@ -153,54 +153,6 @@
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
-                <a href="/2017/07/29/20170709训练赛/">20170709训练赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：怀疑人生</p>
-<h2 id="A、破解古代锁——COCI2009-2010-Contest-5-C"><a href="#A、破解古代锁——COCI2009-2010-Contest-5-C" class="headerlink" title="A、破解古代锁——COCI2009/2010 Contest#5 C"></a>A、破解古代锁——COCI2009/2010 Contest#5 C</h2><p>【分析】</p>
-<p>​    这道题没有一A，想到自己思维上的漏洞就感觉整个人都不好了。</p>
-<h2 id="B、祖玛——COCI2009-2010-Contest-5-D"><a href="#B、祖玛——COCI2009-2010-Contest-5-D" class="headerlink" title="B、祖玛——COCI2009/2010 Contest#5 D"></a>B、祖玛——COCI2009/2010 Contest#5 D</h2><p>关键字：区间dp</p>
-<p>【分析】</p>
-<p>​    我感觉好久没有写dp了，看见题目都没有主动地往dp上考虑。</p>
-<p>​    决策！</p>
-<p>​    粗略模拟一下，发现应该没有什么好的贪心策略。那该怎么做？还有dp！</p>
-<p>​    要怎么定义dp数组呢？</p>
-<p>​    状态！</p>
-<p>​    由于这是一个区间性的dp，当然有l和r。</p>
-<p>​    还有吗？想一想，我们为什么能先求出两个区间的答案，然后合并。必然是两个区间前后有关联！</p>
-<p>​    题解是将中间一块消去，然后首尾相连接、合并，所以要记录前一个区间相同的个数给下一个区间。<br>所以：</p>
-<p>​    定义dp[i][j][x]表示消除区间[i,j]且i左边有x个a[l]相同的元素，最少需要插入多少个元素</p>
-<p>​    答题思路应该是：</p>
-<p>​    如何决策？——&gt;不能贪心——&gt;试试用dp来决策，而且是区间型的dp——&gt;有哪些状态——&gt;思考区间如何合并——&gt;定义dp</p>
-<p>【代码】<br>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170709训练赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
                 <a href="/2017/07/29/20170707训练赛/">20170707训练赛</a>
             
             </h1>
@@ -592,10 +544,45 @@
     
 
     
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/07/29/hello-world/">Hello World</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
 </section>
     
     <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/page/2/">< 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页 ></a>
+        <a class="extend prev" rel="prev" href="/page/2/">< 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
 
 
