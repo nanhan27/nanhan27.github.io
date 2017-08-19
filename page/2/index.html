@@ -149,6 +149,85 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月4日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/04/2017 Multi-University Training Contest 4/">2017 Multi-University Training Contest 4</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="1004、Dirt-Ratio"><a href="#1004、Dirt-Ratio" class="headerlink" title="1004、Dirt Ratio"></a>1004、Dirt Ratio</h2><p>关键字：二分、线段树</p>
+<p>【分析】</p>
+<p>​    一看题目，当然是二分。但是，怎么判。二分什么，答案？不同的个数？区间的长度？</p>
+<p>​    老师也说，这题就算想到二分也不一定能写，再也没有以前那么简单的题目了。</p>
+<p>​    题解的做法就是二分答案。</p>
+<p>​    根据$\dfrac {size\left( l,r\right) } {r-l+1}\leq lim$，我们可以将式子化简一下：$size\left( l,r\right)+l<em>lim\leq(r+1)</em>lim$。</p>
+<p>​    我们枚举一个r，然后就是在最区间寻找一个$size\left( l,r\right)+l*lim$的最小值。这里可以用线段树进行区间查询。</p>
+<p>​    最麻烦的是这个$size(l,r)$了。首先我们知道同一种颜色对左区间的size的影响是取决于上一次出现这种颜色的位置，在这个区间中的size是会增加的。这个同样可以用线段树解决。至于那个奇怪的$l*lim$，我们可以在建树的时候直接塞进去。</p>
+<p>​    那么复杂度就是$O(Tn\log n)$了。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/04/2017 Multi-University Training Contest 4/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月2日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/02/20170731训练赛/">20170731训练赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：是不是要放假了我就变得聪明一点了。</p>
+<h2 id="A、射气球——COCI2015-2016-Contest-1-C"><a href="#A、射气球——COCI2015-2016-Contest-1-C" class="headerlink" title="A、射气球——COCI2015/2016 Contest#1 C"></a>A、射气球——COCI2015/2016 Contest#1 C</h2><p>关键字：贪心</p>
+<p>【分析】</p>
+<p>一道简单的贪心题。（<del>关键是我写过</del>）对于一个新的气球，最好是之前有一只相同高度的箭，如果没有就需要新的。所以只需要一个记录次数的数组。</p>
+<h2 id="B、棋盘2——COCI2015-2016-Contest-1-D"><a href="#B、棋盘2——COCI2015-2016-Contest-1-D" class="headerlink" title="B、棋盘2——COCI2015/2016 Contest#1 D"></a>B、棋盘2——COCI2015/2016 Contest#1 D</h2><p>【分析】</p>
+<p>一个棋子影响一行和一列，修改一个棋子也就是改变两行和两列。因为注意到n的范围比较大，所以用map来维护每一行和每一列此时的异或和。如果修改这个点，那原先对答案的东西减掉，这里比较麻烦，思路不清晰就要调很久……</p>
+<p>需要将原先的这一行与其他列的所形成的不等于0的个数减掉。同理，原先的列也需要减掉。注意，题目说这个点是不能攻击到自己的位置，所以这里还需要特判一下。</p>
+<p>删除是这样的，添加也是同理了。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/02/20170731训练赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月2日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -175,7 +254,6 @@
 <p>​    对于每一个上限，我们都能预处理出它的左限和右限在哪。而且我们发现，上限越小，那么它的左限会越大，右限会越小，都具有单调性。也就是说，可供选择的范围会越小。</p>
 <p>​    到这里还有点小问题，如何求出所有矩形的种数。答案是$C<em>{n}^{2}\times C</em>{m}^{2}$。</p>
 <p>​    我们可以用$hang[i][j]、l[i]、r[i]$来预处理出所有的信息。这里放上代码和注释：</p>
-<p>【代码】<br>
                     
             
         
@@ -305,7 +383,6 @@
 <p>由于x1<em>a+y1</em>b=gcd，所以</p>
 <p>x1=y0</p>
 <p>y1=x0-y0*a/b</p>
-<p>这里附上代码：<br>
                     
             
         
@@ -413,7 +490,6 @@
 <p>故$\Delta x&lt;\frac{n-1}9$ 若已知$\Delta x$ ，那么接下来枚举每个$x_a$，可以知道$x_b-x_a$的对数$(cnt[x_a+2\Delta x])$， 同时$x_c&gt;x_a+8\Delta x$</p>
 <p>此时$x_c,x_d$的对数，即$x_c,x_c+\Delta x$可以前缀优化,$[x_a+8\Delta x+1,n]$范围内的$\sum cnt[x_c]*cnt[x_c+\Delta x]$，</p>
 <p>考虑$x_a$的上限，当$x_d=n$时，$x_c=n-\Delta x$，此时令$x_c=x_a+8\Delta x+1$，即$n-\Delta x=x_a+8\Delta x+1$，$x_a=n-9\Delta x-1$</p>
-<p>【代码】<br>
                     
             
         
@@ -472,100 +548,10 @@
     
 
     
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170711训练赛/">20170711训练赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：没关系，有进步就行。</p>
-<h2 id="A、信息加密——COCI2009-2010-Contest-6-C"><a href="#A、信息加密——COCI2009-2010-Contest-6-C" class="headerlink" title="A、信息加密——COCI2009/2010 Contest#6 C"></a>A、信息加密——COCI2009/2010 Contest#6 C</h2><p>得分：100（最好：100）</p>
-<p>【分析】</p>
-<p>一道奇怪的模拟题，我都不太确定自己是否看懂了题目，然后就A了。</p>
-<h2 id="B、灯光背景——COCI2009-2010-Contest-6-D"><a href="#B、灯光背景——COCI2009-2010-Contest-6-D" class="headerlink" title="B、灯光背景——COCI2009/2010 Contest#6 D"></a>B、灯光背景——COCI2009/2010 Contest#6 D</h2><p>关键字：几何，YY</p>
-<p>得分：0（最好：100）<br>【分析】</p>
-<p>一开始是想将所有重叠部分的三角形处理出来，然后各自统计被覆盖的次数的，但，实现起来逻辑并不会很清晰，短时间是敲不出来的。</p>
-<p>后来，思索良久，就考虑用类似扫描线的方法来做：对于每一行，我们可以将第一个方格的左下角看成1，第一个方格的右下角看成2，哪呢，这就变成了一个区间被覆盖的次数的问题。然后思路就很顺利地指向了刷漆！然后因为边界的问题没有考虑清楚，以及常数太大的问题，所以炸了。</p>
-<p>赛后我手动unique，就过了。虽然比赛的时候没有A掉，排名在倒数的位置，但是自己的想法被肯定的感觉还是不错的。</p>
-<p>正解用到了容斥，听的是一知半解（而且A掉的人都说这是暴力找规律出来的，赛场上这种东西的未知性太大了）。</p>
-<p>【代码】<br>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170711训练赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170709训练赛/">20170709训练赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：怀疑人生</p>
-<h2 id="A、破解古代锁——COCI2009-2010-Contest-5-C"><a href="#A、破解古代锁——COCI2009-2010-Contest-5-C" class="headerlink" title="A、破解古代锁——COCI2009/2010 Contest#5 C"></a>A、破解古代锁——COCI2009/2010 Contest#5 C</h2><p>【分析】</p>
-<p>​    这道题没有一A，想到自己思维上的漏洞就感觉整个人都不好了。</p>
-<h2 id="B、祖玛——COCI2009-2010-Contest-5-D"><a href="#B、祖玛——COCI2009-2010-Contest-5-D" class="headerlink" title="B、祖玛——COCI2009/2010 Contest#5 D"></a>B、祖玛——COCI2009/2010 Contest#5 D</h2><p>关键字：区间dp</p>
-<p>【分析】</p>
-<p>​    我感觉好久没有写dp了，看见题目都没有主动地往dp上考虑。</p>
-<p>​    决策！</p>
-<p>​    粗略模拟一下，发现应该没有什么好的贪心策略。那该怎么做？还有dp！</p>
-<p>​    要怎么定义dp数组呢？</p>
-<p>​    状态！</p>
-<p>​    由于这是一个区间性的dp，当然有l和r。</p>
-<p>​    还有吗？想一想，我们为什么能先求出两个区间的答案，然后合并。必然是两个区间前后有关联！</p>
-<p>​    题解是将中间一块消去，然后首尾相连接、合并，所以要记录前一个区间相同的个数给下一个区间。<br>所以：</p>
-<p>​    定义dp[i][j][x]表示消除区间[i,j]且i左边有x个a[l]相同的元素，最少需要插入多少个元素</p>
-<p>​    答题思路应该是：</p>
-<p>​    如何决策？——&gt;不能贪心——&gt;试试用dp来决策，而且是区间型的dp——&gt;有哪些状态——&gt;思考区间如何合并——&gt;定义dp</p>
-<p>【代码】<br>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170709训练赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
 </section>
     
     <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/">< 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 ></a>
+        <a class="extend prev" rel="prev" href="/">< 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页 ></a>
     </nav>
 
 

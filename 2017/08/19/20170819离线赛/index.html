@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 20170814离线赛 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月19日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170814离线赛
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="A、LOVE"><a href="#A、LOVE" class="headerlink" title="A、LOVE"></a>A、LOVE</h2><p>关键字：前缀和、高精</p>
+<p>Task</p>
+<p>在一个字符串中，按照顺序选出四个字母，组成LOVE，有多少种方案。</p>
+<p>【分析】</p>
+<p>这道题比较正常，写法还是比较多样的。</p>
+<p>那么用前缀的想法，可以算出当前的O以及之前的O组成LO的方案，当前的V以及之前组成$LOV​$的方案，对于一个E，就能计算出LOVE的方案了。</p>
+<p>但是我在比赛的时候知道100%的数据会爆long long，为了省麻烦，就将long long换成了double！完全没有考虑double的有效位数只有16位。</p>
+<p>【反思】</p>
+<p>考试就是那更多的分数，不要怕麻烦。</p>
+<p>【总结】</p>
+<p>double的有效精度只有16位！</p>
+<p>double的有效精度只有16位！</p>
+<p>double的有效精度只有16位！</p>
+<h2 id="B、毕加猪"><a href="#B、毕加猪" class="headerlink" title="B、毕加猪"></a>B、毕加猪</h2><p>关键字：图论，有负权的最短路</p>
+<p>Task</p>
+<p>在有向图中，是否存在一条路径，使得从起点到终点的权值和小于等于T。</p>
+<p>【分析】</p>
+<p>比较容易想到需要找到负环。只要起点能到达某个负环，并且这个负环能到达终点，那么就能按时到达。但是当时脑子一片空白，完全不会。</p>
+<p>之前当然是知道有些最短路的算法能够处理边权有负的情况，但是真的很少用$Bellmen\ Ford$、$SPFA$去处理，甚至连用$Floyd$判断是否存在负环都很模糊。</p>
+<p>比赛的时候就稀里糊涂地用$tarjan$先缩了个点，然后在每个强连通中判断每个强连通中有没有负环。如果没有负环就直接$Floyd$，如果有的话，再重新建边，将连向负环的边权设为负无穷，然后$Floyd$。</p>
+<p>然而正解只需要用$Floyd$找出某一个点是否在负环上，且这个点与起点和终点是联通的就行了。</p>
+<p>【反思】</p>
+<p>1、对经典的算法不重视，以为只要掌握$Dijkstra$和$Floyd$就够用了。</p>
+<p>2、只需要判断是否存在某个负环，与起点和终点相连通，而我却在知道有没有负环后重新建图，对我所求得目标不明确，思路不清晰。</p>
+<p>【总结】</p>
+<p>$Floyd$判断是否存在负环只需要判断$dis[i][i]$是否小于0。</p>
+<p>$SPFA$判断是否存在负环只需要一个点进入队列的次数是否大于$n-1$。</p>
+<p>$Bellmen\ Ford$与$SPFA$类似，判断在在更新$n-1$次后判断每条边是否还能让路径两端的点的距离继续减小。</p>
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) cout&lt;&lt;#x&lt;&lt;<span class="meta-string">" = "</span>&lt;&lt;x&lt;&lt;endl;</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> oo 1e18</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 3005</span></div><div class="line"><span class="keyword">int</span> n,m,ti,cas;</div><div class="line">ll d[M][M];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cas);</div><div class="line">    <span class="keyword">while</span>(cas--)&#123;</div><div class="line">        <span class="keyword">int</span> p,q;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;n,&amp;m,&amp;ti);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)d[i][k]=oo;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,u,v,c;i&lt;=m;i++)&#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;u,&amp;v,&amp;c);</div><div class="line">            d[u][v]=min(d[u][v],<span class="number">1l</span>l*c);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;p,&amp;q);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)&#123;</div><div class="line">                    d[j][k]=min(d[j][k],d[j][i]+d[i][k]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(d[p][q]+ti&lt;=<span class="number">0</span>||d[q][p]+ti&lt;=<span class="number">0</span>)<span class="built_in">puts</span>(<span class="string">"yes"</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">bool</span> ok=<span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n&amp;&amp;ok;i++)&#123;</div><div class="line">                <span class="keyword">if</span>(d[i][i]&lt;<span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">if</span>(d[p][i]!=oo&amp;&amp;d[i][q]!=oo||d[q][i]!=oo&amp;&amp;d[i][p]!=oo)ok=<span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(ok)<span class="built_in">puts</span>(<span class="string">"no"</span>);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"yes"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="C、k倍数字——-UOJ140"><a href="#C、k倍数字——-UOJ140" class="headerlink" title="C、k倍数字——$UOJ140$"></a>C、k倍数字——$UOJ140$</h2><p>关键字：数位$dp$</p>
+<p>Task</p>
+<p>给定两个数字R和k，求满足下列条件的x个数。</p>
+<p>1、满足1≤x≤R</p>
+<p>2、定义函数f(x) 为 x 的各位数字之和，例如f(13)=4,f(233)=8。满足 f(x)=f(k·x)</p>
+<p>【分析】</p>
+<p>数位$dp$应该很好想到，关键是哪些状态需要存在下标上才能进行转移。</p>
+<p>通常的数位$dp$应该是从高位往低位的，但是因为这道题目如果从高位往低，那么转移就比较麻烦，所以选择从低往高。对于每一位，我们要添加一个数字，那么此时的各位数字之和是能够转移过来的。但是这些信息并不能直接算出$k·x$的各位数字之和。</p>
+<p>我在网上大概搜了一下，$dp$下标存的大概有这些东西：数位和、数位和模后的结果、是否进位、进位所少、前一位是多少、是否已经满足了约束条件、有无前导零和是否严格小于上限等等。经验要慢慢积累，但是知道这些起码有一些方向可以去尝试。</p>
+<p>至于这道题，我们记录当前这个数的数位和、这个数$<em>K$后的数位和，这个数$</em>K$后的数位和所产生的进位是多少。</p>
+<p>那么就可以转移了：</p>
+<p>$dp[i+1][sum+ch][sum1+(ch<em>K+r)10][(ch</em>K+r)/10]=dp[i][sum][sum1][r]$</p>
+<p>由于还要考虑当前数字是否严格小于上限R，所以还需要一维p记录状态。</p>
+<p>但是这样空间会炸，所以我们不能将两个sum同时记录下来了，我们将两个sum的差d记录在$dp$上。</p>
+<p>【反思】</p>
+<p>暴力炸了就真的没有救了。</p>
+<p>【总结】</p>
+<p>数位$dp$的下标存的状态与前面已经枚举的数位有关并且通常是根据约束条件当前枚举的这一位能使得状态<strong>完整</strong>(比如一个状态涉及到连续k位，那么就保存前k-1的状态，当前枚举的第k个是个恰好凑成成一个完整的状态，不过像状态是数位的和就直接保存前缀和为状态了)</p>
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">ll dp[<span class="number">25</span>][<span class="number">410</span>][<span class="number">1010</span>][<span class="number">2</span>];</div><div class="line"><span class="keyword">char</span> s[<span class="number">25</span>];</div><div class="line"><span class="keyword">int</span> K,n;</div><div class="line">ll R;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld %d"</span>,&amp;R,&amp;K);</div><div class="line">    <span class="keyword">while</span>(R)s[++n]=R%<span class="number">10</span>,R/=<span class="number">10</span>;</div><div class="line">    dp[<span class="number">0</span>][<span class="number">200</span>][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n+<span class="number">2</span>;i++)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> d=<span class="number">0</span>;d&lt;=<span class="number">400</span>;d++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> now=<span class="number">0</span>;now&lt;<span class="number">2</span>;now++)&#123;</div><div class="line">                    <span class="keyword">if</span>(!dp[i][d][j][now])<span class="keyword">continue</span>;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> ch=<span class="number">0</span>;ch&lt;<span class="number">10</span>;ch++)&#123;</div><div class="line">                        <span class="keyword">int</span> nxt;</div><div class="line">                        <span class="keyword">if</span>(s[i+<span class="number">1</span>]&gt;ch)nxt=<span class="number">0</span>;</div><div class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(s[i+<span class="number">1</span>]&lt;ch)nxt=<span class="number">1</span>;</div><div class="line">                        <span class="keyword">else</span> nxt=now;</div><div class="line">                        <span class="keyword">int</span> nj=(K*ch+j)/<span class="number">10</span>;</div><div class="line">                        <span class="keyword">int</span> nd=d+ch-(K*ch+j)%<span class="number">10</span>;</div><div class="line">                        dp[i+<span class="number">1</span>][nd][nj][nxt]+=dp[i][d][j][now];</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,dp[n+<span class="number">3</span>][<span class="number">200</span>][<span class="number">0</span>][<span class="number">0</span>]<span class="number">-1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+        
+            <a href="/2017/08/18/数位dp模板/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>数位$dp$模板
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>

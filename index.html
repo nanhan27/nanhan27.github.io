@@ -149,6 +149,114 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月19日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/19/20170819离线赛/">20170814离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、LOVE"><a href="#A、LOVE" class="headerlink" title="A、LOVE"></a>A、LOVE</h2><p>关键字：前缀和、高精</p>
+<p>Task</p>
+<p>在一个字符串中，按照顺序选出四个字母，组成LOVE，有多少种方案。</p>
+<p>【分析】</p>
+<p>这道题比较正常，写法还是比较多样的。</p>
+<p>那么用前缀的想法，可以算出当前的O以及之前的O组成LO的方案，当前的V以及之前组成$LOV​$的方案，对于一个E，就能计算出LOVE的方案了。</p>
+<p>但是我在比赛的时候知道100%的数据会爆long long，为了省麻烦，就将long long换成了double！完全没有考虑double的有效位数只有16位。</p>
+<p>【反思】</p>
+<p>考试就是那更多的分数，不要怕麻烦。</p>
+<p>【总结】</p>
+<p>double的有效精度只有16位！</p>
+<p>double的有效精度只有16位！</p>
+<p>double的有效精度只有16位！</p>
+<h2 id="B、毕加猪"><a href="#B、毕加猪" class="headerlink" title="B、毕加猪"></a>B、毕加猪</h2><p>关键字：图论，有负权的最短路</p>
+<p>Task</p>
+<p>在有向图中，是否存在一条路径，使得从起点到终点的权值和小于等于T。</p>
+<p>【分析】</p>
+<p>比较容易想到需要找到负环。只要起点能到达某个负环，并且这个负环能到达终点，那么就能按时到达。但是当时脑子一片空白，完全不会。</p>
+<p>之前当然是知道有些最短路的算法能够处理边权有负的情况，但是真的很少用$Bellmen\ Ford$、$SPFA$去处理，甚至连用$Floyd$判断是否存在负环都很模糊。</p>
+<p>比赛的时候就稀里糊涂地用$tarjan$先缩了个点，然后在每个强连通中判断每个强连通中有没有负环。如果没有负环就直接$Floyd$，如果有的话，再重新建边，将连向负环的边权设为负无穷，然后$Floyd$。</p>
+<p>然而正解只需要用$Floyd$找出某一个点是否在负环上，且这个点与起点和终点是联通的就行了。</p>
+<p>【反思】</p>
+<p>1、对经典的算法不重视，以为只要掌握$Dijkstra$和$Floyd$就够用了。</p>
+<p>2、只需要判断是否存在某个负环，与起点和终点相连通，而我却在知道有没有负环后重新建图，对我所求得目标不明确，思路不清晰。</p>
+<p>【总结】</p>
+<p>$Floyd$判断是否存在负环只需要判断$dis[i][i]$是否小于0。</p>
+<p>$SPFA$判断是否存在负环只需要一个点进入队列的次数是否大于$n-1$。</p>
+<p>$Bellmen\ Ford$与$SPFA$类似，判断在在更新$n-1$次后判断每条边是否还能让路径两端的点的距离继续减小。</p>
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) cout&lt;&lt;#x&lt;&lt;<span class="meta-string">" = "</span>&lt;&lt;x&lt;&lt;endl;</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> oo 1e18</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 3005</span></div><div class="line"><span class="keyword">int</span> n,m,ti,cas;</div><div class="line">ll d[M][M];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cas);</div><div class="line">    <span class="keyword">while</span>(cas--)&#123;</div><div class="line">        <span class="keyword">int</span> p,q;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;n,&amp;m,&amp;ti);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)d[i][k]=oo;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,u,v,c;i&lt;=m;i++)&#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;u,&amp;v,&amp;c);</div><div class="line">            d[u][v]=min(d[u][v],<span class="number">1l</span>l*c);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;p,&amp;q);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)&#123;</div><div class="line">                    d[j][k]=min(d[j][k],d[j][i]+d[i][k]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(d[p][q]+ti&lt;=<span class="number">0</span>||d[q][p]+ti&lt;=<span class="number">0</span>)<span class="built_in">puts</span>(<span class="string">"yes"</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">bool</span> ok=<span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n&amp;&amp;ok;i++)&#123;</div><div class="line">                <span class="keyword">if</span>(d[i][i]&lt;<span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">if</span>(d[p][i]!=oo&amp;&amp;d[i][q]!=oo||d[q][i]!=oo&amp;&amp;d[i][p]!=oo)ok=<span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(ok)<span class="built_in">puts</span>(<span class="string">"no"</span>);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"yes"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="C、k倍数字——-UOJ140"><a href="#C、k倍数字——-UOJ140" class="headerlink" title="C、k倍数字——$UOJ140$"></a>C、k倍数字——$UOJ140$</h2><p>关键字：数位$dp$</p>
+<p>Task</p>
+<p>给定两个数字R和k，求满足下列条件的x个数。</p>
+<p>1、满足1≤x≤R</p>
+<p>2、定义函数f(x) 为 x 的各位数字之和，例如f(13)=4,f(233)=8。满足 f(x)=f(k·x)</p>
+<p>【分析】</p>
+<p>数位$dp$应该很好想到，关键是哪些状态需要存在下标上才能进行转移。</p>
+<p>通常的数位$dp$应该是从高位往低位的，但是因为这道题目如果从高位往低，那么转移就比较麻烦，所以选择从低往高。对于每一位，我们要添加一个数字，那么此时的各位数字之和是能够转移过来的。但是这些信息并不能直接算出$k·x$的各位数字之和。</p>
+<p>我在网上大概搜了一下，$dp$下标存的大概有这些东西：数位和、数位和模后的结果、是否进位、进位所少、前一位是多少、是否已经满足了约束条件、有无前导零和是否严格小于上限等等。经验要慢慢积累，但是知道这些起码有一些方向可以去尝试。</p>
+<p>至于这道题，我们记录当前这个数的数位和、这个数$<em>K$后的数位和，这个数$</em>K$后的数位和所产生的进位是多少。</p>
+<p>那么就可以转移了：</p>
+<p>$dp[i+1][sum+ch][sum1+(ch<em>K+r)10][(ch</em>K+r)/10]=dp[i][sum][sum1][r]$</p>
+<p>由于还要考虑当前数字是否严格小于上限R，所以还需要一维p记录状态。</p>
+<p>但是这样空间会炸，所以我们不能将两个sum同时记录下来了，我们将两个sum的差d记录在$dp$上。</p>
+<p>【反思】</p>
+<p>暴力炸了就真的没有救了。</p>
+<p>【总结】</p>
+<p>数位$dp$的下标存的状态与前面已经枚举的数位有关并且通常是根据约束条件当前枚举的这一位能使得状态<strong>完整</strong>(比如一个状态涉及到连续k位，那么就保存前k-1的状态，当前枚举的第k个是个恰好凑成成一个完整的状态，不过像状态是数位的和就直接保存前缀和为状态了)</p>
+<p>【代码】</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">ll dp[<span class="number">25</span>][<span class="number">410</span>][<span class="number">1010</span>][<span class="number">2</span>];</div><div class="line"><span class="keyword">char</span> s[<span class="number">25</span>];</div><div class="line"><span class="keyword">int</span> K,n;</div><div class="line">ll R;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld %d"</span>,&amp;R,&amp;K);</div><div class="line">    <span class="keyword">while</span>(R)s[++n]=R%<span class="number">10</span>,R/=<span class="number">10</span>;</div><div class="line">    dp[<span class="number">0</span>][<span class="number">200</span>][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n+<span class="number">2</span>;i++)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> d=<span class="number">0</span>;d&lt;=<span class="number">400</span>;d++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> now=<span class="number">0</span>;now&lt;<span class="number">2</span>;now++)&#123;</div><div class="line">                    <span class="keyword">if</span>(!dp[i][d][j][now])<span class="keyword">continue</span>;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> ch=<span class="number">0</span>;ch&lt;<span class="number">10</span>;ch++)&#123;</div><div class="line">                        <span class="keyword">int</span> nxt;</div><div class="line">                        <span class="keyword">if</span>(s[i+<span class="number">1</span>]&gt;ch)nxt=<span class="number">0</span>;</div><div class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(s[i+<span class="number">1</span>]&lt;ch)nxt=<span class="number">1</span>;</div><div class="line">                        <span class="keyword">else</span> nxt=now;</div><div class="line">                        <span class="keyword">int</span> nj=(K*ch+j)/<span class="number">10</span>;</div><div class="line">                        <span class="keyword">int</span> nd=d+ch-(K*ch+j)%<span class="number">10</span>;</div><div class="line">                        dp[i+<span class="number">1</span>][nd][nj][nxt]+=dp[i][d][j][now];</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,dp[n+<span class="number">3</span>][<span class="number">200</span>][<span class="number">0</span>][<span class="number">0</span>]<span class="number">-1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月18日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/18/数位dp模板/">数位$dp$模板</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>由于百度之星复赛那道数位$dp​$的爆炸，我发现我写数位$dp​$的记搜版本并没有什么套路，重新写一道题就要重新去考虑哪些细节该怎样设计，这样会花费我大量的时间，所以我在这里放一份较为通用的模板，供自己参考。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/18/数位dp模板/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月17日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -171,7 +279,6 @@
 <p>【算法流程】</p>
 <p>1、将含有大于$\sqrt {n}$的质因数的数先处理。</p>
 <p>2、处理只含小于$\sqrt {n}$的质因数并且本身不含有平方因子的数。</p>
-<p>【代码】<br>
                     
             
         
@@ -281,7 +388,6 @@
 <p>1、顺序字符串排序，建$Trie$树，更新节点的信息。询问的前缀查询区间$[x1,x2]$。</p>
 <p>2、逆序字符串做相同操作。</p>
 <p>3、将插入和询问操作按长度从大到小排序，进行$CDQ$分治，BIT维护。</p>
-<p>【代码】<br>
                     
             
         
@@ -415,7 +521,6 @@
 <p>最后只需要用前缀的思想求出以某个点作为不相交的点，左边最长的链和右边最长的链就好了。总的复杂度是$O(n)$。</p>
 <p>【总结】</p>
 <p>1、从暴力入手，高于暴力。</p>
-<p>【代码】<br>
                     
             
         
@@ -465,7 +570,6 @@
 <p>至于那个乘积模$1e9+7$，道理是一样的。</p>
 <p>还有一个注意点，因为有模，所以记录乘积的那个数组不能先将原数除了后再乘上新的数，需要乘上逆元才行。</p>
 <p>比赛的时候没有写高精，因为总觉得强一点的数据会直接卡高精，这样一卡，其实也就没有比暴力多多少分了，所以就没有动力去敲高精了。</p>
-<p>【代码】<br>
                     
             
         
@@ -511,7 +615,6 @@
 <p>所以我们选择倒着枚举j，这样一定是对的，而且边转移边维护min的信息，将复杂度优化到$O(nm)$了。</p>
 <p>因为题目的空间只能开3200万的数组，所以纵使这样优秀的$O(nm)$的时间复杂度也只有80分。</p>
 <p>我们注意到，每次只会从当前的i的前m个元素中转移，所以dp数组的第一维对于当前转移有很大的部分是无效的，之后更是没有用。所以我们将dp数组滚动起来。每次滚动2000次。</p>
-<p>【代码】<br>
                     
             
         
@@ -527,91 +630,10 @@
     
 
     
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月4日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/04/2017 Multi-University Training Contest 4/">2017 Multi-University Training Contest 4</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <h2 id="1004、Dirt-Ratio"><a href="#1004、Dirt-Ratio" class="headerlink" title="1004、Dirt Ratio"></a>1004、Dirt Ratio</h2><p>关键字：二分、线段树</p>
-<p>【分析】</p>
-<p>​    一看题目，当然是二分。但是，怎么判。二分什么，答案？不同的个数？区间的长度？</p>
-<p>​    老师也说，这题就算想到二分也不一定能写，再也没有以前那么简单的题目了。</p>
-<p>​    题解的做法就是二分答案。</p>
-<p>​    根据$\dfrac {size\left( l,r\right) } {r-l+1}\leq lim$，我们可以将式子化简一下：$size\left( l,r\right)+l<em>lim\leq(r+1)</em>lim$。</p>
-<p>​    我们枚举一个r，然后就是在最区间寻找一个$size\left( l,r\right)+l*lim$的最小值。这里可以用线段树进行区间查询。</p>
-<p>​    最麻烦的是这个$size(l,r)$了。首先我们知道同一种颜色对左区间的size的影响是取决于上一次出现这种颜色的位置，在这个区间中的size是会增加的。这个同样可以用线段树解决。至于那个奇怪的$l*lim$，我们可以在建树的时候直接塞进去。</p>
-<p>​    那么复杂度就是$O(Tn\log n)$了。</p>
-<p>【代码】<br>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/08/04/2017 Multi-University Training Contest 4/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月2日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/02/20170731训练赛/">20170731训练赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：是不是要放假了我就变得聪明一点了。</p>
-<h2 id="A、射气球——COCI2015-2016-Contest-1-C"><a href="#A、射气球——COCI2015-2016-Contest-1-C" class="headerlink" title="A、射气球——COCI2015/2016 Contest#1 C"></a>A、射气球——COCI2015/2016 Contest#1 C</h2><p>关键字：贪心</p>
-<p>【分析】</p>
-<p>一道简单的贪心题。（<del>关键是我写过</del>）对于一个新的气球，最好是之前有一只相同高度的箭，如果没有就需要新的。所以只需要一个记录次数的数组。</p>
-<h2 id="B、棋盘2——COCI2015-2016-Contest-1-D"><a href="#B、棋盘2——COCI2015-2016-Contest-1-D" class="headerlink" title="B、棋盘2——COCI2015/2016 Contest#1 D"></a>B、棋盘2——COCI2015/2016 Contest#1 D</h2><p>【分析】</p>
-<p>一个棋子影响一行和一列，修改一个棋子也就是改变两行和两列。因为注意到n的范围比较大，所以用map来维护每一行和每一列此时的异或和。如果修改这个点，那原先对答案的东西减掉，这里比较麻烦，思路不清晰就要调很久……</p>
-<p>需要将原先的这一行与其他列的所形成的不等于0的个数减掉。同理，原先的列也需要减掉。注意，题目说这个点是不能攻击到自己的位置，所以这里还需要特判一下。</p>
-<p>删除是这样的，添加也是同理了。</p>
-<p>【代码】<br>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/08/02/20170731训练赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
 </section>
     
     <nav class="pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 ></a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 ></a>
     </nav>
 
 
