@@ -153,6 +153,49 @@
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
+                <a href="/2017/07/29/20170712训练赛/">20170712训练赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：感觉又活了过来</p>
+<h2 id="A、时空隧道——COCI2009-2010-Contest-7-D"><a href="#A、时空隧道——COCI2009-2010-Contest-7-D" class="headerlink" title="A、时空隧道——COCI2009/2010 Contest#7 D"></a>A、时空隧道——COCI2009/2010 Contest#7 D</h2><p>关键字：图论、最小生成树</p>
+<p>得分：100</p>
+<p>【分析】</p>
+<p>n个点，需要n-1条边将它们连起来，要求代价最小。这些关键的信息让我直接想到了最小生成树。因为对Kruskal比较熟悉，所以就按这种方法想了。</p>
+<p>首先是建边。由于n的范围是[1,$10^5$],难道我们要将$n*n/2$条边全部塞进去吗？显然不现实。那么我就开始想，到底哪些边可能有用，哪些边一定没用。</p>
+<p>假如我们将所有的点按x从小到大排序，那么我们共有三个点，假如第一个点和第三个点通过x连边，那么代价是$|xi-xk|$，而且还有将第二个点加入，所以代价大于等于$|xi-xk|$。如果第一个点先和第二个点连，第二个点和第三个点连，那么代价就是$|xi-xk|$。所以对于x排序，第一个点与第三个点用x连边是一定没用的。所以，同理。</p>
+<p>1、按x排序，相邻两点建边</p>
+<p>2、按y、z重复1的操作</p>
+<p>3、Kruskal的最小生成树</p>
+<h2 id="B、进击的乘客——COCI2009-2010-Contest-7-C"><a href="#B、进击的乘客——COCI2009-2010-Contest-7-C" class="headerlink" title="B、进击的乘客——COCI2009/2010 Contest#7 C"></a>B、进击的乘客——COCI2009/2010 Contest#7 C</h2><p>关键字：模拟</p>
+<p>得分：100</p>
+<p>【分析】</p>
+<p>这道题真没什么好讲的，全程模拟，没有任何算法。</p>
+<h2 id="C、对弈——COCI2009-2010-Contest-7-E"><a href="#C、对弈——COCI2009-2010-Contest-7-E" class="headerlink" title="C、对弈——COCI2009/2010 Contest#7 E"></a>C、对弈——COCI2009/2010 Contest#7 E</h2><p>关键字：几何、数学、dp</p>
+<p>得分：30（最好：50）</p>
+<p>【分析】</p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
                 <a href="/2017/07/29/20170711训练赛/">20170711训练赛</a>
             
             </h1>
@@ -530,54 +573,6 @@
         
             <p class="content-link">
                 <a href="/2017/07/29/20170606组队赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170605训练赛/">20170605训练赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：这场比赛总体做的还是比较好的。A、B、D题一A，C题没有过掉说明我在分析数据上的能力还有所欠缺，而现在的NOIP很注重这方面的能力。</p>
-<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：决策贪心</p>
-<p>【分析】</p>
-<p>​    这道题的解法多样，有暴力模拟，前缀和，线段树和单调栈。</p>
-<p>​    而我自己先写的是前缀和，即记录$sum[10][M]$，我们先从$[1,k+1]$中寻找一个最大的，位置为i，然后删去$[1,i-1]$，k-=（i-1）。接下来就在$[i+1,i+1+k-1]$中一直操作下去。这种算法的复杂度是$O(10n)$。</p>
-<p>​    后来又写了一种单调栈的写法。</p>
-<p>​    切入点：我们每一次所做的决策，其实就是如果k还存在，那么判这个数是否要保留的依据就是，它是否比后一个数要大。这样才能保证答案最大。</p>
-<p><strong>深入考虑，看清本质，寻找答案。</strong></p>
-<h2 id="B、栅栏——COCI2011-2012-Contest-4-D"><a href="#B、栅栏——COCI2011-2012-Contest-4-D" class="headerlink" title="B、栅栏——COCI2011/2012 Contest#4 D"></a>B、栅栏——COCI2011/2012 Contest#4 D</h2><p>关键字：贪心，终态分析</p>
-<p>【分析】</p>
-<p>​    题目比较好理解。看得出，输入的第一个数组a的作用只是显示相对大小的。</p>
-<p>​    切入点：我们先考虑一下最后的答案是怎么组成的。</p>
-<p>​    如果一个数x要小于左右两个数，那么ans应该$ans-=2*x$，我们既然要答案最大，那么x应该尽量的小。</p>
-<p>​    如果一个数x要大于左右两个数，那么ans应该$ans+=2*x$，我们既然要答案最大，那么x应该尽量的大。</p>
-<p>​    那么我们就先让b数组从小到大插入，先处理都小于的情况，在处理一大一小的情况，最后处理均大于的情况。</p>
-<p>​    其实我们可以用一个数组s来存该位置的大小情况，-1表示小于。那么最后只需要将s进行排序处理就好了。</p>
-<p>​    这道题给我一些启示，贪心并不是所谓的灵光一现才能想出来的，前提是你要清楚每一次选择到底会对答案有怎样的贡献，如果发现了规律，那么<strong>贪心</strong>也就不是贪心了，而是基于规律上的模拟。所以，想事情要向本质探索，而不能流于题目给的字面意思。</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170605训练赛/#more">
                     <span class="iconfont icon-right">继续阅读</span>
                 </a>
             </p>

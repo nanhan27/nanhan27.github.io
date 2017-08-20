@@ -153,6 +153,54 @@
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
+                <a href="/2017/07/29/20170605训练赛/">20170605训练赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：这场比赛总体做的还是比较好的。A、B、D题一A，C题没有过掉说明我在分析数据上的能力还有所欠缺，而现在的NOIP很注重这方面的能力。</p>
+<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：决策贪心</p>
+<p>【分析】</p>
+<p>​    这道题的解法多样，有暴力模拟，前缀和，线段树和单调栈。</p>
+<p>​    而我自己先写的是前缀和，即记录$sum[10][M]$，我们先从$[1,k+1]$中寻找一个最大的，位置为i，然后删去$[1,i-1]$，k-=（i-1）。接下来就在$[i+1,i+1+k-1]$中一直操作下去。这种算法的复杂度是$O(10n)$。</p>
+<p>​    后来又写了一种单调栈的写法。</p>
+<p>​    切入点：我们每一次所做的决策，其实就是如果k还存在，那么判这个数是否要保留的依据就是，它是否比后一个数要大。这样才能保证答案最大。</p>
+<p><strong>深入考虑，看清本质，寻找答案。</strong></p>
+<h2 id="B、栅栏——COCI2011-2012-Contest-4-D"><a href="#B、栅栏——COCI2011-2012-Contest-4-D" class="headerlink" title="B、栅栏——COCI2011/2012 Contest#4 D"></a>B、栅栏——COCI2011/2012 Contest#4 D</h2><p>关键字：贪心，终态分析</p>
+<p>【分析】</p>
+<p>​    题目比较好理解。看得出，输入的第一个数组a的作用只是显示相对大小的。</p>
+<p>​    切入点：我们先考虑一下最后的答案是怎么组成的。</p>
+<p>​    如果一个数x要小于左右两个数，那么ans应该$ans-=2*x$，我们既然要答案最大，那么x应该尽量的小。</p>
+<p>​    如果一个数x要大于左右两个数，那么ans应该$ans+=2*x$，我们既然要答案最大，那么x应该尽量的大。</p>
+<p>​    那么我们就先让b数组从小到大插入，先处理都小于的情况，在处理一大一小的情况，最后处理均大于的情况。</p>
+<p>​    其实我们可以用一个数组s来存该位置的大小情况，-1表示小于。那么最后只需要将s进行排序处理就好了。</p>
+<p>​    这道题给我一些启示，贪心并不是所谓的灵光一现才能想出来的，前提是你要清楚每一次选择到底会对答案有怎样的贡献，如果发现了规律，那么<strong>贪心</strong>也就不是贪心了，而是基于规律上的模拟。所以，想事情要向本质探索，而不能流于题目给的字面意思。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/07/29/20170605训练赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
                 <a href="/2017/07/29/2017 Multi-University Training Contest 1/">2017 Multi-University Training Contest 1</a>
             
             </h1>

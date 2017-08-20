@@ -149,6 +149,51 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月6日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/06/20170805离线赛/">20170805离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、文件解压"><a href="#A、文件解压" class="headerlink" title="A、文件解压"></a>A、文件解压</h2><p>关键字：括号匹配</p>
+<p>【分析】</p>
+<p>这道题作为第一题还是比较良心的。既比较好想到，代码又不是很长，可以让人进入状态。</p>
+<p>首先是括号匹配，先预处理出每个左括号对应的右括号，然后直接从一个完整的字符串dfs下去。</p>
+<h2 id="B、球染色——SGU183"><a href="#B、球染色——SGU183" class="headerlink" title="B、球染色——SGU183"></a>B、球染色——SGU183</h2><p>关键字：dp优化</p>
+<p>【分析】</p>
+<p>首先因为至少需要两个黑球，所以我们可以定义：$dp[i][j]$表示将i和j的位置染成黑色的最小花费。（i在前，j在后）</p>
+<p>对于一个i，我们枚举一个j，所以j的范围是$[i+1,i+m-1]$，那么$dp[i][j]$应该从哪里转移过来呢？</p>
+<p>首先既然要在j的位置染色，就说明j-1在j没有染色时时满足连续m个至少有两个黑球的，所以既然要建j，就应该从$[j-1-m+1,i)$那里转移过来。</p>
+<p>所以：$dp[i][j]=min(dp[k][i])+c<a href="k\in[j-m,i-1]">j</a>$。我们先来看看如何将上述dp从$O(n*m^2)$优化到$O(nm)$。</p>
+<p>我们注意到如果正着枚举j的话，可转移的$dp[k][i]$会越来越少。也就是说每当j+1，对min有所贡献的$dp[k][i]$会减少一个，这样我们就需要重新用$O(m)$的复杂度维护min的信息。</p>
+<p>所以我们选择倒着枚举j，这样一定是对的，而且边转移边维护min的信息，将复杂度优化到$O(nm)$了。</p>
+<p>因为题目的空间只能开3200万的数组，所以纵使这样优秀的$O(nm)$的时间复杂度也只有80分。</p>
+<p>我们注意到，每次只会从当前的i的前m个元素中转移，所以dp数组的第一维对于当前转移有很大的部分是无效的，之后更是没有用。所以我们将dp数组滚动起来。每次滚动2000次。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/06/20170805离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月4日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -498,49 +543,6 @@
                     <span class="iconfont icon-right">继续阅读</span>
                 </a>
             </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170712训练赛/">20170712训练赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：感觉又活了过来</p>
-<h2 id="A、时空隧道——COCI2009-2010-Contest-7-D"><a href="#A、时空隧道——COCI2009-2010-Contest-7-D" class="headerlink" title="A、时空隧道——COCI2009/2010 Contest#7 D"></a>A、时空隧道——COCI2009/2010 Contest#7 D</h2><p>关键字：图论、最小生成树</p>
-<p>得分：100</p>
-<p>【分析】</p>
-<p>n个点，需要n-1条边将它们连起来，要求代价最小。这些关键的信息让我直接想到了最小生成树。因为对Kruskal比较熟悉，所以就按这种方法想了。</p>
-<p>首先是建边。由于n的范围是[1,$10^5$],难道我们要将$n*n/2$条边全部塞进去吗？显然不现实。那么我就开始想，到底哪些边可能有用，哪些边一定没用。</p>
-<p>假如我们将所有的点按x从小到大排序，那么我们共有三个点，假如第一个点和第三个点通过x连边，那么代价是$|xi-xk|$，而且还有将第二个点加入，所以代价大于等于$|xi-xk|$。如果第一个点先和第二个点连，第二个点和第三个点连，那么代价就是$|xi-xk|$。所以对于x排序，第一个点与第三个点用x连边是一定没用的。所以，同理。</p>
-<p>1、按x排序，相邻两点建边</p>
-<p>2、按y、z重复1的操作</p>
-<p>3、Kruskal的最小生成树</p>
-<h2 id="B、进击的乘客——COCI2009-2010-Contest-7-C"><a href="#B、进击的乘客——COCI2009-2010-Contest-7-C" class="headerlink" title="B、进击的乘客——COCI2009/2010 Contest#7 C"></a>B、进击的乘客——COCI2009/2010 Contest#7 C</h2><p>关键字：模拟</p>
-<p>得分：100</p>
-<p>【分析】</p>
-<p>这道题真没什么好讲的，全程模拟，没有任何算法。</p>
-<h2 id="C、对弈——COCI2009-2010-Contest-7-E"><a href="#C、对弈——COCI2009-2010-Contest-7-E" class="headerlink" title="C、对弈——COCI2009/2010 Contest#7 E"></a>C、对弈——COCI2009/2010 Contest#7 E</h2><p>关键字：几何、数学、dp</p>
-<p>得分：30（最好：50）</p>
-<p>【分析】</p>
-
-                
-            
         
         </div>
         

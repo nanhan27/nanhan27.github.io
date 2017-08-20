@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>
-  
-    目录 · nanhan27's Blog
-  
-</title>
+    <title> 差分约束系统 · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -143,207 +139,59 @@
         <main class="main" id="main">
             
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 33 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月20日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                差分约束系统
+            
+            </h1>
             
                 
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2017 </h2>
-                    
-                
             
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-06
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/06/20170805离线赛/">20170805离线赛</a>
-                </span>
-            </li>
+                <p>首先这个东西能够解决类似下面的问题（每两个未知数中用减号连接，且要是整数解）：</p>
+<p>若：</p>
+<p>$x1-x2 \leq 5$</p>
+<p>$x2-x3\geq10$</p>
+<p>$x4-x3 \leq 10$</p>
+<p>问$x1$与$x4$的最大（小）差是多少。</p>
+<p>注意到求解的过程和求最短路的过程本质上是一样的，我们可以用Bellman_Ford或$SPFA$。</p>
+<p>如果保证有解（即不会产生负环），那么可以用最短路的其他方法求解。</p>
+<p>关键是怎么建边。</p>
+<p>我设计的套路就是先将不等号统一方向，然后<strong>减数</strong>指向<strong>被减数</strong>，边权是不等号右边的值。</p>
+<p>还有一个需要注意的，如何判断到底要跑最短路还是最长路。这个不能死记硬背，因为时间一长会忘的，只需要记住判断的方法。</p>
+<p>像$x1-x2 \leq 5$，首先是2指向1，边权为5。将不等式化简得到$x1 \leq x2+5$就能知道$x1$的距离会比$x2$的距离加上这条边的权值小，所以要跑最短路。</p>
+<p>如果$x1-x2 \geq 5$，也按照这样分析，能够得出要跑最大路。</p>
 
+            
         
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-04
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/04/2017 Multi-University Training Contest 4/">2017 Multi-University Training Contest 4</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-02
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/02/20170731训练赛/">20170731训练赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-02
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/02/2017 Multi-University Training Contest 2/">2017 Multi-University Training Contest 2</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    07-31
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/07/31/20170729离线赛/">20170729离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    07-29
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/07/29/矩阵乘法小结/">矩阵乘法小结</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    07-29
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/07/29/扩展欧几里得算法小小小结/">扩展欧几里得算法小小小结</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    07-29
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/07/29/后缀数组模板/">后缀数组模板</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    07-29
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/07/29/dp的常用方法/">dp的常用方法</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    07-29
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/07/29/20170715离线赛/">20170715离线赛</a>
-                </span>
-            </li>
-
-        
-            </ul>
         </div>
-    </div>
+        
+            
+            
+        
+    </article>
     
-    <nav class="pagination">
-        <a class="extend prev" rel="prev" href="/archives/">< 上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/">下一页 ></a>
+        
+    <nav class="article-page">
+        
+        
+            <a href="/2017/08/19/20170819离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170814离线赛
+                </span>
+            </a>
+        
     </nav>
 
+        
+    
 
 
         </main>
@@ -413,6 +261,8 @@ $(document).ready(function(){
 })
 </script>
     </div>
+    
+        
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>
