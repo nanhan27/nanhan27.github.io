@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>
-  
-    目录 · nanhan27's Blog
-  
-</title>
+    <title> 20170825离线赛 · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -143,207 +139,68 @@
         <main class="main" id="main">
             
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 36 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月25日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170825离线赛
+            
+            </h1>
             
                 
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2017 </h2>
-                    
-                
             
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-25
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/25/20170825离线赛/">20170825离线赛</a>
-                </span>
-            </li>
+                <h2 id="A、金子——-CCPC"><a href="#A、金子——-CCPC" class="headerlink" title="A、金子——$CCPC$"></a>A、金子——$CCPC$</h2><p>关键字：$dp$</p>
+<p>【分析】</p>
+<p>做过，不过看了下这次的做法和上次的做法不一样，而且觉得这次的四维$dp$比上次的状态思路更加清晰和直接，还是挺开心的。</p>
+<p>定义$dp[cur][i][j][k]$表示此时用了i的长度，左边是否被用了，右边是否被用了。这样转移很容易。</p>
+<p>而且让总长度和需要的长度都乘2，就能解决一些奇怪的情况了。</p>
+<h2 id="B、货物运输"><a href="#B、货物运输" class="headerlink" title="B、货物运输"></a>B、货物运输</h2><p>关键字：并查集</p>
+<p>【分析】</p>
+<p>这道题可能是最近那么多模拟赛B题中最水的一道了……</p>
+<p>开始看错题目，看不懂题目中的加油是个什么意思。等我写完最短路暴力发现过不了最后一个样例的时候才发现好像看错题目了……</p>
+<p>对于一个油箱容量C，只有距离小于等于C的边能加入到图中。那么我们先按照容量从小到大排序，对于一个新的容量，原来已添加的边不会改变，而能添加更多的边。所以我们可以先将边按距离从小到大排序。那么每次加边就只需要将边两端的集合并在一起，再重新计算答案，这个可以用并查集完成。</p>
+<h2 id="C、数组游戏"><a href="#C、数组游戏" class="headerlink" title="C、数组游戏"></a>C、数组游戏</h2><p>【分析】</p>
+<p>首先因为Yes和No打错了，暴力就$GG$了……</p>
+<p>当然是道博弈题，但关键是每个状态的子问题是什么。</p>
+<p>若此时有一个黑棋，如果有个人翻了这个黑棋是必胜策略，那么下一个人也能再翻这个棋子。因此，如果考虑最优的情况，是没有一方会去翻黑棋。那么题目就转化成：<strong>存在若干白点，然后将所有点翻转成黑点，先全部翻转的为胜。</strong></p>
+<p>那么我们将每个点看成一个子问题，把所有点的$SG$异或起来就好了。</p>
+<p>可以得到：</p>
+<p>$SG(i)=mex(SG[i<em>1] ⊕ SG[i</em>2]⊕…⊕SG[i*k])(k \in [2,N/i])$</p>
+<p>有了这条式子，70分就到手了。</p>
+<p>因为n的范围太大了， 我们考虑将n进行分块。</p>
+<p>然后有一个结论：若$\lfloor\frac{n}{i}\rfloor=\lfloor\frac{n}{j}\rfloor$,则$SG[i]=SG[j]$，所以$SG$函数的取值只有$\sqrt n$种，然后就可以将$SG$值相同的情况合并在一起，数组就开的下了。</p>
+<p>【反思】</p>
+<p>不看清题目，把Yes和No都看错，就算写出正解也没用。</p>
 
+            
         
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/23/20170821离线赛/">20170821离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-22
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/22/20170820离线赛/">20170820离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-20
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/20/差分约束系统/">差分约束系统</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-19
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/19/20170819离线赛/">20170814离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-18
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/18/数位dp模板/">数位$dp$模板</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-17
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/17/2017 Multi-University Training Contest 7/">2017 Multi-University Training Contest 7</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-16
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/16/20170814离线赛/">20170814离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-13
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/13/2017 Multi-University Training Contest 6/">2017 Multi-University Training Contest 6</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-12
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/12/20170811离线赛/">20170811离线赛</a>
-                </span>
-            </li>
-
-        
-            </ul>
         </div>
-    </div>
+        
+            
+            
+        
+    </article>
     
-    <nav class="pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 ></a>
+        
+    <nav class="article-page">
+        
+        
+            <a href="/2017/08/23/20170821离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170821离线赛
+                </span>
+            </a>
+        
     </nav>
 
+        
+    
 
 
         </main>
@@ -413,6 +270,8 @@ $(document).ready(function(){
 })
 </script>
     </div>
+    
+        
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>

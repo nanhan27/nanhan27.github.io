@@ -149,6 +149,148 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月25日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/25/20170825离线赛/">20170825离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、金子——-CCPC"><a href="#A、金子——-CCPC" class="headerlink" title="A、金子——$CCPC$"></a>A、金子——$CCPC$</h2><p>关键字：$dp$</p>
+<p>【分析】</p>
+<p>做过，不过看了下这次的做法和上次的做法不一样，而且觉得这次的四维$dp$比上次的状态思路更加清晰和直接，还是挺开心的。</p>
+<p>定义$dp[cur][i][j][k]$表示此时用了i的长度，左边是否被用了，右边是否被用了。这样转移很容易。</p>
+<p>而且让总长度和需要的长度都乘2，就能解决一些奇怪的情况了。</p>
+<h2 id="B、货物运输"><a href="#B、货物运输" class="headerlink" title="B、货物运输"></a>B、货物运输</h2><p>关键字：并查集</p>
+<p>【分析】</p>
+<p>这道题可能是最近那么多模拟赛B题中最水的一道了……</p>
+<p>开始看错题目，看不懂题目中的加油是个什么意思。等我写完最短路暴力发现过不了最后一个样例的时候才发现好像看错题目了……</p>
+<p>对于一个油箱容量C，只有距离小于等于C的边能加入到图中。那么我们先按照容量从小到大排序，对于一个新的容量，原来已添加的边不会改变，而能添加更多的边。所以我们可以先将边按距离从小到大排序。那么每次加边就只需要将边两端的集合并在一起，再重新计算答案，这个可以用并查集完成。</p>
+<h2 id="C、数组游戏"><a href="#C、数组游戏" class="headerlink" title="C、数组游戏"></a>C、数组游戏</h2><p>【分析】</p>
+<p>首先因为Yes和No打错了，暴力就$GG$了……</p>
+<p>当然是道博弈题，但关键是每个状态的子问题是什么。</p>
+<p>若此时有一个黑棋，如果有个人翻了这个黑棋是必胜策略，那么下一个人也能再翻这个棋子。因此，如果考虑最优的情况，是没有一方会去翻黑棋。那么题目就转化成：<strong>存在若干白点，然后将所有点翻转成黑点，先全部翻转的为胜。</strong></p>
+<p>那么我们将每个点看成一个子问题，把所有点的$SG$异或起来就好了。</p>
+<p>可以得到：</p>
+<p>$SG(i)=mex(SG[i<em>1] ⊕ SG[i</em>2]⊕…⊕SG[i*k])(k \in [2,N/i])$</p>
+<p>有了这条式子，70分就到手了。</p>
+<p>因为n的范围太大了， 我们考虑将n进行分块。</p>
+<p>然后有一个结论：若$\lfloor\frac{n}{i}\rfloor=\lfloor\frac{n}{j}\rfloor$,则$SG[i]=SG[j]$，所以$SG$函数的取值只有$\sqrt n$种，然后就可以将$SG$值相同的情况合并在一起，数组就开的下了。</p>
+<p>【反思】</p>
+<p>不看清题目，把Yes和No都看错，就算写出正解也没用。</p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月23日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/23/20170821离线赛/">20170821离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、猴子拆房"><a href="#A、猴子拆房" class="headerlink" title="A、猴子拆房"></a>A、猴子拆房</h2><p>关键字：终态枚举</p>
+<p>【分析】</p>
+<p>枚举一个最后的最高高度h，那么大于h的一定要拆掉，小于h的个数数也要比等于h的个数少。我们先让高度有序，预处理出若h为最高高度，需要拆掉大于h的花费，然后从低到高枚举，每次在一棵权值线段树查询前k小的花费的总和，然后把这个点也更新到线段树上就好了。</p>
+<p>关键的是，花费的范围很小，只有500，建线段树实在是比较傻，直接计数就好了。（<del>虽然跑得比线段树慢得多</del>）</p>
+<p>【反思】</p>
+<p>敲代码的时候应该多注意一下一些特殊的数据范围，像这题的花费范围很小，如果没有注意到，不仅要写线段树浪费时间，调试的时间肯定会比计数排序的要多。</p>
+<h2 id="B、消防——-SDOI2011"><a href="#B、消防——-SDOI2011" class="headerlink" title="B、消防——$SDOI2011$"></a>B、消防——$SDOI2011$</h2><p>关键字：树的直径、二分、尺取</p>
+<p>【分析】</p>
+<p>先说一下小分怎么切。</p>
+<p>第一档直接暴力就行了。</p>
+<p>第二档的$O(n^2\log n)$还是比较好想的，关键是被卡了……二分一个答案，枚举一个起点，以它作为根建树。因为我们要的是一条路径，使得，每个点到达路径上的点的最大距离小于等于$lim$，所以算出它的花费，再和给定的S进行比较。</p>
+<p>第二档还有个$O(n^2)$的做法，枚举起点作为根，用树形$dp$算出每个点子树中最大的距离的儿子、次大的。然后再一次$dfs$就能直接计算这种情况下的答案了，最后都更新一遍答案就好了。</p>
+<p>至于正解，就是树的直径+尺取+$multiset$。但是因为比赛的时候时间分配的问题，敲完这题第二档，然后去敲<del>SB</del>的第三题的暴力，写了很久，导致我没有时间去写这个一开始就想到的正解了……</p>
+<p>我们发现最后的那条路径的起点和终点一定会在直径上，所以对于一条路径，维护起点之前的最大距离，终点之后的最大距离，以及这条路径上的最大距离。</p>
+<p>【反思】</p>
+<p>比赛时间的分配是一个大问题。</p>
+<h2 id="C、游戏——-SDOI2016"><a href="#C、游戏——-SDOI2016" class="headerlink" title="C、游戏——$SDOI2016$"></a>C、游戏——$SDOI2016$</h2><p>关键字：李超线段树</p>
+<p>【分析】</p>
+<p>先树剖，将树转化成链。讲题目中的dis进行一些变形和转化，就能得到新的a和b，题目就转化成求一个区间中若干条直线y=a*x+b的最小值了。</p>
+<p>然后用一个名叫超哥线段树的东西解决。只要知道在这棵奇怪的树上存的东西的意义是什么就好了：在一个区间中，a和b代表的这条直线对于至少一半的区间中的x，在所有直线中的y是最小值。</p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月22日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/22/20170820离线赛/">20170820离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、打地鼠——-SDOI-2011"><a href="#A、打地鼠——-SDOI-2011" class="headerlink" title="A、打地鼠——$SDOI$2011"></a>A、打地鼠——$SDOI$2011</h2><p>关键字：二维差分前缀和、剪枝</p>
+<p>【分析】</p>
+<p>这道题暴力$O(n^6)$+可行性剪枝+最优性剪枝在没有那种特别的卡人数据的情况下是可以过的（关键是这种数据很难造）。</p>
+<p><strong>剪枝</strong>：</p>
+<p>可行性剪枝：若锤子的规格为$r<em>c$，因为题目要求每次一定会锤去$r</em>c$值地鼠，所以锤的次数为$sum/(r*c)$，且要求需要整除。那么也需要满足$sum \% r=0$，$sum \% c=0$了。</p>
+<p>最优性剪枝：在满足可行的情况下，如果$sum/(r<em>c) \ge ans$（当前已求出），那么无论是否能够实现，这个$r</em>c$已经对答案没有意义了，我们也就不用$O(n^4)$在去判断了。</p>
+<p>讲一下用$O(n^4)$判断。因为我们不知道该按照怎样的顺序开始锤，所以我们从边界开始考虑。对于（1,1）这个点，被锤的方式只有一种。当（1,1）被锤后，（1,2）这个点被锤的方式也是唯一的。所以for过来就好了。</p>
+<p>接下来讲一下正解：</p>
+<p>这题就是之前写过的一维的刷漆的升级。</p>
+<p>对于r和c，处理一个点（i，j），需要将一个矩阵都减少这个点的地鼠个数v。那么只需要将点（i+r，j）加上v，点（i，j+c）加上v，（i+r,j+c）减去v就好了。这样就可以$O(n^2)$判断是否可行了。最后的复杂度是$O(n^4)$，当然实际复杂度要远小于它，因为有上面两个很强的剪枝，尤其是那个可行性剪枝。</p>
+<p>【反思】</p>
+<p>比赛的时候直接敲了$O(n^6)$+剪枝，而且自己出了个大数据，发现快的飞起，就能感觉出那两个剪枝很强，就放心的写后面的题目了。现在想想，做得很对。</p>
+<p>【总结】</p>
+<p>1、可行性剪枝和最优性剪枝在搜索题中应用很广，但是需要注意那些预估函数自身的复杂度是否能够代替被减去搜索部分，不然得不偿失。</p>
+<p>2、二维差分前缀和这个工具虽然并不是太常见，但还是能够从已有的知识迁移过来的，需要一点想法。</p>
+<h2 id="B、乐乐的栈游戏——-COCI-2014-2015-Contest-3-E"><a href="#B、乐乐的栈游戏——-COCI-2014-2015-Contest-3-E" class="headerlink" title="B、乐乐的栈游戏——$COCI$2014/2015 Contest#3 E"></a>B、乐乐的栈游戏——$COCI$2014/2015 Contest#3 E</h2><p>【分析】</p>
+<p>比赛的时候完全没有思路，因为单纯地在“栈”这个基础上思考，完全没有将这个“栈”往树上思考。</p>
+<p>因为考试常规的思路就那么几个，之前肯定做过类似的题目。如果往树上一想，就会发现1操作和在树上新建一个节点的过程十分类似，2操作也是一样。那么这道题就是一道模拟题了，就没有了。</p>
+<p>【反思】</p>
+<p>题目虽然会比较奇怪，但是思路是我们熟悉的思路。之前有一道<strong>函数返回值</strong>的题目，题目本身也是比较奇怪的，但你如果发现相互的约束条件是树形的结构，那么这道题就做出来一半了。</p>
+<p>【总结】</p>
+<p>看到奇怪的题目没有思路，多去往熟悉的模型上思考，把相似的知识点都活跃起来。</p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月20日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -489,134 +631,6 @@
 
                 
             
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月11日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/11/网络流模板/">网络流模板</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>虽然说网络流的题目最重要的是建边，但是这里还是放一份模板比较好，免得以后忘了有麻烦。<br>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/08/11/网络流模板/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月10日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/10/20170809离线赛/">20170809离线赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <h2 id="A、01完美矩阵"><a href="#A、01完美矩阵" class="headerlink" title="A、01完美矩阵"></a>A、01完美矩阵</h2><p>关键字：前缀和</p>
-<p>【分析】</p>
-<p>首先$O(n^4)$的暴力应该不难想。写的好的人就过了，写不好就自认倒霉。</p>
-<p>首先还是枚举，不过我们先枚举两行作为边框的行，对于列我们$O(m)$扫过来。这样的思路还是十分常见的。</p>
-<p>对于一列有两种情况。</p>
-<p>如果是全1，那么它就能作为矩形的右边框，那我们就需要知道之前有多少列能够作为左边框。我们将元素看成1和-1来处理前缀和，那么对于当前列的前缀和sum，我们需要知道之前有多少前缀为sum-1、sum、sum+1的情况。</p>
-<p>如果不是，那么之前记录的前缀信息就没有意义了，所以需要清除掉。</p>
-<p>【总结】</p>
-<p>1、枚举，思考能否枚举+贪心。</p>
-<h2 id="B、维修道路——codeforces"><a href="#B、维修道路——codeforces" class="headerlink" title="B、维修道路——codeforces"></a>B、维修道路——codeforces</h2><p>关键字：图论、树的直径</p>
-<p>【分析】</p>
-<p>比赛时我先想到枚举一个点作为不相交的那个点，然后用树形$dp$求出子树内最长的链和子树外最长的链，再更新答案。那么只需要正反各来一遍$dfs$就能完成。复杂度就是$O(n^2)$。</p>
-<p>因为想到树的直径的求法好像也是正反一遍$dfs$，于是就想到先将树的直径抽出，然后在这个直径上操作。</p>
-<p>最后只需要用前缀的思想求出以某个点作为不相交的点，左边最长的链和右边最长的链就好了。总的复杂度是$O(n)$。</p>
-<p>【总结】</p>
-<p>1、从暴力入手，高于暴力。</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/08/10/20170809离线赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月9日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/09/20170807离线赛/">20170807离线赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <h2 id="A、务农政策——Codechef-JAN17"><a href="#A、务农政策——Codechef-JAN17" class="headerlink" title="A、务农政策——Codechef JAN17"></a>A、务农政策——Codechef JAN17</h2><p>关键字：单调队列</p>
-<p>【分析】</p>
-<p>题目的模型比较简单，转化成二维找最大值的问题。</p>
-<p>个人认为这道题与上次考过的<strong>插队</strong>很像。那道题是一维的，而这个是二维的，如何降维呢？我们先考虑将每一行的形如$[j,j+b-1]$的最大值用单调队列预处理出来。这个只需要先循环行再循环列就能做到。这样我们就将一个区间变成了一个点。</p>
-<p>接下来再先枚举列，再枚举行，每次操作只需要将不满足当前行数的元素删除，再将当前行、当前列的最大值塞入单调队列并更新答案就好了。</p>
-<p>所以最后的复杂度就是$O(Tnm)$。</p>
-<h2 id="B、刷副本——Codechef-JUNE16"><a href="#B、刷副本——Codechef-JUNE16" class="headerlink" title="B、刷副本——Codechef JUNE16"></a>B、刷副本——Codechef JUNE16</h2><p>关键字：数学</p>
-<p>【分析】</p>
-<p>题目的关键就是怎么求乘积的首位！因为只要知道这个，暴力都能拿85分！（<del>虽然是因为数据水</del>）</p>
-<p>我们设最后的乘积是$w$，那么一定能表示成$w=a*10^b$，$a$是一个属于$[1,10)$的实数。那么$w$的首位就是$a$的整数部分。</p>
-<p>这里就有一个比较常见（che dan）的思路了。将乘积用底数函数转化成加和。</p>
-<p>那么$\lg w=\lg a*10^b=b+\lg a$，对于一个$w$，$w=\prod f[i]$，根据数学知识，我们知道$\lg w=\lg f[x]+\lg f[y]+……$</p>
-<p>综合上面两个式子，我们发现$b+\lg a=\lg f[x]+\lg f[y]+……$。而b是整数，a是实数。我们先求出$sumlg$，那么$\lg a=sumlg-(int)sumlg$，用系统的pow函数就可以直接搞出a，那么答案就是a的整数部分。不过这里还需要考虑计算时的精度问题。</p>
-<p>有了上面的数学推理，我们还需要思考题目中的另一个青蛙跳的模型。</p>
-<p>我们考虑修改一个点$i$的值会影响到那些R的答案。应该比较容易想到，会影响到$R=（i-1的因子）$的答案。这样预处理就比较简单了。但需要特殊考虑$i=1$时的情况，因为$i-1=0$且修改1会对所有$R$造成影响，所以我们预处理的$sumlg[r]$中不包括i=1的$\lg F[1]$，只要在最后算答案的时候再加上去就好了。</p>
-<p>至于那个乘积模$1e9+7$，道理是一样的。</p>
-<p>还有一个注意点，因为有模，所以记录乘积的那个数组不能先将原数除了后再乘上新的数，需要乘上逆元才行。</p>
-<p>比赛的时候没有写高精，因为总觉得强一点的数据会直接卡高精，这样一卡，其实也就没有比暴力多多少分了，所以就没有动力去敲高精了。</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/08/09/20170807离线赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
         
         </div>
         

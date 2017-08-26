@@ -149,6 +149,134 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月11日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/11/网络流模板/">网络流模板</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>虽然说网络流的题目最重要的是建边，但是这里还是放一份模板比较好，免得以后忘了有麻烦。<br>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/11/网络流模板/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月10日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/10/20170809离线赛/">20170809离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、01完美矩阵"><a href="#A、01完美矩阵" class="headerlink" title="A、01完美矩阵"></a>A、01完美矩阵</h2><p>关键字：前缀和</p>
+<p>【分析】</p>
+<p>首先$O(n^4)$的暴力应该不难想。写的好的人就过了，写不好就自认倒霉。</p>
+<p>首先还是枚举，不过我们先枚举两行作为边框的行，对于列我们$O(m)$扫过来。这样的思路还是十分常见的。</p>
+<p>对于一列有两种情况。</p>
+<p>如果是全1，那么它就能作为矩形的右边框，那我们就需要知道之前有多少列能够作为左边框。我们将元素看成1和-1来处理前缀和，那么对于当前列的前缀和sum，我们需要知道之前有多少前缀为sum-1、sum、sum+1的情况。</p>
+<p>如果不是，那么之前记录的前缀信息就没有意义了，所以需要清除掉。</p>
+<p>【总结】</p>
+<p>1、枚举，思考能否枚举+贪心。</p>
+<h2 id="B、维修道路——codeforces"><a href="#B、维修道路——codeforces" class="headerlink" title="B、维修道路——codeforces"></a>B、维修道路——codeforces</h2><p>关键字：图论、树的直径</p>
+<p>【分析】</p>
+<p>比赛时我先想到枚举一个点作为不相交的那个点，然后用树形$dp$求出子树内最长的链和子树外最长的链，再更新答案。那么只需要正反各来一遍$dfs$就能完成。复杂度就是$O(n^2)$。</p>
+<p>因为想到树的直径的求法好像也是正反一遍$dfs$，于是就想到先将树的直径抽出，然后在这个直径上操作。</p>
+<p>最后只需要用前缀的思想求出以某个点作为不相交的点，左边最长的链和右边最长的链就好了。总的复杂度是$O(n)$。</p>
+<p>【总结】</p>
+<p>1、从暴力入手，高于暴力。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/10/20170809离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月9日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/09/20170807离线赛/">20170807离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、务农政策——Codechef-JAN17"><a href="#A、务农政策——Codechef-JAN17" class="headerlink" title="A、务农政策——Codechef JAN17"></a>A、务农政策——Codechef JAN17</h2><p>关键字：单调队列</p>
+<p>【分析】</p>
+<p>题目的模型比较简单，转化成二维找最大值的问题。</p>
+<p>个人认为这道题与上次考过的<strong>插队</strong>很像。那道题是一维的，而这个是二维的，如何降维呢？我们先考虑将每一行的形如$[j,j+b-1]$的最大值用单调队列预处理出来。这个只需要先循环行再循环列就能做到。这样我们就将一个区间变成了一个点。</p>
+<p>接下来再先枚举列，再枚举行，每次操作只需要将不满足当前行数的元素删除，再将当前行、当前列的最大值塞入单调队列并更新答案就好了。</p>
+<p>所以最后的复杂度就是$O(Tnm)$。</p>
+<h2 id="B、刷副本——Codechef-JUNE16"><a href="#B、刷副本——Codechef-JUNE16" class="headerlink" title="B、刷副本——Codechef JUNE16"></a>B、刷副本——Codechef JUNE16</h2><p>关键字：数学</p>
+<p>【分析】</p>
+<p>题目的关键就是怎么求乘积的首位！因为只要知道这个，暴力都能拿85分！（<del>虽然是因为数据水</del>）</p>
+<p>我们设最后的乘积是$w$，那么一定能表示成$w=a*10^b$，$a$是一个属于$[1,10)$的实数。那么$w$的首位就是$a$的整数部分。</p>
+<p>这里就有一个比较常见（che dan）的思路了。将乘积用底数函数转化成加和。</p>
+<p>那么$\lg w=\lg a*10^b=b+\lg a$，对于一个$w$，$w=\prod f[i]$，根据数学知识，我们知道$\lg w=\lg f[x]+\lg f[y]+……$</p>
+<p>综合上面两个式子，我们发现$b+\lg a=\lg f[x]+\lg f[y]+……$。而b是整数，a是实数。我们先求出$sumlg$，那么$\lg a=sumlg-(int)sumlg$，用系统的pow函数就可以直接搞出a，那么答案就是a的整数部分。不过这里还需要考虑计算时的精度问题。</p>
+<p>有了上面的数学推理，我们还需要思考题目中的另一个青蛙跳的模型。</p>
+<p>我们考虑修改一个点$i$的值会影响到那些R的答案。应该比较容易想到，会影响到$R=（i-1的因子）$的答案。这样预处理就比较简单了。但需要特殊考虑$i=1$时的情况，因为$i-1=0$且修改1会对所有$R$造成影响，所以我们预处理的$sumlg[r]$中不包括i=1的$\lg F[1]$，只要在最后算答案的时候再加上去就好了。</p>
+<p>至于那个乘积模$1e9+7$，道理是一样的。</p>
+<p>还有一个注意点，因为有模，所以记录乘积的那个数组不能先将原数除了后再乘上新的数，需要乘上逆元才行。</p>
+<p>比赛的时候没有写高精，因为总觉得强一点的数据会直接卡高精，这样一卡，其实也就没有比暴力多多少分了，所以就没有动力去敲高精了。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/09/20170807离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月6日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -433,113 +561,6 @@
         
             <p class="content-link">
                 <a href="/2017/07/29/扩展欧几里得算法小小小结/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/后缀数组模板/">后缀数组模板</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <a id="more"></a>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 200005</span></div><div class="line"><span class="keyword">int</span> rk[M],sa[M],h[M];</div><div class="line"><span class="keyword">int</span> a[M],b[M];</div><div class="line"><span class="keyword">char</span> str[M];</div><div class="line"><span class="keyword">int</span> n,m=<span class="number">26</span>;</div><div class="line"><span class="keyword">int</span> cnt[M];</div><div class="line"><span class="comment">//rk[i]表示在此时谁的的排名为rk[i]</span></div><div class="line"><span class="comment">//sa[i]表示此时排名为i的串是谁 </span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)cnt[i]=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cnt[a[i]=str[i]]++;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)cnt[i]+=cnt[i<span class="number">-1</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)sa[cnt[a[i]]--]=i;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j&lt;&lt;=<span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">int</span> p=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-j+<span class="number">1</span>;i&lt;=n;i++)b[++p]=i;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="keyword">if</span>(sa[i]&gt;j)b[++p]=sa[i]-j;</div><div class="line">         </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)cnt[i]=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cnt[a[i]]++;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)cnt[i]+=cnt[i<span class="number">-1</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)sa[cnt[a[b[i]]]--]=b[i];</div><div class="line">         </div><div class="line">        swap(a,b);</div><div class="line">        a[sa[<span class="number">1</span>]]=p=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(b[sa[i<span class="number">-1</span>]]==b[sa[i]]&amp;&amp;b[sa[i<span class="number">-1</span>]+j]==b[sa[i]+j])a[sa[i]]=p;</div><div class="line">            <span class="keyword">else</span> a[sa[i]]=++p;</div><div class="line">        &#125;</div><div class="line">        m=p;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> k=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)rk[sa[i]]=i;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">int</span> j=sa[rk[i]<span class="number">-1</span>];</div><div class="line">        <span class="keyword">if</span>(k)k--;</div><div class="line">        <span class="keyword">while</span>(i+k&lt;=n&amp;&amp;j+k&lt;=n&amp;&amp;str[i+k]==str[j+k])k++;</div><div class="line">        h[rk[i]]=k;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,str+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(str+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)str[i]+=(-<span class="string">'a'</span>+<span class="number">1</span>);</div><div class="line">    solve();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="built_in">printf</span>(<span class="string">"%d%c"</span>,sa[i]<span class="number">-1</span>,<span class="string">" \n"</span>[i==n]);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)<span class="built_in">printf</span>(<span class="string">"%d%c"</span>,h[i],<span class="string">" \n"</span>[i==n]);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-                
-            
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/dp的常用方法/">dp的常用方法</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>以下是方法， 但是不要局限在这里， 方法是无限的</p>
-<p>（1）模型匹配法：熟练记忆并且理解LIS、LCS、01背包、完全背包、区间模型、树状模型。基本就是将原模型加以变化后加以套用</p>
-<p>（2）三要素法：<br>·······先确定阶段：如数塔问题， 先确定当前选的是第几层。<br>·······先确定状态：这是最常用的绝大多数的DP都是这么做的。<br>·······先确定决策：背包问题（选还是不选第i种物品）<br>这是个经验问题， 然而我还没有这种经验。</p>
-<p>（3）寻找规律法：从小的状态开始推， 耐心找规律， 或者可以在本地暴力打表， 暴力出奇迹。</p>
-<p>（4）边界条件法： 一般边界时容易导出状态关系的地方</p>
-<p>（5）增加约束条件法：这条就对应着上文的消除后效性，以后的博客会有例题</p>
-
-                
-            
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170715离线赛/">20170715离线赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：第一题确实水，没意思。第二题就比较奇怪了，应该没什么算法，所以选择了枚举，到底需要枚举什么才不会超时，这就需要从所给的条件入手。第三题确实是好题（<del>小C是这么说的</del>），是知识点的大综合，里面的算法和数据结构就好像是水到渠成似的，一步步提出问题，一步步解决！</p>
-<h2 id="A、海港——NOIP2016普及组"><a href="#A、海港——NOIP2016普及组" class="headerlink" title="A、海港——NOIP2016普及组"></a>A、海港——NOIP2016普及组</h2><p>关键字：队列</p>
-<p>【分析】</p>
-<p>完全就是一道水题…没什么好讲的。</p>
-<h2 id="B、魔法阵——NOIP2016普及组"><a href="#B、魔法阵——NOIP2016普及组" class="headerlink" title="B、魔法阵——NOIP2016普及组"></a>B、魔法阵——NOIP2016普及组</h2><p>关键字：数学，前缀和</p>
-<p>【分析】</p>
-<p>观察三个条件，分别包含了$x_d-x_c,x_c-x_b,x_b-x_a$，那么其实只要知道$a,b,c,d$中某个值和三个差就可以推出所有的数，一个比较好的想法就是枚举其中某个值然后优化算出其他值。</p>
-<p>令$\Delta x=x_d-x_c$</p>
-<p>则实际上是需要找到可行的对数满足：</p>
-<p>$x_b-x_a=2\Delta x$</p>
-<p>$x_c-x_b&gt;6\Delta x$</p>
-<p>$x_d-x_c=\Delta x$</p>
-<p>——&gt;</p>
-<p>$x_d-x_a&gt;9\Delta x$</p>
-<p>故$\Delta x&lt;\frac{n-1}9$ 若已知$\Delta x$ ，那么接下来枚举每个$x_a$，可以知道$x_b-x_a$的对数$(cnt[x_a+2\Delta x])$， 同时$x_c&gt;x_a+8\Delta x$</p>
-<p>此时$x_c,x_d$的对数，即$x_c,x_c+\Delta x$可以前缀优化,$[x_a+8\Delta x+1,n]$范围内的$\sum cnt[x_c]*cnt[x_c+\Delta x]$，</p>
-<p>考虑$x_a$的上限，当$x_d=n$时，$x_c=n-\Delta x$，此时令$x_c=x_a+8\Delta x+1$，即$n-\Delta x=x_a+8\Delta x+1$，$x_a=n-9\Delta x-1$</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170715离线赛/#more">
                     <span class="iconfont icon-right">继续阅读</span>
                 </a>
             </p>

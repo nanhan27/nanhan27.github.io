@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>
-  
-    目录 · nanhan27's Blog
-  
-</title>
+    <title> 20170821离线赛 · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -143,207 +139,72 @@
         <main class="main" id="main">
             
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 36 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月23日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170821离线赛
+            
+            </h1>
             
                 
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2017 </h2>
-                    
-                
             
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-25
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/25/20170825离线赛/">20170825离线赛</a>
-                </span>
-            </li>
+                <h2 id="A、猴子拆房"><a href="#A、猴子拆房" class="headerlink" title="A、猴子拆房"></a>A、猴子拆房</h2><p>关键字：终态枚举</p>
+<p>【分析】</p>
+<p>枚举一个最后的最高高度h，那么大于h的一定要拆掉，小于h的个数数也要比等于h的个数少。我们先让高度有序，预处理出若h为最高高度，需要拆掉大于h的花费，然后从低到高枚举，每次在一棵权值线段树查询前k小的花费的总和，然后把这个点也更新到线段树上就好了。</p>
+<p>关键的是，花费的范围很小，只有500，建线段树实在是比较傻，直接计数就好了。（<del>虽然跑得比线段树慢得多</del>）</p>
+<p>【反思】</p>
+<p>敲代码的时候应该多注意一下一些特殊的数据范围，像这题的花费范围很小，如果没有注意到，不仅要写线段树浪费时间，调试的时间肯定会比计数排序的要多。</p>
+<h2 id="B、消防——-SDOI2011"><a href="#B、消防——-SDOI2011" class="headerlink" title="B、消防——$SDOI2011$"></a>B、消防——$SDOI2011$</h2><p>关键字：树的直径、二分、尺取</p>
+<p>【分析】</p>
+<p>先说一下小分怎么切。</p>
+<p>第一档直接暴力就行了。</p>
+<p>第二档的$O(n^2\log n)$还是比较好想的，关键是被卡了……二分一个答案，枚举一个起点，以它作为根建树。因为我们要的是一条路径，使得，每个点到达路径上的点的最大距离小于等于$lim$，所以算出它的花费，再和给定的S进行比较。</p>
+<p>第二档还有个$O(n^2)$的做法，枚举起点作为根，用树形$dp$算出每个点子树中最大的距离的儿子、次大的。然后再一次$dfs$就能直接计算这种情况下的答案了，最后都更新一遍答案就好了。</p>
+<p>至于正解，就是树的直径+尺取+$multiset$。但是因为比赛的时候时间分配的问题，敲完这题第二档，然后去敲<del>SB</del>的第三题的暴力，写了很久，导致我没有时间去写这个一开始就想到的正解了……</p>
+<p>我们发现最后的那条路径的起点和终点一定会在直径上，所以对于一条路径，维护起点之前的最大距离，终点之后的最大距离，以及这条路径上的最大距离。</p>
+<p>【反思】</p>
+<p>比赛时间的分配是一个大问题。</p>
+<h2 id="C、游戏——-SDOI2016"><a href="#C、游戏——-SDOI2016" class="headerlink" title="C、游戏——$SDOI2016$"></a>C、游戏——$SDOI2016$</h2><p>关键字：李超线段树</p>
+<p>【分析】</p>
+<p>先树剖，将树转化成链。讲题目中的dis进行一些变形和转化，就能得到新的a和b，题目就转化成求一个区间中若干条直线y=a*x+b的最小值了。</p>
+<p>然后用一个名叫超哥线段树的东西解决。只要知道在这棵奇怪的树上存的东西的意义是什么就好了：在一个区间中，a和b代表的这条直线对于至少一半的区间中的x，在所有直线中的y是最小值。</p>
 
+            
         
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/23/20170821离线赛/">20170821离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-22
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/22/20170820离线赛/">20170820离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-20
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/20/差分约束系统/">差分约束系统</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-19
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/19/20170819离线赛/">20170814离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-18
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/18/数位dp模板/">数位$dp$模板</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-17
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/17/2017 Multi-University Training Contest 7/">2017 Multi-University Training Contest 7</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-16
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/16/20170814离线赛/">20170814离线赛</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-13
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/13/2017 Multi-University Training Contest 6/">2017 Multi-University Training Contest 6</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    08-12
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2017/08/12/20170811离线赛/">20170811离线赛</a>
-                </span>
-            </li>
-
-        
-            </ul>
         </div>
-    </div>
+        
+            
+            
+        
+    </article>
     
-    <nav class="pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 ></a>
+        
+    <nav class="article-page">
+        
+            <a href="/2017/08/25/20170825离线赛/" id="art-left" class="art-right">
+                <span class="next-title">
+                    20170825离线赛<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/2017/08/22/20170820离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170820离线赛
+                </span>
+            </a>
+        
     </nav>
 
+        
+    
 
 
         </main>
@@ -413,6 +274,8 @@ $(document).ready(function(){
 })
 </script>
     </div>
+    
+        
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>
