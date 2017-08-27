@@ -66,7 +66,7 @@
     <div class="body">
     <div class="tagcloud" id="tagcloud">
     <div class="tagcloud-inner">
-        
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a> <a href="/tags/数论/" style="font-size: 14px;">数论</a> <a href="/tags/最小割/" style="font-size: 14px;">最小割</a>
     </div>
 </div>
     <header class="header" id="header">
@@ -151,12 +151,30 @@
             </h1>
             
                 
+                    <div class="post-tags syuanpi riseIn-light back-3">
+                    
+                        <a href="/tags/数学/">数学</a>
+                    
+                        <a href="/tags/二分/">二分</a>
+                    
+                        <a href="/tags/分治/">分治</a>
+                    
+                        <a href="/tags/搜索/">搜索</a>
+                    
+                        <a href="/tags/A-剪枝/">A*剪枝</a>
+                    
+                        <a href="/tags/后缀数组/">后缀数组</a>
+                    
+                        <a href="/tags/高斯消元/">高斯消元</a>
+                    
+                    </div>
+                
             
         </header>
         <div class="post-content syuanpi riseIn-light back-3">
             
                 <p>引言：这场比赛做的不好，但这已成为了事实，重要的是找到原因。</p>
-<h2 id="A、小鹿回家——COCI2009-2010-Contest-2-D"><a href="#A、小鹿回家——COCI2009-2010-Contest-2-D" class="headerlink" title="A、小鹿回家——COCI2009/2010 Contest#2 D"></a>A、小鹿回家——COCI2009/2010 Contest#2 D</h2><p>关键字：预处理、BFS、二分</p>
+<h2 id="A、小鹿回家——COCI2009-2010-Contest-2-D"><a href="#A、小鹿回家——COCI2009-2010-Contest-2-D" class="headerlink" title="A、小鹿回家——COCI2009/2010 Contest#2 D"></a>A、小鹿回家——COCI2009/2010 Contest#2 D</h2><p>关键字：搜索、二分</p>
 <p>【分析】</p>
 <p>​    看到最小值最大这么明显的标志，想到二分应该不是问题。按照题意写一个模拟的BFS也不是问题，接下来问题就来了：走到每一个点，我判断是否可行的方式是将它与每一个狼的距离算出来，然后与二分的距离进行比较！一个点与所有狼的最小距离是一定的啊！这完全可以预处理出来！我分析了一下，我当时拿了70分就去看其他人是否也有过70，看他是否A掉了，然后看别人的前后代码的长度。也就是说，我没有去思考自己的代码有什么问题。我没有像正式的考试一样努力，渴望从外界获得帮助。我还没有进入一个正常考生的角色。</p>
 <p>​    预处理部分就是将猎人跑一遍BFS就行了。</p>
@@ -165,7 +183,7 @@
 <p>​    1、将猎人塞入队列中（因为每次只会走一步，所以不用dijkstra的优先队列）</p>
 <p>​    2、二分距离</p>
 <p>​    3、利用这个距离从起点跑，不满足的点不走，看是否能走到家（注意起点和终点也要判断）</p>
-<h2 id="B、序列还原——COCI2009-2010-Contest-2-E"><a href="#B、序列还原——COCI2009-2010-Contest-2-E" class="headerlink" title="B、序列还原——COCI2009/2010 Contest#2 E"></a>B、序列还原——COCI2009/2010 Contest#2 E</h2><p>关键字：dfs、A*剪枝</p>
+<h2 id="B、序列还原——COCI2009-2010-Contest-2-E"><a href="#B、序列还原——COCI2009-2010-Contest-2-E" class="headerlink" title="B、序列还原——COCI2009/2010 Contest#2 E"></a>B、序列还原——COCI2009/2010 Contest#2 E</h2><p>关键字：搜索、A*剪枝</p>
 <p>【分析】</p>
 <p>​    首先我们可以知道，在一条链上，如果要将其中的两个点交换顺序，并且保证，两点间的点的顺序不变，我们需要2*len-1次操作，所以，我就根据这个性质谢了状压dp，居然水到了70分。这个性质虽然是正确的，但如果我们并不需要将保持两点间的点的顺序不变呢？所以这样结出来的答案应该是大于等于真正的答案的。</p>
 <p>​    正解中，这条性质是作为搜索时的A*剪枝使用的……然后dfs就能过了。</p>

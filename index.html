@@ -69,7 +69,7 @@
     <div class="body">
     <div class="tagcloud" id="tagcloud">
     <div class="tagcloud-inner">
-        
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a> <a href="/tags/数论/" style="font-size: 14px;">数论</a> <a href="/tags/最小割/" style="font-size: 14px;">最小割</a>
     </div>
 </div>
     <header class="header" id="header">
@@ -149,6 +149,50 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月27日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/27/20170826离线赛 nanhan/">20170826离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、自动刷题机"><a href="#A、自动刷题机" class="headerlink" title="A、自动刷题机"></a>A、自动刷题机</h2><p>关键字：二分</p>
+<p>【分析】</p>
+<p>从感性的角度分析，一份代码需要的行数越大，份数越小；需要的行数越小，份数越大。所以答案是具有单调性的，那就可以二分了。</p>
+<p>【反思】</p>
+<p>一开始看到了不满足输出-1，但是写完代码的时候却忘了。看来写的时候应该将一些需要特别注意的地方用注释标出提醒自己。</p>
+<h2 id="B、脑洞治疗仪"><a href="#B、脑洞治疗仪" class="headerlink" title="B、脑洞治疗仪"></a>B、脑洞治疗仪</h2><p>关键字：线段树</p>
+<p>【分析】</p>
+<p>看到题目的第一反应就是线段树。（<del>连暴力有多少分都没有看</del>）接下来就要看每个人的模拟能力了。</p>
+<p>每个节点只要存区间的长度，0的个数，1的个数，这个区间最大连续的0的个数，从左端点起最长的连续0的个数和从右端点起最长的连续0的个数，以及操作的标记类型就行了。</p>
+<p>由于这道题因为需要实现那些操作，用到的函数特别多，所以先别急着写，好好构思一下再写，代码就能精简很多，思路也会清晰很多。</p>
+<h2 id="C、超能粒子炮"><a href="#C、超能粒子炮" class="headerlink" title="C、超能粒子炮"></a>C、超能粒子炮</h2><p>关键字：数学、卢卡斯定理</p>
+<p>【分析】</p>
+<p>这题的正解是Lucas定理在大组合数的取模的应用。</p>
+<p>Lucas定理：</p>
+<h5 id="A、B是非负整数，p是质数。AB写成p进制：A-a-n-a-n-1-…a-0-，B-b-n-b-n-1-…b-0-。"><a href="#A、B是非负整数，p是质数。AB写成p进制：A-a-n-a-n-1-…a-0-，B-b-n-b-n-1-…b-0-。" class="headerlink" title="A、B是非负整数，p是质数。AB写成p进制：A=a[n]a[n-1]…a[0]，B=b[n]b[n-1]…b[0]。"></a>A、B是非负整数，p是质数。AB写成p进制：A=a[n]a[n-1]…a[0]，B=b[n]b[n-1]…b[0]。</h5><h5 id="则组合数C-A-B-与C-a-n-b-n-C-a-n-1-b-n-1-…-C-a-0-b-0-p同余"><a href="#则组合数C-A-B-与C-a-n-b-n-C-a-n-1-b-n-1-…-C-a-0-b-0-p同余" class="headerlink" title="则组合数C(A,B)与C(a[n],b[n])C(a[n-1],b[n-1])…*C(a[0],b[0])  % p同余"></a>则组合数C(A,B)与C(a[n],b[n])<em>C(a[n-1],b[n-1])</em>…*C(a[0],b[0])  % p同余</h5><h5 id="即：Lucas-n-m-p-C-n-p-m-p-Lucas-n-p-m-p-p"><a href="#即：Lucas-n-m-p-C-n-p-m-p-Lucas-n-p-m-p-p" class="headerlink" title="即：Lucas(n,m,p)=C(n%p,m%p)*Lucas(n/p,m/p,p)"></a>即：Lucas(n,m,p)=C(n%p,m%p)*Lucas(n/p,m/p,p)</h5><p>如果知道了这个定理，那么50分就能拿到了。</p>
+<p>100分就是定义$S[i][j]=\sum _{k=0}^{j}C\left[ i\right] \left[ k\right]$，因为$K=k1*p+k2$，所以分开计算，并且将式子转化到可以递归求解就好了。（<del>推了我好久</del>）</p>
+<p>【反思】</p>
+<p>赛场上想用$O(n)$求出逆元算出组合数，结果逆推逆元的公式花了一会儿推出来，敲完之后调了半个小时，发现是快速幂敲错了……最后发现因为这个p=2333太小了，逆元计算时会出错，必须要考虑n！、m！和（n-m）！中2333的个数。因为时间问题，我去敲了一个暴力求组合数，结果第二层循环变量j&lt;=i&amp;&amp;j&lt;=K写成了j&lt;=i&amp;&amp;i&lt;=K……错误百出！</p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月25日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -171,7 +215,8 @@
 <p>这道题可能是最近那么多模拟赛B题中最水的一道了……</p>
 <p>开始看错题目，看不懂题目中的加油是个什么意思。等我写完最短路暴力发现过不了最后一个样例的时候才发现好像看错题目了……</p>
 <p>对于一个油箱容量C，只有距离小于等于C的边能加入到图中。那么我们先按照容量从小到大排序，对于一个新的容量，原来已添加的边不会改变，而能添加更多的边。所以我们可以先将边按距离从小到大排序。那么每次加边就只需要将边两端的集合并在一起，再重新计算答案，这个可以用并查集完成。</p>
-<h2 id="C、数组游戏"><a href="#C、数组游戏" class="headerlink" title="C、数组游戏"></a>C、数组游戏</h2><p>【分析】</p>
+<h2 id="C、数组游戏"><a href="#C、数组游戏" class="headerlink" title="C、数组游戏"></a>C、数组游戏</h2><p>关键字：博弈</p>
+<p>【分析】</p>
 <p>首先因为Yes和No打错了，暴力就$GG$了……</p>
 <p>当然是道博弈题，但关键是每个状态的子问题是什么。</p>
 <p>若此时有一个黑棋，如果有个人翻了这个黑棋是必胜策略，那么下一个人也能再翻这个棋子。因此，如果考虑最优的情况，是没有一方会去翻黑棋。那么题目就转化成：<strong>存在若干白点，然后将所有点翻转成黑点，先全部翻转的为胜。</strong></p>
@@ -255,7 +300,7 @@
         <div class="post-content syuanpi riseIn-light back-3">
             
                 
-                    <h2 id="A、打地鼠——-SDOI-2011"><a href="#A、打地鼠——-SDOI-2011" class="headerlink" title="A、打地鼠——$SDOI$2011"></a>A、打地鼠——$SDOI$2011</h2><p>关键字：二维差分前缀和、剪枝</p>
+                    <h2 id="A、打地鼠——-SDOI-2011"><a href="#A、打地鼠——-SDOI-2011" class="headerlink" title="A、打地鼠——$SDOI$2011"></a>A、打地鼠——$SDOI$2011</h2><p>关键字：差分前缀和、剪枝</p>
 <p>【分析】</p>
 <p>这道题暴力$O(n^6)$+可行性剪枝+最优性剪枝在没有那种特别的卡人数据的情况下是可以过的（关键是这种数据很难造）。</p>
 <p><strong>剪枝</strong>：</p>
@@ -355,7 +400,7 @@
 <p>double的有效精度只有16位！</p>
 <p>double的有效精度只有16位！</p>
 <p>double的有效精度只有16位！</p>
-<h2 id="B、毕加猪"><a href="#B、毕加猪" class="headerlink" title="B、毕加猪"></a>B、毕加猪</h2><p>关键字：图论，有负权的最短路</p>
+<h2 id="B、毕加猪"><a href="#B、毕加猪" class="headerlink" title="B、毕加猪"></a>B、毕加猪</h2><p>关键字：图论、有负权的最短路</p>
 <p>Task</p>
 <p>在有向图中，是否存在一条路径，使得从起点到终点的权值和小于等于T。</p>
 <p>【分析】</p>
@@ -410,7 +455,7 @@
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
-                <a href="/2017/08/18/数位dp模板/">数位$dp$模板</a>
+                <a href="/2017/08/18/数位dp模板/">数位dp模板</a>
             
             </h1>
             
@@ -577,60 +622,6 @@
                     <span class="iconfont icon-right">继续阅读</span>
                 </a>
             </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月12日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/12/20170811离线赛/">20170811离线赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <h2 id="A、小宝卖猪"><a href="#A、小宝卖猪" class="headerlink" title="A、小宝卖猪"></a>A、小宝卖猪</h2><p>关键字：数学</p>
-<p>【分析】</p>
-<p>题目要求的是$Max(\sum W[i]<em>(P[j]-t</em>D[j]))$。那么根据排序不等式我们知道顺序相乘&gt;乱序相乘&gt;逆序相乘。所以$W[i]$、$(P[j]-t*D[j])$各自从小到大排序相乘就好了。</p>
-<p>但是，由于自己可能耳背，听错了xxx的提醒，放心的将long long删去，就 爆 炸 了。</p>
-<p>【总结】</p>
-<p>1、多注意数据的范围，两个数相乘的时候条件反射思考是否会炸。</p>
-<h2 id="B、放书"><a href="#B、放书" class="headerlink" title="B、放书"></a>B、放书</h2><p>关键字：$dp$</p>
-<p>【分析】</p>
-<p>首先我想了好久，但是就是没有什么切入点，想过好几种$dp$状态都不容易转移。于是就去写C题的50分了。</p>
-<p>有一个点想通了，后面就简单了：如果我们要抽出某一本书，我们到底要放在哪里？我想了很久，已有的区间的首尾？中间？放在哪里？最后发现，根本不需要知道！因为一本书如果被取出，那么它最后一定会放在相同高度的书附近，对答案没有贡献。</p>
-<p>综合所有状态，我们定义$dp[i][pre][k][s]$表示对于第i本书，上一本没有被取走的书是$pre$，已经用了$k$，区间中已有$s$集合的书。</p>
-<p>记搜显然很简单。但这样就不能优化空间了，只有90分。所以我们选择循环转移，这样就可以过了。</p>
-<p>转移如下：</p>
-<p>$chk(dp[cur][pre][k+1][s],dp[!cur][pre][k][s])$<br>$chk(dp[cur][h[i]][k][s|(1&lt;&lt;h[i])],dp[!cur][pre][k][s]+(h[i]!=pre))$</p>
-<p>至于比赛的时候为什么没有想到，是因为我一直在想上面的那个问题，时间都浪费在如何转移之前那个不正确的dp状态。导致最后连写记搜的时间都很少，也就没有去想空间优化了。</p>
-<p>【总结】</p>
-<p>1、多问自己几个为什么。</p>
-<p>2、多思考状态对答案的影响、已知量与未知量的关系。</p>
-<h2 id="C、Crash的旅行计划"><a href="#C、Crash的旅行计划" class="headerlink" title="C、Crash的旅行计划"></a>C、Crash的旅行计划</h2><p>关键字：图论、树链剖分、线段树</p>
-<p>【分析】</p>
-<p>小分写起来思路还是比较清晰的。</p>
-<p>1~2：暴力修改，查询u时以u为根，然后树形$dp$遍历整棵树</p>
-<p>3~5：用线段树维护每个点的最大的“前缀”和“后缀”。</p>
-<p>6~7：仍是树形$dp$的想法，但是由于这是一棵完全二叉树，所以就算每次暴力修改一个点的所有父亲，复杂度还是$O(\log n)$的。询问也是同理，直接遍历它的所有父亲，考虑答案的组成方式更新答案。</p>
-<p>8：由于树的深度并不会超过40，也可以暴力跳父亲，但是需要用$multiset$来维护一个节点的最大权值。</p>
-<p>正解是树链剖分+线段树。不过自己的树链剖分并不是很熟练，所以还需要多练习。</p>
-<p>【总结】</p>
-<p>1、树的问题，先从链想起。</p>
-
-                
-            
         
         </div>
         

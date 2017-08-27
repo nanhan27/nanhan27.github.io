@@ -69,7 +69,7 @@
     <div class="body">
     <div class="tagcloud" id="tagcloud">
     <div class="tagcloud-inner">
-        
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a> <a href="/tags/数论/" style="font-size: 14px;">数论</a> <a href="/tags/最小割/" style="font-size: 14px;">最小割</a>
     </div>
 </div>
     <header class="header" id="header">
@@ -144,6 +144,60 @@
     
 
 <section class="posts">
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月12日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/12/20170811离线赛/">20170811离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="A、小宝卖猪"><a href="#A、小宝卖猪" class="headerlink" title="A、小宝卖猪"></a>A、小宝卖猪</h2><p>关键字：数学</p>
+<p>【分析】</p>
+<p>题目要求的是$Max(\sum W[i]<em>(P[j]-t</em>D[j]))$。那么根据排序不等式我们知道顺序相乘&gt;乱序相乘&gt;逆序相乘。所以$W[i]$、$(P[j]-t*D[j])$各自从小到大排序相乘就好了。</p>
+<p>但是，由于自己可能耳背，听错了xxx的提醒，放心的将long long删去，就 爆 炸 了。</p>
+<p>【总结】</p>
+<p>1、多注意数据的范围，两个数相乘的时候条件反射思考是否会炸。</p>
+<h2 id="B、放书"><a href="#B、放书" class="headerlink" title="B、放书"></a>B、放书</h2><p>关键字：$dp$</p>
+<p>【分析】</p>
+<p>首先我想了好久，但是就是没有什么切入点，想过好几种$dp$状态都不容易转移。于是就去写C题的50分了。</p>
+<p>有一个点想通了，后面就简单了：如果我们要抽出某一本书，我们到底要放在哪里？我想了很久，已有的区间的首尾？中间？放在哪里？最后发现，根本不需要知道！因为一本书如果被取出，那么它最后一定会放在相同高度的书附近，对答案没有贡献。</p>
+<p>综合所有状态，我们定义$dp[i][pre][k][s]$表示对于第i本书，上一本没有被取走的书是$pre$，已经用了$k$，区间中已有$s$集合的书。</p>
+<p>记搜显然很简单。但这样就不能优化空间了，只有90分。所以我们选择循环转移，这样就可以过了。</p>
+<p>转移如下：</p>
+<p>$chk(dp[cur][pre][k+1][s],dp[!cur][pre][k][s])$<br>$chk(dp[cur][h[i]][k][s|(1&lt;&lt;h[i])],dp[!cur][pre][k][s]+(h[i]!=pre))$</p>
+<p>至于比赛的时候为什么没有想到，是因为我一直在想上面的那个问题，时间都浪费在如何转移之前那个不正确的dp状态。导致最后连写记搜的时间都很少，也就没有去想空间优化了。</p>
+<p>【总结】</p>
+<p>1、多问自己几个为什么。</p>
+<p>2、多思考状态对答案的影响、已知量与未知量的关系。</p>
+<h2 id="C、Crash的旅行计划"><a href="#C、Crash的旅行计划" class="headerlink" title="C、Crash的旅行计划"></a>C、Crash的旅行计划</h2><p>关键字：图论、树链剖分、线段树</p>
+<p>【分析】</p>
+<p>小分写起来思路还是比较清晰的。</p>
+<p>1~2：暴力修改，查询u时以u为根，然后树形$dp$遍历整棵树</p>
+<p>3~5：用线段树维护每个点的最大的“前缀”和“后缀”。</p>
+<p>6~7：仍是树形$dp$的想法，但是由于这是一棵完全二叉树，所以就算每次暴力修改一个点的所有父亲，复杂度还是$O(\log n)$的。询问也是同理，直接遍历它的所有父亲，考虑答案的组成方式更新答案。</p>
+<p>8：由于树的深度并不会超过40，也可以暴力跳父亲，但是需要用$multiset$来维护一个节点的最大权值。</p>
+<p>正解是树链剖分+线段树。不过自己的树链剖分并不是很熟练，所以还需要多练习。</p>
+<p>【总结】</p>
+<p>1、树的问题，先从链想起。</p>
+
+                
+            
+        
+        </div>
+        
+    </article>
+    
+
     
         
     <article class="post">
@@ -289,11 +343,10 @@
         <div class="post-content syuanpi riseIn-light back-3">
             
                 
-                    <h2 id="A、文件解压"><a href="#A、文件解压" class="headerlink" title="A、文件解压"></a>A、文件解压</h2><p>关键字：括号匹配</p>
-<p>【分析】</p>
+                    <h2 id="A、文件解压"><a href="#A、文件解压" class="headerlink" title="A、文件解压"></a>A、文件解压</h2><p>【分析】</p>
 <p>这道题作为第一题还是比较良心的。既比较好想到，代码又不是很长，可以让人进入状态。</p>
 <p>首先是括号匹配，先预处理出每个左括号对应的右括号，然后直接从一个完整的字符串dfs下去。</p>
-<h2 id="B、球染色——SGU183"><a href="#B、球染色——SGU183" class="headerlink" title="B、球染色——SGU183"></a>B、球染色——SGU183</h2><p>关键字：dp优化</p>
+<h2 id="B、球染色——SGU183"><a href="#B、球染色——SGU183" class="headerlink" title="B、球染色——SGU183"></a>B、球染色——SGU183</h2><p>关键字：dp</p>
 <p>【分析】</p>
 <p>首先因为至少需要两个黑球，所以我们可以定义：$dp[i][j]$表示将i和j的位置染成黑色的最小花费。（i在前，j在后）</p>
 <p>对于一个i，我们枚举一个j，所以j的范围是$[i+1,i+m-1]$，那么$dp[i][j]$应该从哪里转移过来呢？</p>
@@ -463,7 +516,7 @@
 <p>题目的关键就是怎样合理利用Fn这个键。</p>
 <p>假设n &lt; m，根据贪心，当然是走到对角线，然后利用第一个Fn之前的物理键，贪心再凑出一个相同的就可以继续用Fn跳了。</p>
 <p>但是我自信满满推出来的规律还是有错误，所以就只有30分。</p>
-<h2 id="B、最大字典序排列——51nod"><a href="#B、最大字典序排列——51nod" class="headerlink" title="B、最大字典序排列——51nod"></a>B、最大字典序排列——51nod</h2><p>关键字：区间查询，树状数组，线段树</p>
+<h2 id="B、最大字典序排列——51nod"><a href="#B、最大字典序排列——51nod" class="headerlink" title="B、最大字典序排列——51nod"></a>B、最大字典序排列——51nod</h2><p>关键字：区间查询、树状数组、线段树</p>
 <p>【分析】</p>
 <p>根据贪心，我们应该要将最大的数放在最前面，第二大的数放在第二位，这样才能使最后的字典序最大。</p>
 <p>那么题目就转化为，对于每个位置pos,在一个可行的范围中找出一个最大的数。这种区间查询，单点更新线段树就能解决了。</p>
@@ -518,52 +571,6 @@
 
                 
             
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/扩展欧几里得算法小小小结/">扩展欧几里得算法小小小结</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>以前当然是学过扩展欧几里得算法的，证明也看过好几次，但是让我写就是写不出来。我没有找到记忆这个算法的那个“点”。</p>
-<p>今天看了一份大神的解析，终于找到了。</p>
-<p>扩展欧几里得是建立在欧几里得定理的基础上。由于欧几里得定理的代码十分简洁，所以我就不再去问欧几里得定理怎么证（因为我是没什么希望记住费马小定理的）。然后就把gcd（）变成了模板。</p>
-<p>我们知道gcd（）的终止状态是b=0，a=gcd，因为a<em>x+b</em>y=gcd，所以x=1，y=0。</p>
-<p>有了这个东西，只需要再去考虑上一个状态是怎么样的，那么ex_gcd是可以现场推出来的。</p>
-<p>gcd最终状态的上一步应该是x1<em>a+y1</em>b=gcd,然后通过gcd递归，得到x0<em>b+y0</em>(a%b)=gcd。</p>
-<p>由于a%b=(a-a/b)（此处/为整除），所以就可以写成</p>
-<p>x0<em>b+y0</em>(a-a/b)=gcd</p>
-<p>——&gt;</p>
-<p>x0<em>b+y0</em>a-y1*a/b=gcd</p>
-<p>——&gt;</p>
-<p>y0<em>a+b</em>(x0-y0*a/b)=gcd</p>
-<p>由于x1<em>a+y1</em>b=gcd，所以</p>
-<p>x1=y0</p>
-<p>y1=x0-y0*a/b</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/扩展欧几里得算法小小小结/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
         
         </div>
         

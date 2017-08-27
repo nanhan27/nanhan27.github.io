@@ -69,7 +69,7 @@
     <div class="body">
     <div class="tagcloud" id="tagcloud">
     <div class="tagcloud-inner">
-        
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a> <a href="/tags/数论/" style="font-size: 14px;">数论</a> <a href="/tags/最小割/" style="font-size: 14px;">最小割</a>
     </div>
 </div>
     <header class="header" id="header">
@@ -153,6 +153,52 @@
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
+                <a href="/2017/07/29/扩展欧几里得算法小小小结/">扩展欧几里得算法小小小结</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>以前当然是学过扩展欧几里得算法的，证明也看过好几次，但是让我写就是写不出来。我没有找到记忆这个算法的那个“点”。</p>
+<p>今天看了一份大神的解析，终于找到了。</p>
+<p>扩展欧几里得是建立在欧几里得定理的基础上。由于欧几里得定理的代码十分简洁，所以我就不再去问欧几里得定理怎么证（因为我是没什么希望记住费马小定理的）。然后就把gcd（）变成了模板。</p>
+<p>我们知道gcd（）的终止状态是b=0，a=gcd，因为a<em>x+b</em>y=gcd，所以x=1，y=0。</p>
+<p>有了这个东西，只需要再去考虑上一个状态是怎么样的，那么ex_gcd是可以现场推出来的。</p>
+<p>gcd最终状态的上一步应该是x1<em>a+y1</em>b=gcd,然后通过gcd递归，得到x0<em>b+y0</em>(a%b)=gcd。</p>
+<p>由于a%b=(a-a/b)（此处/为整除），所以就可以写成</p>
+<p>x0<em>b+y0</em>(a-a/b)=gcd</p>
+<p>——&gt;</p>
+<p>x0<em>b+y0</em>a-y1*a/b=gcd</p>
+<p>——&gt;</p>
+<p>y0<em>a+b</em>(x0-y0*a/b)=gcd</p>
+<p>由于x1<em>a+y1</em>b=gcd，所以</p>
+<p>x1=y0</p>
+<p>y1=x0-y0*a/b</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/07/29/扩展欧几里得算法小小小结/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
                 <a href="/2017/07/29/后缀数组模板/">后缀数组模板</a>
             
             </h1>
@@ -197,6 +243,55 @@
 
                 
             
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/07/29/20170723离线赛/">20170723离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：感觉到自己的脑洞确实变大了那么一丢丢。</p>
+<h2 id="A、插队——原创By-jiedai-and-nudun"><a href="#A、插队——原创By-jiedai-and-nudun" class="headerlink" title="A、插队——原创By jiedai and nudun"></a>A、插队——原创By jiedai and nudun</h2><p>关键字：单调栈，线段树，树状数组</p>
+<p>【分析】</p>
+<p>题目就是求出每一个点向左数第二个大于它的点的位置。</p>
+<p>首先用一个单调递减的单调栈就能求出向左数第一个大于它的点。接下来就比较麻烦了。</p>
+<p>如何求出第二个呢？难道再暴力往前for吗？</p>
+<p>我的做法仍然是单调栈。对于每一个点，我们都可以知道第一次插队会插到谁那。<strong>既然这样，对于一个点，那些第一次插到它的点的关系又会是怎样的？一定是单调递增的！</strong>，而且，这些点当然比这个点小。这样按照pos从小到大的顺序在单调栈中查询，不会将前面的<strong>有效</strong>信息遗漏。</p>
+<p>当然这种是比较难想的，大多数人都是用线段树求出第二个大于它的位置。</p>
+<p>还有一种树状数组的写法，只是写起来比较麻烦，思路也没有线段树简洁，所以并没有人去写。</p>
+<h2 id="B、比赛——CODECHEF-SEPT16"><a href="#B、比赛——CODECHEF-SEPT16" class="headerlink" title="B、比赛——CODECHEF SEPT16"></a>B、比赛——CODECHEF SEPT16</h2><p>关键字：树形dp、倍增</p>
+<p>【分析】</p>
+<p>比较容易看出是树形dp，但是这个dp比较奇怪，dp转移是从某节点的祖先那里转移过来的。</p>
+<p>快速敲完这题就去写第三题了。然后这题就爆炸了。</p>
+<p>定义dp[t][u]表示u点往根的路径上$2^t$个点中答案的最小值。那么u点的最小花费就是:</p>
+<p>$ans[u]=min(dp[t][F[d-1]],dp[t][F[d-1-k+(1&lt;&lt;t)]])+v)$</p>
+<p>转移就比较简单了：</p>
+<p>$dp[i][u]=min(dp[i-1][u],dp[i-1][F[d-(1&lt;&lt;i-1)]])$</p>
+<p>复杂度$O(n*log(n))$。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/07/29/20170723离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
         
         </div>
         
@@ -270,7 +365,6 @@
                 
                     <p>引言：感觉又活了过来</p>
 <h2 id="A、时空隧道——COCI2009-2010-Contest-7-D"><a href="#A、时空隧道——COCI2009-2010-Contest-7-D" class="headerlink" title="A、时空隧道——COCI2009/2010 Contest#7 D"></a>A、时空隧道——COCI2009/2010 Contest#7 D</h2><p>关键字：图论、最小生成树</p>
-<p>得分：100</p>
 <p>【分析】</p>
 <p>n个点，需要n-1条边将它们连起来，要求代价最小。这些关键的信息让我直接想到了最小生成树。因为对Kruskal比较熟悉，所以就按这种方法想了。</p>
 <p>首先是建边。由于n的范围是[1,$10^5$],难道我们要将$n*n/2$条边全部塞进去吗？显然不现实。那么我就开始想，到底哪些边可能有用，哪些边一定没用。</p>
@@ -279,11 +373,9 @@
 <p>2、按y、z重复1的操作</p>
 <p>3、Kruskal的最小生成树</p>
 <h2 id="B、进击的乘客——COCI2009-2010-Contest-7-C"><a href="#B、进击的乘客——COCI2009-2010-Contest-7-C" class="headerlink" title="B、进击的乘客——COCI2009/2010 Contest#7 C"></a>B、进击的乘客——COCI2009/2010 Contest#7 C</h2><p>关键字：模拟</p>
-<p>得分：100</p>
 <p>【分析】</p>
 <p>这道题真没什么好讲的，全程模拟，没有任何算法。</p>
 <h2 id="C、对弈——COCI2009-2010-Contest-7-E"><a href="#C、对弈——COCI2009-2010-Contest-7-E" class="headerlink" title="C、对弈——COCI2009/2010 Contest#7 E"></a>C、对弈——COCI2009/2010 Contest#7 E</h2><p>关键字：几何、数学、dp</p>
-<p>得分：30（最好：50）</p>
 <p>【分析】</p>
 
                 
@@ -400,7 +492,6 @@
                 
                     <p>引言：“我是谁，我从哪里来，我要到哪里去。”</p>
 <h2 id="A、因数操作——COCI2009-2010-Contest-4-C"><a href="#A、因数操作——COCI2009-2010-Contest-4-C" class="headerlink" title="A、因数操作——COCI2009/2010 Contest#4 C"></a>A、因数操作——COCI2009/2010 Contest#4 C</h2><p>关键字：数学</p>
-<p>得分：100</p>
 <p>【分析】</p>
 <p>​    这道题还是比较水的，但是没有一A。</p>
 <p>​    原因有二：</p>
@@ -450,7 +541,7 @@
             
                 
                     <p>引言：这场比赛做的不好，但这已成为了事实，重要的是找到原因。</p>
-<h2 id="A、小鹿回家——COCI2009-2010-Contest-2-D"><a href="#A、小鹿回家——COCI2009-2010-Contest-2-D" class="headerlink" title="A、小鹿回家——COCI2009/2010 Contest#2 D"></a>A、小鹿回家——COCI2009/2010 Contest#2 D</h2><p>关键字：预处理、BFS、二分</p>
+<h2 id="A、小鹿回家——COCI2009-2010-Contest-2-D"><a href="#A、小鹿回家——COCI2009-2010-Contest-2-D" class="headerlink" title="A、小鹿回家——COCI2009/2010 Contest#2 D"></a>A、小鹿回家——COCI2009/2010 Contest#2 D</h2><p>关键字：搜索、二分</p>
 <p>【分析】</p>
 <p>​    看到最小值最大这么明显的标志，想到二分应该不是问题。按照题意写一个模拟的BFS也不是问题，接下来问题就来了：走到每一个点，我判断是否可行的方式是将它与每一个狼的距离算出来，然后与二分的距离进行比较！一个点与所有狼的最小距离是一定的啊！这完全可以预处理出来！我分析了一下，我当时拿了70分就去看其他人是否也有过70，看他是否A掉了，然后看别人的前后代码的长度。也就是说，我没有去思考自己的代码有什么问题。我没有像正式的考试一样努力，渴望从外界获得帮助。我还没有进入一个正常考生的角色。</p>
 <p>​    预处理部分就是将猎人跑一遍BFS就行了。</p>
@@ -459,7 +550,7 @@
 <p>​    1、将猎人塞入队列中（因为每次只会走一步，所以不用dijkstra的优先队列）</p>
 <p>​    2、二分距离</p>
 <p>​    3、利用这个距离从起点跑，不满足的点不走，看是否能走到家（注意起点和终点也要判断）</p>
-<h2 id="B、序列还原——COCI2009-2010-Contest-2-E"><a href="#B、序列还原——COCI2009-2010-Contest-2-E" class="headerlink" title="B、序列还原——COCI2009/2010 Contest#2 E"></a>B、序列还原——COCI2009/2010 Contest#2 E</h2><p>关键字：dfs、A*剪枝</p>
+<h2 id="B、序列还原——COCI2009-2010-Contest-2-E"><a href="#B、序列还原——COCI2009-2010-Contest-2-E" class="headerlink" title="B、序列还原——COCI2009/2010 Contest#2 E"></a>B、序列还原——COCI2009/2010 Contest#2 E</h2><p>关键字：搜索、A*剪枝</p>
 <p>【分析】</p>
 <p>​    首先我们可以知道，在一条链上，如果要将其中的两个点交换顺序，并且保证，两点间的点的顺序不变，我们需要2*len-1次操作，所以，我就根据这个性质谢了状压dp，居然水到了70分。这个性质虽然是正确的，但如果我们并不需要将保持两点间的点的顺序不变呢？所以这样结出来的答案应该是大于等于真正的答案的。</p>
 <p>​    正解中，这条性质是作为搜索时的A*剪枝使用的……然后dfs就能过了。</p>
@@ -487,91 +578,6 @@
 
                 
             
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170703练习赛/">20170703练习赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：A和B题做的其实比较顺手，C题的二分+dp对现在的我而言还是有一段距离，只能说脑洞还是没有那么大，但经Splft大佬一讲解，发现思路其实是很顺畅的，他说写题目的时候困惑他的只有代码中的小细节。D题让我对关于奇怪的解析式的套路又加深了些，希望下次就可以自己独立来分析这种题目了！</p>
-<h2 id="A、电话网络——COCI2009-2010-Contest-3-D"><a href="#A、电话网络——COCI2009-2010-Contest-3-D" class="headerlink" title="A、电话网络——COCI2009/2010 Contest#3 D"></a>A、电话网络——COCI2009/2010 Contest#3 D</h2><p>关键字：”仔细看题目系列“，贪心</p>
-<p>【分析】</p>
-<p>​    题目不难，关键是比赛的时候看题太慢了，还没有理解好题意，大庆已经A掉了。贪心就可以过了。（关键是我和大庆一起做过一道类似的题目，而我当时完全没想到，也就是说，比赛的时候就算碰到原题，我也不能第一时间A掉，我的做题效果不是很好）</p>
-<h2 id="B、洗牌机——COCI2009-2010-Contest-1-E"><a href="#B、洗牌机——COCI2009-2010-Contest-1-E" class="headerlink" title="B、洗牌机——COCI2009/2010 Contest#1 E"></a>B、洗牌机——COCI2009/2010 Contest#1 E</h2><p>关键字：数学，图论</p>
-<p>【分析】</p>
-<p>​    切入点：每张牌的调换存在周期。</p>
-<p>​    因为题目给的是n的某个全排列，那么就比较容易知道每一张牌会在一些”环“中调换，也就是说每张牌都会以某个周期回到原来的位置。那么求出所有周期的最小公倍数就能解决问题了。</p>
-<h2 id="C、议会——COCI-2008-2009-Final"><a href="#C、议会——COCI-2008-2009-Final" class="headerlink" title="C、议会——COCI 2008-2009 Final"></a>C、议会——COCI 2008-2009 Final</h2><p>关键字：二分，贪心</p>
-<p>【分析】</p>
-<p>​    看到题目还是蒙逼，看起来就很难！仔细看了一下，第一个子问题是求可能的最大席位，这当然是票越多越好，所以就把剩下的所有的票给i这个人，然后就直接模拟好了。</p>
-<p>​    但是，求可能的最小席位就没有那么简单了。第一，当然还是不给i这个人票，但，剩下的票应该给谁才能让i获得的席位最小呢？</p>
-<p>​    （<del>不难看出</del>）这个答案应该是单调的。那么先给它套个二分。</p>
-<p>​    若党派i现有票数不超过5%，可以直接淘汰，答案是0。否则进行二分，设二分X，判定是否存在使i最终席位小于等于超过X。那么其他人就要让i这个人拿不到x+1个，这样我们定义dp[q][j]表示在这种情况下某个人q拿j个席位最少需要再给他多少票。然后就可以用背包转移了。不过要注意许多的小细节，比赛时没有调出来，赛后还用了很多时间。</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170703练习赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/20170702练习赛/">20170702练习赛</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>引言：刚从家里回来就考试，表示十分蒙逼。</p>
-<h2 id="A、走廊上的咆哮——COCI-2007-2008-Final"><a href="#A、走廊上的咆哮——COCI-2007-2008-Final" class="headerlink" title="A、走廊上的咆哮——COCI 2007/2008 Final"></a>A、走廊上的咆哮——COCI 2007/2008 Final</h2><p>关键字：二分，贪心</p>
-<p>【分析】</p>
-<p>​    （<del>其实我刚开始写的时候并没有想到二分，可能是打游戏打傻了</del>）首先我们当然知道时间越多越好，也就是说，答案是单调的，自然就想到了二分。接下来就是现实的问题了，该怎么判。</p>
-<p>​    一开始真的没什么思路，而且有好多人已经A掉了，有感觉第一题就不会写，当时就比较慌。有种感觉就是所有人都向中间集合会比较好。但是模拟了下数据好像不太行。最后感觉第一个人先向右，第二个人尽量在可以收到消息的情况下靠右。</p>
-<h2 id="B、BGM——COCI-2007-2008-Final"><a href="#B、BGM——COCI-2007-2008-Final" class="headerlink" title="B、BGM——COCI 2007/2008 Final"></a>B、BGM——COCI 2007/2008 Final</h2><p>关键字：dp，贪心</p>
-<p>【分析】</p>
-<p>​    首先我们知道最后的答案与BGM出现的次数无关。那么这道题其实就是求如何用最少的的点数覆盖所需要的点。</p>
-<p>​    我想到的是最左边和最右边的点的最优覆盖方法是能用贪心确定下来的（当以最左边的点为左端点时产生的区间的下一个点，一定处于一个区间的最左或最右），那么所求的区间就可以像这样分成小的区间。于是就有了记忆化搜索的方法：定义dp[i][j]表示[1,i]已经覆盖好，j=0表示i为接下来的区间的左端点，j=1则为右端点，那么最后的答案则为dfs(1,0)。</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/07/29/20170702练习赛/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
         
         </div>
         

@@ -69,7 +69,7 @@
     <div class="body">
     <div class="tagcloud" id="tagcloud">
     <div class="tagcloud-inner">
-        
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a> <a href="/tags/数论/" style="font-size: 14px;">数论</a> <a href="/tags/最小割/" style="font-size: 14px;">最小割</a>
     </div>
 </div>
     <header class="header" id="header">
@@ -153,6 +153,91 @@
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
+                <a href="/2017/07/29/20170703练习赛/">20170703练习赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：A和B题做的其实比较顺手，C题的二分+dp对现在的我而言还是有一段距离，只能说脑洞还是没有那么大，但经Splft大佬一讲解，发现思路其实是很顺畅的，他说写题目的时候困惑他的只有代码中的小细节。D题让我对关于奇怪的解析式的套路又加深了些，希望下次就可以自己独立来分析这种题目了！</p>
+<h2 id="A、电话网络——COCI2009-2010-Contest-3-D"><a href="#A、电话网络——COCI2009-2010-Contest-3-D" class="headerlink" title="A、电话网络——COCI2009/2010 Contest#3 D"></a>A、电话网络——COCI2009/2010 Contest#3 D</h2><p>关键字：贪心</p>
+<p>【分析】</p>
+<p>​    题目不难，关键是比赛的时候看题太慢了，还没有理解好题意，大庆已经A掉了。贪心就可以过了。（关键是我和大庆一起做过一道类似的题目，而我当时完全没想到，也就是说，比赛的时候就算碰到原题，我也不能第一时间A掉，我的做题效果不是很好）</p>
+<h2 id="B、洗牌机——COCI2009-2010-Contest-1-E"><a href="#B、洗牌机——COCI2009-2010-Contest-1-E" class="headerlink" title="B、洗牌机——COCI2009/2010 Contest#1 E"></a>B、洗牌机——COCI2009/2010 Contest#1 E</h2><p>关键字：数学，图论</p>
+<p>【分析】</p>
+<p>​    切入点：每张牌的调换存在周期。</p>
+<p>​    因为题目给的是n的某个全排列，那么就比较容易知道每一张牌会在一些”环“中调换，也就是说每张牌都会以某个周期回到原来的位置。那么求出所有周期的最小公倍数就能解决问题了。</p>
+<h2 id="C、议会——COCI-2008-2009-Final"><a href="#C、议会——COCI-2008-2009-Final" class="headerlink" title="C、议会——COCI 2008-2009 Final"></a>C、议会——COCI 2008-2009 Final</h2><p>关键字：二分，贪心</p>
+<p>【分析】</p>
+<p>​    看到题目还是蒙逼，看起来就很难！仔细看了一下，第一个子问题是求可能的最大席位，这当然是票越多越好，所以就把剩下的所有的票给i这个人，然后就直接模拟好了。</p>
+<p>​    但是，求可能的最小席位就没有那么简单了。第一，当然还是不给i这个人票，但，剩下的票应该给谁才能让i获得的席位最小呢？</p>
+<p>​    （<del>不难看出</del>）这个答案应该是单调的。那么先给它套个二分。</p>
+<p>​    若党派i现有票数不超过5%，可以直接淘汰，答案是0。否则进行二分，设二分X，判定是否存在使i最终席位小于等于超过X。那么其他人就要让i这个人拿不到x+1个，这样我们定义dp[q][j]表示在这种情况下某个人q拿j个席位最少需要再给他多少票。然后就可以用背包转移了。不过要注意许多的小细节，比赛时没有调出来，赛后还用了很多时间。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/07/29/20170703练习赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/07/29/20170702练习赛/">20170702练习赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：刚从家里回来就考试，表示十分蒙逼。</p>
+<h2 id="A、走廊上的咆哮——COCI-2007-2008-Final"><a href="#A、走廊上的咆哮——COCI-2007-2008-Final" class="headerlink" title="A、走廊上的咆哮——COCI 2007/2008 Final"></a>A、走廊上的咆哮——COCI 2007/2008 Final</h2><p>关键字：二分，贪心</p>
+<p>【分析】</p>
+<p>​    （<del>其实我刚开始写的时候并没有想到二分，可能是打游戏打傻了</del>）首先我们当然知道时间越多越好，也就是说，答案是单调的，自然就想到了二分。接下来就是现实的问题了，该怎么判。</p>
+<p>​    一开始真的没什么思路，而且有好多人已经A掉了，有感觉第一题就不会写，当时就比较慌。有种感觉就是所有人都向中间集合会比较好。但是模拟了下数据好像不太行。最后感觉第一个人先向右，第二个人尽量在可以收到消息的情况下靠右。</p>
+<h2 id="B、BGM——COCI-2007-2008-Final"><a href="#B、BGM——COCI-2007-2008-Final" class="headerlink" title="B、BGM——COCI 2007/2008 Final"></a>B、BGM——COCI 2007/2008 Final</h2><p>关键字：dp，贪心</p>
+<p>【分析】</p>
+<p>​    首先我们知道最后的答案与BGM出现的次数无关。那么这道题其实就是求如何用最少的的点数覆盖所需要的点。</p>
+<p>​    我想到的是最左边和最右边的点的最优覆盖方法是能用贪心确定下来的（当以最左边的点为左端点时产生的区间的下一个点，一定处于一个区间的最左或最右），那么所求的区间就可以像这样分成小的区间。于是就有了记忆化搜索的方法：定义dp[i][j]表示[1,i]已经覆盖好，j=0表示i为接下来的区间的左端点，j=1则为右端点，那么最后的答案则为dfs(1,0)。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/07/29/20170702练习赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年7月29日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
                 <a href="/2017/07/29/20170616个人赛/">20170616个人赛</a>
             
             </h1>
@@ -201,6 +286,10 @@
 <h2 id="A、清理牛棚——USACO-DEC-2005"><a href="#A、清理牛棚——USACO-DEC-2005" class="headerlink" title="A、清理牛棚——USACO DEC 2005"></a>A、清理牛棚——USACO DEC 2005</h2><p>关键字：dp，树状数组</p>
 <p>【分析】</p>
 <p>​    简单的dp，用BIT维护，真的不知道我和Shying当时为什么不想写…</p>
+<h2 id="B、人工湖——USACO-JAN-2008"><a href="#B、人工湖——USACO-JAN-2008" class="headerlink" title="B、人工湖——USACO JAN 2008"></a>B、人工湖——USACO JAN 2008</h2><p>关键字：链表</p>
+<p>【分析】</p>
+<p>​    比赛的时候先是看错题目，以为sort一波然后用并查集维护一下就OK了，结果就只有7分…</p>
+<p>​    仔细看完题目后才发现这道题最难的其实是模拟！真个人都不好了！</p>
                     
             
         
@@ -235,7 +324,7 @@
                     <p>引言：这次再次和Shying组队，也获得了比较好的成绩。首先B题是我A掉的，C题是我提供了较完整的思路，因为Shying之前将暴力敲了出来，我不太想再敲一些奇怪的预处理，于是接下来的代码部分由他完成。最后是由于我的思路还有一些小瑕疵，我们两个调了很久，耽误了后面的时间，这一点怪我。<br>总体来说，这场还是比较开心的。</p>
 <h2 id="A、最大公约数-——COCI2011-2012-Contest-2-C"><a href="#A、最大公约数-——COCI2011-2012-Contest-2-C" class="headerlink" title="A、最大公约数+——COCI2011/2012 Contest#2 C"></a>A、最大公约数+——COCI2011/2012 Contest#2 C</h2><p>关键字：数学</p>
 <p>【分析】</p>
-<p>​    这一题是我的队友Shying写的，所以我也就没什么思考了。<br>简单模拟一下记好了。</p>
+<p>​    这一题是我的队友Shying写的，所以我也就没什么思考了。<br>​    简单模拟一下记好了。</p>
 <h2 id="B、好伙伴数——COCI2011-2012-Contest-2-D"><a href="#B、好伙伴数——COCI2011-2012-Contest-2-D" class="headerlink" title="B、好伙伴数——COCI2011/2012 Contest#2 D"></a>B、好伙伴数——COCI2011/2012 Contest#2 D</h2><p>关键字：状压dp</p>
 <p>【分析】</p>
 <p>​    虽然数字的范围很大，但是我们其实只需要一个数数位上0、1……是否出现过。想到这里还不够，因为如果用简单的数组存下来的话，是无法快速算出最后的答案的。</p>
@@ -273,13 +362,13 @@
             
                 
                     <p>引言：这场比赛总体做的还是比较好的。A、B、D题一A，C题没有过掉说明我在分析数据上的能力还有所欠缺，而现在的NOIP很注重这方面的能力。</p>
-<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：决策贪心</p>
+<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：贪心</p>
 <p>【分析】</p>
 <p>​    这道题的解法多样，有暴力模拟，前缀和，线段树和单调栈。</p>
 <p>​    而我自己先写的是前缀和，即记录$sum[10][M]$，我们先从$[1,k+1]$中寻找一个最大的，位置为i，然后删去$[1,i-1]$，k-=（i-1）。接下来就在$[i+1,i+1+k-1]$中一直操作下去。这种算法的复杂度是$O(10n)$。</p>
 <p>​    后来又写了一种单调栈的写法。</p>
 <p>​    切入点：我们每一次所做的决策，其实就是如果k还存在，那么判这个数是否要保留的依据就是，它是否比后一个数要大。这样才能保证答案最大。</p>
-<p><strong>深入考虑，看清本质，寻找答案。</strong></p>
+<p>​    <strong>深入考虑，看清本质，寻找答案。</strong></p>
 <h2 id="B、栅栏——COCI2011-2012-Contest-4-D"><a href="#B、栅栏——COCI2011-2012-Contest-4-D" class="headerlink" title="B、栅栏——COCI2011/2012 Contest#4 D"></a>B、栅栏——COCI2011/2012 Contest#4 D</h2><p>关键字：贪心，终态分析</p>
 <p>【分析】</p>
 <p>​    题目比较好理解。看得出，输入的第一个数组a的作用只是显示相对大小的。</p>
@@ -333,41 +422,6 @@
                     <span class="iconfont icon-right">继续阅读</span>
                 </a>
             </p>
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/hello-world/">Hello World</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-                
-            
         
         </div>
         

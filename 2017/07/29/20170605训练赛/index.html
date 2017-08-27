@@ -66,7 +66,7 @@
     <div class="body">
     <div class="tagcloud" id="tagcloud">
     <div class="tagcloud-inner">
-        
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a> <a href="/tags/数论/" style="font-size: 14px;">数论</a> <a href="/tags/最小割/" style="font-size: 14px;">最小割</a>
     </div>
 </div>
     <header class="header" id="header">
@@ -151,18 +151,34 @@
             </h1>
             
                 
+                    <div class="post-tags syuanpi riseIn-light back-3">
+                    
+                        <a href="/tags/分块/">分块</a>
+                    
+                        <a href="/tags/贪心/">贪心</a>
+                    
+                        <a href="/tags/终态分析/">终态分析</a>
+                    
+                        <a href="/tags/容斥/">容斥</a>
+                    
+                        <a href="/tags/数论/">数论</a>
+                    
+                        <a href="/tags/筛法/">筛法</a>
+                    
+                    </div>
+                
             
         </header>
         <div class="post-content syuanpi riseIn-light back-3">
             
                 <p>引言：这场比赛总体做的还是比较好的。A、B、D题一A，C题没有过掉说明我在分析数据上的能力还有所欠缺，而现在的NOIP很注重这方面的能力。</p>
-<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：决策贪心</p>
+<h3 id="A、-数学课上的报酬——COCI2011-2012-Contest-4-C"><a href="#A、-数学课上的报酬——COCI2011-2012-Contest-4-C" class="headerlink" title="A、 数学课上的报酬——COCI2011/2012 Contest#4 C"></a>A、 数学课上的报酬——COCI2011/2012 Contest#4 C</h3><p>关键字：贪心</p>
 <p>【分析】</p>
 <p>​    这道题的解法多样，有暴力模拟，前缀和，线段树和单调栈。</p>
 <p>​    而我自己先写的是前缀和，即记录$sum[10][M]$，我们先从$[1,k+1]$中寻找一个最大的，位置为i，然后删去$[1,i-1]$，k-=（i-1）。接下来就在$[i+1,i+1+k-1]$中一直操作下去。这种算法的复杂度是$O(10n)$。</p>
 <p>​    后来又写了一种单调栈的写法。</p>
 <p>​    切入点：我们每一次所做的决策，其实就是如果k还存在，那么判这个数是否要保留的依据就是，它是否比后一个数要大。这样才能保证答案最大。</p>
-<p><strong>深入考虑，看清本质，寻找答案。</strong></p>
+<p>​    <strong>深入考虑，看清本质，寻找答案。</strong></p>
 <h2 id="B、栅栏——COCI2011-2012-Contest-4-D"><a href="#B、栅栏——COCI2011-2012-Contest-4-D" class="headerlink" title="B、栅栏——COCI2011/2012 Contest#4 D"></a>B、栅栏——COCI2011/2012 Contest#4 D</h2><p>关键字：贪心，终态分析</p>
 <p>【分析】</p>
 <p>​    题目比较好理解。看得出，输入的第一个数组a的作用只是显示相对大小的。</p>
