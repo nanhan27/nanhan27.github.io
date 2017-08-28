@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title> 20170729离线赛 · nanhan27's Blog </title>
+    <title> 20170826离线赛 · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -142,11 +142,11 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月31日</span>
+                <span>2017年8月27日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
-                20170729离线赛
+                20170826离线赛
             
             </h1>
             
@@ -155,17 +155,11 @@
                     
                         <a href="/tags/线段树/">线段树</a>
                     
-                        <a href="/tags/dfs序/">dfs序</a>
+                        <a href="/tags/二分/">二分</a>
                     
-                        <a href="/tags/莫比乌斯反演/">莫比乌斯反演</a>
+                        <a href="/tags/数学/">数学</a>
                     
-                        <a href="/tags/贪心/">贪心</a>
-                    
-                        <a href="/tags/树状数组/">树状数组</a>
-                    
-                        <a href="/tags/区间查询/">区间查询</a>
-                    
-                        <a href="/tags/虚树/">虚树</a>
+                        <a href="/tags/卢卡斯定理/">卢卡斯定理</a>
                     
                     </div>
                 
@@ -173,26 +167,26 @@
         </header>
         <div class="post-content syuanpi riseIn-light back-3">
             
-                <h2 id="A、键盘——UOJ136"><a href="#A、键盘——UOJ136" class="headerlink" title="A、键盘——UOJ136"></a>A、键盘——UOJ136</h2><p>关键字：贪心</p>
+                <p>引言：A题过了大样例就扔掉了，没有做什么检查，结果没有把无解特判。B题容易看出是线段树，然后开启码农模式。C题因为手残，仍然是爆0。</p>
+<a id="more"></a>
+<h2 id="A、自动刷题机"><a href="#A、自动刷题机" class="headerlink" title="A、自动刷题机"></a>A、自动刷题机</h2><p>关键字：二分</p>
 <p>【分析】</p>
-<p>题目的关键就是怎样合理利用Fn这个键。</p>
-<p>假设n &lt; m，根据贪心，当然是走到对角线，然后利用第一个Fn之前的物理键，贪心再凑出一个相同的就可以继续用Fn跳了。</p>
-<p>但是我自信满满推出来的规律还是有错误，所以就只有30分。</p>
-<h2 id="B、最大字典序排列——51nod"><a href="#B、最大字典序排列——51nod" class="headerlink" title="B、最大字典序排列——51nod"></a>B、最大字典序排列——51nod</h2><p>关键字：区间查询、树状数组、线段树</p>
+<p>从感性的角度分析，一份代码需要的行数越大，份数越小；需要的行数越小，份数越大。所以答案是具有单调性的，那就可以二分了。</p>
+<p>【反思】</p>
+<p>一开始看到了不满足输出-1，但是写完代码的时候却忘了。看来写的时候应该将一些需要特别注意的地方用注释标出提醒自己。</p>
+<h2 id="B、脑洞治疗仪"><a href="#B、脑洞治疗仪" class="headerlink" title="B、脑洞治疗仪"></a>B、脑洞治疗仪</h2><p>关键字：线段树</p>
 <p>【分析】</p>
-<p>根据贪心，我们应该要将最大的数放在最前面，第二大的数放在第二位，这样才能使最后的字典序最大。</p>
-<p>那么题目就转化为，对于每个位置pos,在一个可行的范围中找出一个最大的数。这种区间查询，单点更新线段树就能解决了。</p>
-<p>比赛的时候写了一种比较暴力的树状数组的写法，结果赛后被一个叫baodaqing的变态卡掉了。</p>
-<h2 id="C、机房网络——计蒜客"><a href="#C、机房网络——计蒜客" class="headerlink" title="C、机房网络——计蒜客"></a>C、机房网络——计蒜客</h2><p>关键字：dfs序、虚树、莫比乌斯反演</p>
+<p>看到题目的第一反应就是线段树。（<del>连暴力有多少分都没有看</del>）接下来就要看每个人的模拟能力了。</p>
+<p>每个节点只要存区间的长度，0的个数，1的个数，这个区间最大连续的0的个数，从左端点起最长的连续0的个数和从右端点起最长的连续0的个数，以及操作的标记类型就行了。</p>
+<p>由于这道题因为需要实现那些操作，用到的函数特别多，所以先别急着写，好好构思一下再写，代码就能精简很多，思路也会清晰很多。</p>
+<h2 id="C、超能粒子炮"><a href="#C、超能粒子炮" class="headerlink" title="C、超能粒子炮"></a>C、超能粒子炮</h2><p>关键字：数学、卢卡斯定理</p>
 <p>【分析】</p>
-<p>暴力30分不解释。</p>
-<p>先说一下60分。其实也是比较好想到的。由于a的范围比较小，所以我们可以枚举i，求出F[i]表示$gcd=i*k$的答案，然后在树上求出答案。最后用莫比乌斯反演求出答案。不过这里要注意的是一开始mul数组都是1，因为这道题需要mul[1]。</p>
-<p>满分的做法其实和60分的做法很相似。因为每一次枚举i，都要跑一边整棵树，但是对于i，实际上符合条件的点是少数的，所以我们可以考虑建一颗<strong>虚树</strong>。</p>
-<p>先讲讲虚树是个什么东西。一颗虚树，包含所需要的关键点，以及能够还原出关键点在原来的树上的位置关系的点。因为构造虚树的目的是减少遍历的点的个数，所以我们要求这种关系最简，而LCA恰好有这个能力。</p>
-<p>如何建一颗虚树呢？首先将关键点塞进数组，按照dfs序进行排序，两两求出lca，塞进数组。最后再按dfs序排序。</p>
-<p>有了这个数组，我们还需要一个特别的栈，这个栈能实现一个功能：先把第一个点入栈。开始循环数组，若栈顶元素不是该元素的祖先，那么弹去栈顶元素，直至成为祖先。这样栈顶元素就是该元素在虚树上的父亲。</p>
-<p>这样就能一次循环求出虚树上的边的信息。</p>
-<p>接下来就可以像60分的做法跑一遍dfs。当然还有更简洁的做法，不过将虚树真正建成一颗实树的做法比较通用。</p>
+<p>这题的正解是Lucas定理在大组合数的取模的应用。</p>
+<p>Lucas定理：</p>
+<h5 id="A、B是非负整数，p是质数。AB写成p进制：A-a-n-a-n-1-…a-0-，B-b-n-b-n-1-…b-0-。"><a href="#A、B是非负整数，p是质数。AB写成p进制：A-a-n-a-n-1-…a-0-，B-b-n-b-n-1-…b-0-。" class="headerlink" title="A、B是非负整数，p是质数。AB写成p进制：A=a[n]a[n-1]…a[0]，B=b[n]b[n-1]…b[0]。"></a>A、B是非负整数，p是质数。AB写成p进制：A=a[n]a[n-1]…a[0]，B=b[n]b[n-1]…b[0]。</h5><h5 id="则组合数C-A-B-与C-a-n-b-n-C-a-n-1-b-n-1-…-C-a-0-b-0-p同余"><a href="#则组合数C-A-B-与C-a-n-b-n-C-a-n-1-b-n-1-…-C-a-0-b-0-p同余" class="headerlink" title="则组合数C(A,B)与C(a[n],b[n])C(a[n-1],b[n-1])…*C(a[0],b[0])  % p同余"></a>则组合数C(A,B)与C(a[n],b[n])<em>C(a[n-1],b[n-1])</em>…*C(a[0],b[0])  % p同余</h5><h5 id="即：Lucas-n-m-p-C-n-p-m-p-Lucas-n-p-m-p-p"><a href="#即：Lucas-n-m-p-C-n-p-m-p-Lucas-n-p-m-p-p" class="headerlink" title="即：Lucas(n,m,p)=C(n%p,m%p)*Lucas(n/p,m/p,p)"></a>即：Lucas(n,m,p)=C(n%p,m%p)*Lucas(n/p,m/p,p)</h5><p>如果知道了这个定理，那么50分就能拿到了。</p>
+<p>100分就是定义$S[i][j]=\sum _{k=0}^{j}C\left[ i\right] \left[ k\right]$，因为$K=k1*p+k2$，所以分开计算，并且将式子转化到可以递归求解就好了。（<del>推了我好久</del>）</p>
+<p>【反思】</p>
+<p>赛场上想用$O(n)$求出逆元算出组合数，结果逆推逆元的公式花了一会儿推出来，敲完之后调了半个小时，发现是快速幂敲错了……最后发现因为这个p=2333太小了，逆元计算时会出错，必须要考虑n！、m！和（n-m）！中2333的个数。因为时间问题，我去敲了一个暴力求组合数，结果第二层循环变量j&lt;=i&amp;&amp;j&lt;=K写成了j&lt;=i&amp;&amp;i&lt;=K……错误百出！</p>
 
             
         
@@ -206,16 +200,16 @@
         
     <nav class="article-page">
         
-            <a href="/2017/08/02/2017 Multi-University Training Contest 2/" id="art-left" class="art-right">
+            <a href="/2017/08/28/20170827离线赛/" id="art-left" class="art-right">
                 <span class="next-title">
-                    2017 Multi-University Training Contest 2<i class="iconfont icon-right"></i> 
+                    20170827离线赛<i class="iconfont icon-right"></i> 
                 </span>
             </a>
         
         
-            <a href="/2017/07/29/矩阵乘法小结/" id="art-right" class="art-left">
+            <a href="/2017/08/25/20170825离线赛/" id="art-right" class="art-left">
                 <span class="prev-title"> 
-                    <i class="iconfont icon-left"></i>矩阵乘法小结
+                    <i class="iconfont icon-left"></i>20170825离线赛
                 </span>
             </a>
         

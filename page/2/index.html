@@ -149,6 +149,49 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月13日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/13/2017 Multi-University Training Contest 6/">2017 Multi-University Training Contest 6</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <h2 id="1001、String"><a href="#1001、String" class="headerlink" title="1001、String"></a>1001、String</h2><p>关键字：字符串、$Trie$树、$CDQ$分治</p>
+<p>【分析】</p>
+<p>首先我们可以知道，如果将单词按字典序排序，那么对于一个前缀，单词所在的下标一定是一段连续的区间。将单词旋转后排序，查询后缀也是一样的。</p>
+<p>那么题目就转化成对于一个询问，其正序下标在$[x1,x2]$，逆序下标在$[y1,y2]$的单词有多少个。</p>
+<p>如果知道了一个询问的$x1、x2、y1、y2$，那么题目就等价于求平面上一个矩形中的点的个数，这个可以用扫描线+线段树完成。</p>
+<p>预处理出$x1、x2、y1、y2$可以用$Trie$树来完成，即每个节点存下某个前缀的字典序下标的最大和最小值。然后用询问的前缀和后缀去跑这棵$Trie$树。</p>
+<p>但是题目中还有一个限制条件：$前缀和后缀不能重叠。$</p>
+<p>这个条件正解中是用$Hash$将不满足的情况减去，但是$小C$说这样太麻烦了。这样就说明一个单词，如果其长度小于询问的前缀+后缀长度，那么它是不能被计算的，所以我们人为地添加了操作顺序这一维度，即边加点边询问。而这个问题正是$CDQ$的入门题目$Mokia$。</p>
+<p>【算法流程】</p>
+<p>1、顺序字符串排序，建$Trie$树，更新节点的信息。询问的前缀查询区间$[x1,x2]$。</p>
+<p>2、逆序字符串做相同操作。</p>
+<p>3、将插入和询问操作按长度从大到小排序，进行$CDQ$分治，BIT维护。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/13/2017 Multi-University Training Contest 6/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
                 <span>2017年8月12日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
@@ -531,43 +574,6 @@
 <p>有了这个数组，我们还需要一个特别的栈，这个栈能实现一个功能：先把第一个点入栈。开始循环数组，若栈顶元素不是该元素的祖先，那么弹去栈顶元素，直至成为祖先。这样栈顶元素就是该元素在虚树上的父亲。</p>
 <p>这样就能一次循环求出虚树上的边的信息。</p>
 <p>接下来就可以像60分的做法跑一遍dfs。当然还有更简洁的做法，不过将虚树真正建成一颗实树的做法比较通用。</p>
-
-                
-            
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月29日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/07/29/矩阵乘法小结/">矩阵乘法小结</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <p>今天花了一个上午去写矩阵乘法的入门题，自己应该是入了门，大概知道了一些东西。</p>
-<p>网址：<a href="http://www.matrix67.com/blog/archives/276" target="_blank" rel="external">http://www.matrix67.com/blog/archives/276</a></p>
-<p>它的模板大概是一个$O(n^3)$的mat和一个快速幂。</p>
-<p>mat的代码其实和Floyd的代码差不多，只是将Floyd代码的第一层for放进最里面。（其实也好想，就是求i到j共有多少种方案）</p>
-<p>一类就是用它来优化dp。</p>
-<p>首先这个dp转移方程应该是足够简单的，类似斐波那契数列的当然是最好。</p>
-<p>其次这个dp应该是求某种方法的方案数，而且数据的范围应该是很大的，这样其实就是告诉你要用log的算法来优化，这样就可能想到用矩阵乘法来优化了。（矩阵乘法的复杂度应该是$n^3log(T)$）</p>
-<p>也就是说，dp方程简单，转移次数大，就可能用到矩阵乘法优化。</p>
-<p>第二类大概就是和图有关的题目了。</p>
-<p>小C说专业的图论其实多是用01矩阵来表示点与点之间的边的。那么拿原始的矩阵相乘一次，表示的就是走两步能到达那些点。</p>
-<p>第三类就是题目本身提到了矩阵，并让我们去操作矩阵了。这种题目应该不属于日们的范畴了，所以这里不讲。</p>
 
                 
             

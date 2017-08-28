@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title> 20170729离线赛 · nanhan27's Blog </title>
+    <title> 20170827离线赛 · nanhan27's Blog </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -142,11 +142,11 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月31日</span>
+                <span>2017年8月28日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
-                20170729离线赛
+                20170827离线赛
             
             </h1>
             
@@ -155,17 +155,7 @@
                     
                         <a href="/tags/线段树/">线段树</a>
                     
-                        <a href="/tags/dfs序/">dfs序</a>
-                    
-                        <a href="/tags/莫比乌斯反演/">莫比乌斯反演</a>
-                    
-                        <a href="/tags/贪心/">贪心</a>
-                    
-                        <a href="/tags/树状数组/">树状数组</a>
-                    
-                        <a href="/tags/区间查询/">区间查询</a>
-                    
-                        <a href="/tags/虚树/">虚树</a>
+                        <a href="/tags/dp/">dp</a>
                     
                     </div>
                 
@@ -173,26 +163,30 @@
         </header>
         <div class="post-content syuanpi riseIn-light back-3">
             
-                <h2 id="A、键盘——UOJ136"><a href="#A、键盘——UOJ136" class="headerlink" title="A、键盘——UOJ136"></a>A、键盘——UOJ136</h2><p>关键字：贪心</p>
+                <p>引言：三道dp？假的吧！</p>
+<a id="more"></a>
+<h2 id="A、猴子上树"><a href="#A、猴子上树" class="headerlink" title="A、猴子上树"></a>A、猴子上树</h2><p>关键字：dp</p>
 <p>【分析】</p>
-<p>题目的关键就是怎样合理利用Fn这个键。</p>
-<p>假设n &lt; m，根据贪心，当然是走到对角线，然后利用第一个Fn之前的物理键，贪心再凑出一个相同的就可以继续用Fn跳了。</p>
-<p>但是我自信满满推出来的规律还是有错误，所以就只有30分。</p>
-<h2 id="B、最大字典序排列——51nod"><a href="#B、最大字典序排列——51nod" class="headerlink" title="B、最大字典序排列——51nod"></a>B、最大字典序排列——51nod</h2><p>关键字：区间查询、树状数组、线段树</p>
+<p>我们先将猴子的位置和树的位置排序，这样就有序了。</p>
+<p>我们定义$dp[i][j]$表示前i只猴子，最后一只猴子在第j棵树上，且前i只猴子所在的位置为$[1,j]$上。</p>
+<p>答案为$dp[n][m]$。</p>
+<p>【反思】</p>
+<p>比赛的时候想的有点慢，虽然几分钟就敲完了，但还是有点慌。</p>
+<h2 id="B、疯狂的最大连续和"><a href="#B、疯狂的最大连续和" class="headerlink" title="B、疯狂的最大连续和"></a>B、疯狂的最大连续和</h2><p>关键字：dp</p>
 <p>【分析】</p>
-<p>根据贪心，我们应该要将最大的数放在最前面，第二大的数放在第二位，这样才能使最后的字典序最大。</p>
-<p>那么题目就转化为，对于每个位置pos,在一个可行的范围中找出一个最大的数。这种区间查询，单点更新线段树就能解决了。</p>
-<p>比赛的时候写了一种比较暴力的树状数组的写法，结果赛后被一个叫baodaqing的变态卡掉了。</p>
-<h2 id="C、机房网络——计蒜客"><a href="#C、机房网络——计蒜客" class="headerlink" title="C、机房网络——计蒜客"></a>C、机房网络——计蒜客</h2><p>关键字：dfs序、虚树、莫比乌斯反演</p>
+<p>思路还是比较顺的：定义$dp[i][j]$表示前i个数字，取j段区间的最大连续和，那么简单的转移就出来了：</p>
+<p>$dp[i][j+1]=max(dp[k][j]+sum[i]-sum[k])$</p>
+<p>复杂度是$O(mn^2)$，当然是过不了的。我们考虑优化。</p>
+<p>化简得：$dp[i][j+1]=max(dp[k][j]-sum[k])+sum[i]$</p>
+<p>用一个$mx[j]$存$dp[k][j]-sum[k]$的最大值就好了。所以最后的复杂度是$O(nm)$。</p>
+<h2 id="C、基站选址"><a href="#C、基站选址" class="headerlink" title="C、基站选址"></a>C、基站选址</h2><p>关键字：dp、线段树</p>
 <p>【分析】</p>
-<p>暴力30分不解释。</p>
-<p>先说一下60分。其实也是比较好想到的。由于a的范围比较小，所以我们可以枚举i，求出F[i]表示$gcd=i*k$的答案，然后在树上求出答案。最后用莫比乌斯反演求出答案。不过这里要注意的是一开始mul数组都是1，因为这道题需要mul[1]。</p>
-<p>满分的做法其实和60分的做法很相似。因为每一次枚举i，都要跑一边整棵树，但是对于i，实际上符合条件的点是少数的，所以我们可以考虑建一颗<strong>虚树</strong>。</p>
-<p>先讲讲虚树是个什么东西。一颗虚树，包含所需要的关键点，以及能够还原出关键点在原来的树上的位置关系的点。因为构造虚树的目的是减少遍历的点的个数，所以我们要求这种关系最简，而LCA恰好有这个能力。</p>
-<p>如何建一颗虚树呢？首先将关键点塞进数组，按照dfs序进行排序，两两求出lca，塞进数组。最后再按dfs序排序。</p>
-<p>有了这个数组，我们还需要一个特别的栈，这个栈能实现一个功能：先把第一个点入栈。开始循环数组，若栈顶元素不是该元素的祖先，那么弹去栈顶元素，直至成为祖先。这样栈顶元素就是该元素在虚树上的父亲。</p>
-<p>这样就能一次循环求出虚树上的边的信息。</p>
-<p>接下来就可以像60分的做法跑一遍dfs。当然还有更简洁的做法，不过将虚树真正建成一颗实树的做法比较通用。</p>
+<p>30分不太好想到：定义$dp[i][j]$表示在第i个村庄建第j个基站。</p>
+<p>转移是这样的：$dp[i][j+1]=min(dp[k][j]+cost[k][i])+c[i]（cost[i][j]表示在i和j建基站，[i+1,j-1]这个区间不被覆盖的村庄需要的补偿费用）$</p>
+<p>但是这里需要注意的是，答案当然不一定是$dp[n][i]$取一个最小值，还有可能在前面的点取到最小值。这里有一个小技巧，再加上一个点在所有村庄的后面。这样答案就是$dp[n+1][i]$了（限度K也需要加一）。</p>
+<p>转移是$O(mn^2)$的，我们优化的最大问题就是：对于i，一个新的k的cost值必须时时计算出来，所以也就不能用简单地用优化区间最值的方法优化。</p>
+<p>实际上，我们可以预处理出对于一个点i，建站不需要补偿它的最远的位置$L[i]$和$R[i]$。从[1,i-1]中查询最小值，更新以i作为R的位置p的区间[1,L[p]-1]的最值，让这个区间整体加上w[i]。</p>
+<p>这种区间查询，区间更新的操作交给线段树就行了。</p>
 
             
         
@@ -206,16 +200,10 @@
         
     <nav class="article-page">
         
-            <a href="/2017/08/02/2017 Multi-University Training Contest 2/" id="art-left" class="art-right">
-                <span class="next-title">
-                    2017 Multi-University Training Contest 2<i class="iconfont icon-right"></i> 
-                </span>
-            </a>
         
-        
-            <a href="/2017/07/29/矩阵乘法小结/" id="art-right" class="art-left">
+            <a href="/2017/08/27/20170826离线赛/" id="art-right" class="art-left">
                 <span class="prev-title"> 
-                    <i class="iconfont icon-left"></i>矩阵乘法小结
+                    <i class="iconfont icon-left"></i>20170826离线赛
                 </span>
             </a>
         

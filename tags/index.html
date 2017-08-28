@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title> 20170729离线赛 · nanhan27's Blog </title>
+    <title>
+        nanhan27's Blog
+        
+    </title>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -138,93 +141,8 @@
     <div class="container">
         <main class="main" id="main">
             
-    
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年7月31日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                20170729离线赛
-            
-            </h1>
-            
-                
-                    <div class="post-tags syuanpi riseIn-light back-3">
-                    
-                        <a href="/tags/线段树/">线段树</a>
-                    
-                        <a href="/tags/dfs序/">dfs序</a>
-                    
-                        <a href="/tags/莫比乌斯反演/">莫比乌斯反演</a>
-                    
-                        <a href="/tags/贪心/">贪心</a>
-                    
-                        <a href="/tags/树状数组/">树状数组</a>
-                    
-                        <a href="/tags/区间查询/">区间查询</a>
-                    
-                        <a href="/tags/虚树/">虚树</a>
-                    
-                    </div>
-                
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                <h2 id="A、键盘——UOJ136"><a href="#A、键盘——UOJ136" class="headerlink" title="A、键盘——UOJ136"></a>A、键盘——UOJ136</h2><p>关键字：贪心</p>
-<p>【分析】</p>
-<p>题目的关键就是怎样合理利用Fn这个键。</p>
-<p>假设n &lt; m，根据贪心，当然是走到对角线，然后利用第一个Fn之前的物理键，贪心再凑出一个相同的就可以继续用Fn跳了。</p>
-<p>但是我自信满满推出来的规律还是有错误，所以就只有30分。</p>
-<h2 id="B、最大字典序排列——51nod"><a href="#B、最大字典序排列——51nod" class="headerlink" title="B、最大字典序排列——51nod"></a>B、最大字典序排列——51nod</h2><p>关键字：区间查询、树状数组、线段树</p>
-<p>【分析】</p>
-<p>根据贪心，我们应该要将最大的数放在最前面，第二大的数放在第二位，这样才能使最后的字典序最大。</p>
-<p>那么题目就转化为，对于每个位置pos,在一个可行的范围中找出一个最大的数。这种区间查询，单点更新线段树就能解决了。</p>
-<p>比赛的时候写了一种比较暴力的树状数组的写法，结果赛后被一个叫baodaqing的变态卡掉了。</p>
-<h2 id="C、机房网络——计蒜客"><a href="#C、机房网络——计蒜客" class="headerlink" title="C、机房网络——计蒜客"></a>C、机房网络——计蒜客</h2><p>关键字：dfs序、虚树、莫比乌斯反演</p>
-<p>【分析】</p>
-<p>暴力30分不解释。</p>
-<p>先说一下60分。其实也是比较好想到的。由于a的范围比较小，所以我们可以枚举i，求出F[i]表示$gcd=i*k$的答案，然后在树上求出答案。最后用莫比乌斯反演求出答案。不过这里要注意的是一开始mul数组都是1，因为这道题需要mul[1]。</p>
-<p>满分的做法其实和60分的做法很相似。因为每一次枚举i，都要跑一边整棵树，但是对于i，实际上符合条件的点是少数的，所以我们可以考虑建一颗<strong>虚树</strong>。</p>
-<p>先讲讲虚树是个什么东西。一颗虚树，包含所需要的关键点，以及能够还原出关键点在原来的树上的位置关系的点。因为构造虚树的目的是减少遍历的点的个数，所以我们要求这种关系最简，而LCA恰好有这个能力。</p>
-<p>如何建一颗虚树呢？首先将关键点塞进数组，按照dfs序进行排序，两两求出lca，塞进数组。最后再按dfs序排序。</p>
-<p>有了这个数组，我们还需要一个特别的栈，这个栈能实现一个功能：先把第一个点入栈。开始循环数组，若栈顶元素不是该元素的祖先，那么弹去栈顶元素，直至成为祖先。这样栈顶元素就是该元素在虚树上的父亲。</p>
-<p>这样就能一次循环求出虚树上的边的信息。</p>
-<p>接下来就可以像60分的做法跑一遍dfs。当然还有更简洁的做法，不过将虚树真正建成一颗实树的做法比较通用。</p>
-
-            
-        
-        </div>
-        
-            
-            
-        
-    </article>
-    
-        
-    <nav class="article-page">
-        
-            <a href="/2017/08/02/2017 Multi-University Training Contest 2/" id="art-left" class="art-right">
-                <span class="next-title">
-                    2017 Multi-University Training Contest 2<i class="iconfont icon-right"></i> 
-                </span>
-            </a>
-        
-        
-            <a href="/2017/07/29/矩阵乘法小结/" id="art-right" class="art-left">
-                <span class="prev-title"> 
-                    <i class="iconfont icon-left"></i>矩阵乘法小结
-                </span>
-            </a>
-        
-    </nav>
-
         
     
-
-
         </main>
         <footer class="footer syuanpi fadeIn" id="footer">
     <hr>
@@ -292,8 +210,6 @@ $(document).ready(function(){
 })
 </script>
     </div>
-    
-        
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>

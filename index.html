@@ -149,11 +149,11 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月27日</span>
+                <span>2017年8月28日</span>
             </div>
             <h1 class="post-title syuanpi riseIn-light back-2">
             
-                <a href="/2017/08/27/20170826离线赛 nanhan/">20170826离线赛</a>
+                <a href="/2017/08/28/20170827离线赛/">20170827离线赛</a>
             
             </h1>
             
@@ -161,27 +161,47 @@
         <div class="post-content syuanpi riseIn-light back-3">
             
                 
-                    <h2 id="A、自动刷题机"><a href="#A、自动刷题机" class="headerlink" title="A、自动刷题机"></a>A、自动刷题机</h2><p>关键字：二分</p>
-<p>【分析】</p>
-<p>从感性的角度分析，一份代码需要的行数越大，份数越小；需要的行数越小，份数越大。所以答案是具有单调性的，那就可以二分了。</p>
-<p>【反思】</p>
-<p>一开始看到了不满足输出-1，但是写完代码的时候却忘了。看来写的时候应该将一些需要特别注意的地方用注释标出提醒自己。</p>
-<h2 id="B、脑洞治疗仪"><a href="#B、脑洞治疗仪" class="headerlink" title="B、脑洞治疗仪"></a>B、脑洞治疗仪</h2><p>关键字：线段树</p>
-<p>【分析】</p>
-<p>看到题目的第一反应就是线段树。（<del>连暴力有多少分都没有看</del>）接下来就要看每个人的模拟能力了。</p>
-<p>每个节点只要存区间的长度，0的个数，1的个数，这个区间最大连续的0的个数，从左端点起最长的连续0的个数和从右端点起最长的连续0的个数，以及操作的标记类型就行了。</p>
-<p>由于这道题因为需要实现那些操作，用到的函数特别多，所以先别急着写，好好构思一下再写，代码就能精简很多，思路也会清晰很多。</p>
-<h2 id="C、超能粒子炮"><a href="#C、超能粒子炮" class="headerlink" title="C、超能粒子炮"></a>C、超能粒子炮</h2><p>关键字：数学、卢卡斯定理</p>
-<p>【分析】</p>
-<p>这题的正解是Lucas定理在大组合数的取模的应用。</p>
-<p>Lucas定理：</p>
-<h5 id="A、B是非负整数，p是质数。AB写成p进制：A-a-n-a-n-1-…a-0-，B-b-n-b-n-1-…b-0-。"><a href="#A、B是非负整数，p是质数。AB写成p进制：A-a-n-a-n-1-…a-0-，B-b-n-b-n-1-…b-0-。" class="headerlink" title="A、B是非负整数，p是质数。AB写成p进制：A=a[n]a[n-1]…a[0]，B=b[n]b[n-1]…b[0]。"></a>A、B是非负整数，p是质数。AB写成p进制：A=a[n]a[n-1]…a[0]，B=b[n]b[n-1]…b[0]。</h5><h5 id="则组合数C-A-B-与C-a-n-b-n-C-a-n-1-b-n-1-…-C-a-0-b-0-p同余"><a href="#则组合数C-A-B-与C-a-n-b-n-C-a-n-1-b-n-1-…-C-a-0-b-0-p同余" class="headerlink" title="则组合数C(A,B)与C(a[n],b[n])C(a[n-1],b[n-1])…*C(a[0],b[0])  % p同余"></a>则组合数C(A,B)与C(a[n],b[n])<em>C(a[n-1],b[n-1])</em>…*C(a[0],b[0])  % p同余</h5><h5 id="即：Lucas-n-m-p-C-n-p-m-p-Lucas-n-p-m-p-p"><a href="#即：Lucas-n-m-p-C-n-p-m-p-Lucas-n-p-m-p-p" class="headerlink" title="即：Lucas(n,m,p)=C(n%p,m%p)*Lucas(n/p,m/p,p)"></a>即：Lucas(n,m,p)=C(n%p,m%p)*Lucas(n/p,m/p,p)</h5><p>如果知道了这个定理，那么50分就能拿到了。</p>
-<p>100分就是定义$S[i][j]=\sum _{k=0}^{j}C\left[ i\right] \left[ k\right]$，因为$K=k1*p+k2$，所以分开计算，并且将式子转化到可以递归求解就好了。（<del>推了我好久</del>）</p>
-<p>【反思】</p>
-<p>赛场上想用$O(n)$求出逆元算出组合数，结果逆推逆元的公式花了一会儿推出来，敲完之后调了半个小时，发现是快速幂敲错了……最后发现因为这个p=2333太小了，逆元计算时会出错，必须要考虑n！、m！和（n-m）！中2333的个数。因为时间问题，我去敲了一个暴力求组合数，结果第二层循环变量j&lt;=i&amp;&amp;j&lt;=K写成了j&lt;=i&amp;&amp;i&lt;=K……错误百出！</p>
-
-                
+                    <p>引言：三道dp？假的吧！</p>
+                    
             
+        
+            <p class="content-link">
+                <a href="/2017/08/28/20170827离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
+        
+        </div>
+        
+    </article>
+    
+
+    
+        
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年8月27日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                <a href="/2017/08/27/20170826离线赛/">20170826离线赛</a>
+            
+            </h1>
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                
+                    <p>引言：A题过了大样例就扔掉了，没有做什么检查，结果没有把无解特判。B题容易看出是线段树，然后开启码农模式。C题因为手残，仍然是爆0。</p>
+                    
+            
+        
+            <p class="content-link">
+                <a href="/2017/08/27/20170826离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
         
         </div>
         
@@ -304,12 +324,12 @@
 <p>【分析】</p>
 <p>这道题暴力$O(n^6)$+可行性剪枝+最优性剪枝在没有那种特别的卡人数据的情况下是可以过的（关键是这种数据很难造）。</p>
 <p><strong>剪枝</strong>：</p>
-<p>可行性剪枝：若锤子的规格为$r<em>c$，因为题目要求每次一定会锤去$r</em>c$值地鼠，所以锤的次数为$sum/(r*c)$，且要求需要整除。那么也需要满足$sum \% r=0$，$sum \% c=0$了。</p>
-<p>最优性剪枝：在满足可行的情况下，如果$sum/(r<em>c) \ge ans$（当前已求出），那么无论是否能够实现，这个$r</em>c$已经对答案没有意义了，我们也就不用$O(n^4)$在去判断了。</p>
+<p>可行性剪枝：若锤子的规格为$r\times c$，因为题目要求每次一定会锤去$r\times c$值地鼠，所以锤的次数为$sum/(r\times c)$，且要求需要整除。那么也需要满足$sum \mod r=0$，$sum \mod c=0$了。</p>
+<p>最优性剪枝：在满足可行的情况下，如果$sum/(r \times c) \ge ans$（当前已求出），那么无论是否能够实现，这个$r\times c$已经对答案没有意义了，我们也就不用$O(n^4)$在去判断了。</p>
 <p>讲一下用$O(n^4)$判断。因为我们不知道该按照怎样的顺序开始锤，所以我们从边界开始考虑。对于（1,1）这个点，被锤的方式只有一种。当（1,1）被锤后，（1,2）这个点被锤的方式也是唯一的。所以for过来就好了。</p>
 <p>接下来讲一下正解：</p>
 <p>这题就是之前写过的一维的刷漆的升级。</p>
-<p>对于r和c，处理一个点（i，j），需要将一个矩阵都减少这个点的地鼠个数v。那么只需要将点（i+r，j）加上v，点（i，j+c）加上v，（i+r,j+c）减去v就好了。这样就可以$O(n^2)$判断是否可行了。最后的复杂度是$O(n^4)$，当然实际复杂度要远小于它，因为有上面两个很强的剪枝，尤其是那个可行性剪枝。</p>
+<p>对于r和c，处理一个点（i，j），需要将一个矩阵都减少这个点的地鼠个数v。那么只需要将点（i+r，j）加上v，点（i，j+c）加上v，（i+r,j+c）减去v就好了。这样就可以$O(n^2)​$判断是否可行了。最后的复杂度是$O(n^4)​$，当然实际复杂度要远小于它，因为有上面两个很强的剪枝，尤其是那个可行性剪枝。</p>
 <p>【反思】</p>
 <p>比赛的时候直接敲了$O(n^6)$+剪枝，而且自己出了个大数据，发现快的飞起，就能感觉出那两个剪枝很强，就放心的写后面的题目了。现在想想，做得很对。</p>
 <p>【总结】</p>
@@ -415,31 +435,14 @@
 <p>$Floyd$判断是否存在负环只需要判断$dis[i][i]$是否小于0。</p>
 <p>$SPFA$判断是否存在负环只需要一个点进入队列的次数是否大于$n-1$。</p>
 <p>$Bellmen\ Ford$与$SPFA$类似，判断在在更新$n-1$次后判断每条边是否还能让路径两端的点的距离继续减小。</p>
-<p>【代码】</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) cout&lt;&lt;#x&lt;&lt;<span class="meta-string">" = "</span>&lt;&lt;x&lt;&lt;endl;</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> oo 1e18</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> M 3005</span></div><div class="line"><span class="keyword">int</span> n,m,ti,cas;</div><div class="line">ll d[M][M];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cas);</div><div class="line">    <span class="keyword">while</span>(cas--)&#123;</div><div class="line">        <span class="keyword">int</span> p,q;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;n,&amp;m,&amp;ti);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)d[i][k]=oo;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,u,v,c;i&lt;=m;i++)&#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;u,&amp;v,&amp;c);</div><div class="line">            d[u][v]=min(d[u][v],<span class="number">1l</span>l*c);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;p,&amp;q);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)&#123;</div><div class="line">                    d[j][k]=min(d[j][k],d[j][i]+d[i][k]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(d[p][q]+ti&lt;=<span class="number">0</span>||d[q][p]+ti&lt;=<span class="number">0</span>)<span class="built_in">puts</span>(<span class="string">"yes"</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">bool</span> ok=<span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n&amp;&amp;ok;i++)&#123;</div><div class="line">                <span class="keyword">if</span>(d[i][i]&lt;<span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">if</span>(d[p][i]!=oo&amp;&amp;d[i][q]!=oo||d[q][i]!=oo&amp;&amp;d[i][p]!=oo)ok=<span class="number">0</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(ok)<span class="built_in">puts</span>(<span class="string">"no"</span>);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"yes"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="C、k倍数字——-UOJ140"><a href="#C、k倍数字——-UOJ140" class="headerlink" title="C、k倍数字——$UOJ140$"></a>C、k倍数字——$UOJ140$</h2><p>关键字：数位$dp$</p>
-<p>Task</p>
-<p>给定两个数字R和k，求满足下列条件的x个数。</p>
-<p>1、满足1≤x≤R</p>
-<p>2、定义函数f(x) 为 x 的各位数字之和，例如f(13)=4,f(233)=8。满足 f(x)=f(k·x)</p>
-<p>【分析】</p>
-<p>数位$dp$应该很好想到，关键是哪些状态需要存在下标上才能进行转移。</p>
-<p>通常的数位$dp$应该是从高位往低位的，但是因为这道题目如果从高位往低，那么转移就比较麻烦，所以选择从低往高。对于每一位，我们要添加一个数字，那么此时的各位数字之和是能够转移过来的。但是这些信息并不能直接算出$k·x$的各位数字之和。</p>
-<p>我在网上大概搜了一下，$dp$下标存的大概有这些东西：数位和、数位和模后的结果、是否进位、进位所少、前一位是多少、是否已经满足了约束条件、有无前导零和是否严格小于上限等等。经验要慢慢积累，但是知道这些起码有一些方向可以去尝试。</p>
-<p>至于这道题，我们记录当前这个数的数位和、这个数$<em>K$后的数位和，这个数$</em>K$后的数位和所产生的进位是多少。</p>
-<p>那么就可以转移了：</p>
-<p>$dp[i+1][sum+ch][sum1+(ch<em>K+r)10][(ch</em>K+r)/10]=dp[i][sum][sum1][r]$</p>
-<p>由于还要考虑当前数字是否严格小于上限R，所以还需要一维p记录状态。</p>
-<p>但是这样空间会炸，所以我们不能将两个sum同时记录下来了，我们将两个sum的差d记录在$dp$上。</p>
-<p>【反思】</p>
-<p>暴力炸了就真的没有救了。</p>
-<p>【总结】</p>
-<p>数位$dp$的下标存的状态与前面已经枚举的数位有关并且通常是根据约束条件当前枚举的这一位能使得状态<strong>完整</strong>(比如一个状态涉及到连续k位，那么就保存前k-1的状态，当前枚举的第k个是个恰好凑成成一个完整的状态，不过像状态是数位的和就直接保存前缀和为状态了)</p>
-<p>【代码】</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">ll dp[<span class="number">25</span>][<span class="number">410</span>][<span class="number">1010</span>][<span class="number">2</span>];</div><div class="line"><span class="keyword">char</span> s[<span class="number">25</span>];</div><div class="line"><span class="keyword">int</span> K,n;</div><div class="line">ll R;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld %d"</span>,&amp;R,&amp;K);</div><div class="line">    <span class="keyword">while</span>(R)s[++n]=R%<span class="number">10</span>,R/=<span class="number">10</span>;</div><div class="line">    dp[<span class="number">0</span>][<span class="number">200</span>][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n+<span class="number">2</span>;i++)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> d=<span class="number">0</span>;d&lt;=<span class="number">400</span>;d++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)&#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> now=<span class="number">0</span>;now&lt;<span class="number">2</span>;now++)&#123;</div><div class="line">                    <span class="keyword">if</span>(!dp[i][d][j][now])<span class="keyword">continue</span>;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> ch=<span class="number">0</span>;ch&lt;<span class="number">10</span>;ch++)&#123;</div><div class="line">                        <span class="keyword">int</span> nxt;</div><div class="line">                        <span class="keyword">if</span>(s[i+<span class="number">1</span>]&gt;ch)nxt=<span class="number">0</span>;</div><div class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(s[i+<span class="number">1</span>]&lt;ch)nxt=<span class="number">1</span>;</div><div class="line">                        <span class="keyword">else</span> nxt=now;</div><div class="line">                        <span class="keyword">int</span> nj=(K*ch+j)/<span class="number">10</span>;</div><div class="line">                        <span class="keyword">int</span> nd=d+ch-(K*ch+j)%<span class="number">10</span>;</div><div class="line">                        dp[i+<span class="number">1</span>][nd][nj][nxt]+=dp[i][d][j][now];</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,dp[n+<span class="number">3</span>][<span class="number">200</span>][<span class="number">0</span>][<span class="number">0</span>]<span class="number">-1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-                
+                    
             
+        
+            <p class="content-link">
+                <a href="/2017/08/19/20170819离线赛/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
         
         </div>
         
@@ -579,49 +582,6 @@
 
                 
             
-        
-        </div>
-        
-    </article>
-    
-
-    
-        
-    <article class="post">
-        <header class="post-header">
-            <div class="post-time syuanpi riseIn-light back-1">
-                <span>2017年8月13日</span>
-            </div>
-            <h1 class="post-title syuanpi riseIn-light back-2">
-            
-                <a href="/2017/08/13/2017 Multi-University Training Contest 6/">2017 Multi-University Training Contest 6</a>
-            
-            </h1>
-            
-        </header>
-        <div class="post-content syuanpi riseIn-light back-3">
-            
-                
-                    <h2 id="1001、String"><a href="#1001、String" class="headerlink" title="1001、String"></a>1001、String</h2><p>关键字：字符串、$Trie$树、$CDQ$分治</p>
-<p>【分析】</p>
-<p>首先我们可以知道，如果将单词按字典序排序，那么对于一个前缀，单词所在的下标一定是一段连续的区间。将单词旋转后排序，查询后缀也是一样的。</p>
-<p>那么题目就转化成对于一个询问，其正序下标在$[x1,x2]$，逆序下标在$[y1,y2]$的单词有多少个。</p>
-<p>如果知道了一个询问的$x1、x2、y1、y2$，那么题目就等价于求平面上一个矩形中的点的个数，这个可以用扫描线+线段树完成。</p>
-<p>预处理出$x1、x2、y1、y2$可以用$Trie$树来完成，即每个节点存下某个前缀的字典序下标的最大和最小值。然后用询问的前缀和后缀去跑这棵$Trie$树。</p>
-<p>但是题目中还有一个限制条件：$前缀和后缀不能重叠。$</p>
-<p>这个条件正解中是用$Hash$将不满足的情况减去，但是$小C$说这样太麻烦了。这样就说明一个单词，如果其长度小于询问的前缀+后缀长度，那么它是不能被计算的，所以我们人为地添加了操作顺序这一维度，即边加点边询问。而这个问题正是$CDQ$的入门题目$Mokia$。</p>
-<p>【算法流程】</p>
-<p>1、顺序字符串排序，建$Trie$树，更新节点的信息。询问的前缀查询区间$[x1,x2]$。</p>
-<p>2、逆序字符串做相同操作。</p>
-<p>3、将插入和询问操作按长度从大到小排序，进行$CDQ$分治，BIT维护。</p>
-                    
-            
-        
-            <p class="content-link">
-                <a href="/2017/08/13/2017 Multi-University Training Contest 6/#more">
-                    <span class="iconfont icon-right">继续阅读</span>
-                </a>
-            </p>
         
         </div>
         
