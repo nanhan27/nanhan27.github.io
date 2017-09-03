@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 20170902离线赛 · nanhan27's Blog </title>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<link rel="stylesheet" href="/style/style.css">
+<script src="/script/jquery.min.js"></script>
+<script>
+    var CONFIG = {
+        title: "nanhan27's Blog",
+        author: "nanhan",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!--Mathjax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    }); 
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';                 
+        }       
+    });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        <a href="/tags/A-剪枝/" style="font-size: 14px;">A*剪枝</a> <a href="/tags/CDQ分治/" style="font-size: 14px;">CDQ分治</a> <a href="/tags/Tarjan/" style="font-size: 14px;">Tarjan</a> <a href="/tags/Trie树/" style="font-size: 14px;">Trie树</a> <a href="/tags/YY/" style="font-size: 14px;">YY</a> <a href="/tags/dfs序/" style="font-size: 14px;">dfs序</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a> <a href="/tags/二分/" style="font-size: 14px;">二分</a> <a href="/tags/二分图/" style="font-size: 14px;">二分图</a> <a href="/tags/优先队列/" style="font-size: 14px;">优先队列</a> <a href="/tags/倍增/" style="font-size: 14px;">倍增</a> <a href="/tags/倍增LCA/" style="font-size: 14px;">倍增LCA</a> <a href="/tags/几何/" style="font-size: 14px;">几何</a> <a href="/tags/分块/" style="font-size: 14px;">分块</a> <a href="/tags/分治/" style="font-size: 14px;">分治</a> <a href="/tags/分组背包/" style="font-size: 14px;">分组背包</a> <a href="/tags/前缀和/" style="font-size: 14px;">前缀和</a> <a href="/tags/剪枝/" style="font-size: 14px;">剪枝</a> <a href="/tags/区间查询/" style="font-size: 14px;">区间查询</a> <a href="/tags/单调栈/" style="font-size: 14px;">单调栈</a> <a href="/tags/单调队列/" style="font-size: 14px;">单调队列</a> <a href="/tags/博弈/" style="font-size: 14px;">博弈</a> <a href="/tags/卢卡斯定理/" style="font-size: 14px;">卢卡斯定理</a> <a href="/tags/可持久化并查集/" style="font-size: 14px;">可持久化并查集</a> <a href="/tags/后缀数组/" style="font-size: 14px;">后缀数组</a> <a href="/tags/启发式合并/" style="font-size: 14px;">启发式合并</a> <a href="/tags/图论/" style="font-size: 14px;">图论</a> <a href="/tags/字符串/" style="font-size: 14px;">字符串</a> <a href="/tags/完美匹配/" style="font-size: 14px;">完美匹配</a> <a href="/tags/容斥/" style="font-size: 14px;">容斥</a> <a href="/tags/尺取/" style="font-size: 14px;">尺取</a> <a href="/tags/差分前缀和/" style="font-size: 14px;">差分前缀和</a> <a href="/tags/差分约束系统/" style="font-size: 14px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 14px;">并查集</a> <a href="/tags/扫描线/" style="font-size: 14px;">扫描线</a> <a href="/tags/折半枚举/" style="font-size: 14px;">折半枚举</a> <a href="/tags/拓扑排序/" style="font-size: 14px;">拓扑排序</a> <a href="/tags/搜索/" style="font-size: 14px;">搜索</a> <a href="/tags/数位dp/" style="font-size: 14px;">数位dp</a> <a href="/tags/数学/" style="font-size: 14px;">数学</a>
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">nanhan27's Blog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>目录</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="javascript:;" id="tags">
+                    <span>标签</span>
+                    
+                        <span class="menu-item-label">tags</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/aboutme">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+<div class="mobile-nav"></div>
+</header>
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2017年9月3日</span>
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                20170902离线赛
+            
+            </h1>
+            
+                
+                    <div class="post-tags syuanpi riseIn-light back-3">
+                    
+                        <a href="/tags/数学/">数学</a>
+                    
+                        <a href="/tags/dp/">dp</a>
+                    
+                        <a href="/tags/可持久化并查集/">可持久化并查集</a>
+                    
+                        <a href="/tags/启发式合并/">启发式合并</a>
+                    
+                    </div>
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="A、猜数——UOJ-12"><a href="#A、猜数——UOJ-12" class="headerlink" title="A、猜数——UOJ#12"></a>A、猜数——UOJ#12</h2><p>关键字：数学</p>
+<p>Task：</p>
+<p>这一天，小Y、小 D、小C 正在愉快地玩耍。</p>
+<p>小Y 是个数学家，他一拍脑袋冒出了一个神奇的完全平方数 n。 </p>
+<p>小D是个机灵鬼，很快从小Y嘴里套出了 n 的值。然后在脑内把 n 写成了 $a\times b$的形式。</p>
+<p>其中 a,b 都是正整数。 </p>
+<p>小C是个八卦狂，他发现小D从小Y那里获知了神奇的东西，于是死缠烂打追问小D。</p>
+<p>最后小D 说道：“我可以告诉你正整数 g 和 l 的值，我保证 $a\times b=g\times l=n$ 且 a,b 都是 g的倍数。但是 a,b 我可不能告诉你。” </p>
+<p>这可急坏了小C。他决定退而求其次，找出$a+b$的最小值和最大值。请你帮帮他吧！ </p>
+<p>【分析】</p>
+<p>一开始开题目其实有点慌，第一题就是数学？</p>
+<p>$a=a’\times g$</p>
+<p>$b=b’\times g$</p>
+<p>$n=a’\times b’\times g^2$</p>
+<p>又因为$n=g\times l$</p>
+<p>所以$a’\times b’=l/g$</p>
+<p>根据平均数原理，a+b的最大值当a与b相差最大时取，最小值则是最接近接近的时候。</p>
+<p>又因为n为完全平方数，所以$a’\times b’$为完全平方数，开方即可。</p>
+<p>【反思】</p>
+<p>有些人可能会把g和l乘起来再开方，但是开方返回的类型是double，所以会因为精度问题挂掉。所以，再强调一遍，double的有效精度只有16位！</p>
+<h2 id="B、任务"><a href="#B、任务" class="headerlink" title="B、任务"></a>B、任务</h2><p>关键字：dp</p>
+<p>Task：</p>
+<p>现在又两台机器  A 和  B。有  n 个任务，编号  1,2,….,n。你必须把每个任务安排到一台机器上处理，同时需要满足以下一些条件。 </p>
+<p>（1）你必须把每个任务安排到任意一台机器上处理。 </p>
+<p>（2）在任何时刻，一台机器只能最多处理一个人任务。 </p>
+<p>（3）任务  $i(0 &lt;  i &lt; n)$可以被处理当前仅当每个任务  $j（  j&lt;  i）$已经被完成或者正在进行。 </p>
+<p>（4）一个任务如果在一台机器上进行，它是不能被打断的。 </p>
+<p>请你算算最少完成任务的时间。 </p>
+<p>【分析】</p>
+<p>显然是$dp$。</p>
+<p>我们只关心在做某个任务时，第一台和第二台机器什么停止工作。</p>
+<p>但是如果把两个时间都存在$dp$下标上的话，只能过30%的数据。那么我们只在$dp$下标上存一台机器的时间，另一台机器停止工作的最短时间为$dp$的值，这样就可以过70%了。</p>
+<p>但是这个$dp$状态好像并不能优化到100分……</p>
+<p>正解的$dp$也是从一种70分的做法优化过来的：定义$dp[i][j][k]$表示做到第i个任务时，第一台机器还有j时间做完，第二台机器还有k时间的最小时间花费。</p>
+<p>至于正解，则将两个时间的时间差放在$dp$状态下。为什么能够这样做呢？因为题目的（3）条件，若时间差大于3000（每个任务花费的最长时间），那么一定需要等待截止时间短到截止时间长的开始，才能进行下一个任务。这样的话，两个机器的截止时间的差一定小于等于3000，也就能使复杂度到达可以接受的地步了。</p>
+<p>【反思】</p>
+<p>这道题正解的70分应该算是比较正常的$dp$定义了。而且从70分优化到100分的将两个时间做差放在$dp$状态上也是比较常见的优化方法。</p>
+<h2 id="C、图操作——UOJ-14"><a href="#C、图操作——UOJ-14" class="headerlink" title="C、图操作——UOJ#14"></a>C、图操作——UOJ#14</h2><p>关键字：可持久化并查集、启发式合并</p>
+<p>Task：</p>
+<p>开始有 n 个点,现在对这 n 个点进行了 m 次操作,对于第 i 个操作(从 1 开始编号)有可能的三种情况:</p>
+<p>1、Add a b: 表示在 a 与 b 之间连了一条长度为 i 的边(注意, i是操作编号)。保证 1≤a,b≤n。</p>
+<p>2、Delete k: 表示删除了当前图中边权最大的k条边。保证 k 一定不会比当前图中边的条数多。</p>
+<p>3、Return: 表示撤销第 i−1 次操作。保证第 1 次操作不是 Return 且第 i−1次不是 Return 操作。</p>
+<p>  请你在每次操作后告诉$DZY$当前图的最小生成树边权和。如果最小生成树不存在则输出 0。</p>
+<p>【分析】</p>
+<p>30%的数据模拟即可。</p>
+<p>50%因为边权是递增的，所以只要开始求出最小生成树的话，那么接下来的答案是不会发生改变的，但比赛的时候忘记了边权是递增的这一条件，便将题目转化为我们做过的“删边最小生成树”，但是这与之前的题目又不同，那个只需要求出删除一条边后的最小生成树。所以就没写了……</p>
+<p>70%没有Return操作。添加操作使得$sz$小的集合并到大集合，然后暴力添加即可。不过添加时需要额外的一个信息：以前该点所在集合的id。删除操作则可以用之前额外的那个信息时信息复原。因为添加的时候是启发式合并，删除时每条边最多只会删除一次，所以复杂度是有保证的。</p>
+<p>至于100%，多出了一个Return操作，对于“Add Return”组合，删除即可。但是如果是“Delete Return”组合，我们可以事先存下使用当前权值前k小的边时最小生成树大小直接输出即可。</p>
+<p>【反思】</p>
+<p>50分没写到是真的不应该。看来小C说的在看题的时候将注意事项写在$txt$里要认真做。</p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+        
+            <a href="/2017/08/28/20170827离线赛/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>20170827离线赛
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>nanhan</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js"></script>
+
+    <script src="/lightbox/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.back2top();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward()
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+</body>
+</html>
